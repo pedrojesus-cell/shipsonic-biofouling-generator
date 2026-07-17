@@ -160,70 +160,247 @@
 
             <!-- PANEL 2: Operating Profile -->
             <div id="panel-2" class="step-panel space-y-6">
+                <!-- Subsection A: Vessel Operating Profile -->
                 <div>
-                    <h2 class="text-xl font-bold text-slate-900">Vessel Operating Profile</h2>
-                    <p class="text-xs text-slate-500 mt-0.5">Operating parameters guide anti-fouling parameters and risk evaluations.</p>
+                    <h2 class="text-xl font-bold text-teal-950">Vessel Operating Profile</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Operating parameters used to evaluate anti-fouling efficiency and biosecurity risk vectors.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Typical Operating Speed (knots) *</label>
-                        <input type="number" step="0.1" id="operatingSpeed" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="e.g. 14.5">
+                        <input type="number" step="0.1" id="operatingSpeed" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. 14.5">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Primary Operating Area / Climatic Zones *</label>
-                        <input type="text" id="operatingRoutes" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="e.g. Global, Australasia / Tropical & Temperate">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">In-service Period (months) *</label>
+                        <input type="number" id="inservicePeriod" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="Months between drydockings">
                     </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Description of Hull Niche Areas *</label>
-                        <textarea id="nicheAreas" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none h-24" placeholder="Detail internal seawater systems, sea chests, bow thrusters, propeller shafts, rudder hinges, etc."></textarea>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Typical Trading Routes *</label>
+                        <input type="text" id="operatingRoutes" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. Transpacific, Asia-Europe">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Primary Operating Area *</label>
+                        <input type="text" id="primaryArea" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. South China Sea, Tasman Sea">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Climate Zones *</label>
+                        <input type="text" id="climateZones" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. Tropical, Temperate, Polar">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Are Installed AFS Suitable for Profile? *</label>
+                        <select id="afsSuitable" required class="w-full border border-slate-300 rounded-lg px-3 py-2 bg-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
                     </div>
                 </div>
-            </div>
 
-            <!-- PANEL 3: Anti-fouling Systems -->
-            <div id="panel-3" class="step-panel space-y-6">
-                <!-- Dynamic Coating Application Section -->
-                <div>
-                    <div class="flex justify-between items-center mb-2">
-                        <h2 class="text-xl font-bold text-slate-900">Anti-fouling Coatings (AFC)</h2>
-                        <button type="button" onclick="addCoatingRow()" class="text-xs bg-blue-50 text-blue-600 border border-blue-200 font-semibold px-3 py-1.5 rounded-lg hover:bg-blue-100 transition-colors">+ Add Coating Record</button>
-                    </div>
-                    <p class="text-xs text-slate-500 mb-4">Detail products applied onto the underwater hull surface areas.</p>
-                    <div id="coatings-container" class="space-y-4"></div>
-                </div>
-
-                <!-- Dynamic MGPS Section -->
+                <!-- Subsection B: Hull & Niche Areas Description -->
                 <div class="border-t border-slate-200 pt-6">
-                    <div class="flex justify-between items-center mb-2">
-                        <h2 class="text-xl font-bold text-slate-900">Marine Growth Prevention Systems (MGPS)</h2>
-                        <button type="button" onclick="addMgpsRow()" class="text-xs bg-blue-50 text-blue-600 border border-blue-200 font-semibold px-3 py-1.5 rounded-lg hover:bg-blue-100 transition-colors">+ Add MGPS Installation</button>
+                    <h2 class="text-xl font-bold text-teal-950">Hull &amp; Niche Areas Description</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Select all specific structural components where biofouling accumulates on this vessel.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div class="space-y-2">
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Flat-Bottom"> <span>Flat-Bottom</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Sea Chests"> <span>Sea Chests</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Vertical Sides"> <span>Vertical Sides</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Inlet Gratings"> <span>Inlet Gratings</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Bow Dome"> <span>Bow Dome</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Sea Inlet Pipes"> <span>Sea Inlet Pipes</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Boot-Top"> <span>Boot-Top</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Bow and Stern Thruster"> <span>Bow and Stern Thruster</span></label>
                     </div>
-                    <p class="text-xs text-slate-500 mb-4">Detail active systems configured in sea chests and internal seawater piping loops.</p>
-                    <div id="mgps-container" class="space-y-4"></div>
+                    <div class="space-y-2">
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Bilge Keels"> <span>Bilge Keels</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Propeller and Shaft"> <span>Propeller and Shaft</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Stabilizer Fins"> <span>Stabilizer Fins</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Rope Guards"> <span>Rope Guards</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Rudder"> <span>Rudder</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Box Coolers"> <span>Box Coolers</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Dock Block Positions"> <span>Dock Block Positions</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Moon Pools"> <span>Moon Pools</span></label>
+                    </div>
+                    <div class="space-y-2 md:col-span-2 border-t border-slate-200 pt-2 mt-1">
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="A-Bracket/Stern Tube"> <span>A-Bracket / Stern Tube</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Free Flood Spaces/Voids"> <span>Free Flood Spaces / Voids</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Cathodic Protection Anodes and Systems"> <span>Cathodic Protection Anodes and Systems</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Draught and Hull Markings"> <span>Draught and Hull Markings</span></label>
+                        <label class="flex items-center space-x-2 text-sm text-slate-700"><input type="checkbox" class="niche-check rounded border-slate-300 text-teal-600 focus:ring-teal-500" value="Other"> <span>Other Additions / Custom Profiles</span></label>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Additional Structural/Niche Descriptions</label>
+                        <textarea id="nicheAreas" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none h-24" placeholder="Optional complementary operational descriptive text notes regarding niche locations..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Upload Hull Diagrams/Plans</label>
+                        <div class="border-2 border-dashed border-slate-300 rounded-lg p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer relative">
+                            <input type="file" id="hullDiagrams" multiple class="absolute inset-0 opacity-0 cursor-pointer">
+                            <span class="text-xs font-semibold text-teal-700 block mb-1">Browse files to attach...</span>
+                            <span class="text-[10px] text-slate-500 block">Upload general arrangement, docking plan, and internal seawater systems schematics.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- PANEL 4: Management Procedures -->
-            <div id="panel-4" class="step-panel space-y-6">
-                <div>
-                    <h2 class="text-xl font-bold text-slate-900">Schedules &amp; Contingency Strategy</h2>
-                    <p class="text-xs text-slate-500 mt-0.5">Operational controls and action plans regarding subsea biological fouling management.</p>
+           <!-- PANEL 3: Anti-Fouling Systems (AFS) -->
+            <div id="panel-3" class="step-panel space-y-6">
+                <!-- Subsection A: Anti-fouling Coatings (AFC) -->
+                <div class="border-b border-slate-200 pb-4">
+                    <h2 class="text-xl font-bold text-teal-950">Anti-fouling Coatings (AFC)</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Provide details of all anti-fouling coatings applied to the vessel. Add multiple coatings if different types are used on different areas.</p>
                 </div>
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">In-Water Inspection and Cleaning Schedule *</label>
-                        <textarea id="inspectionSchedule" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none h-20" placeholder="State interval periods (e.g., Every 12 months or prior to entering sensitive biosecurity zones)."></textarea>
+                
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">IAFS Certificate *</label>
+                            <input type="text" id="afcCertificate" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. Certified Compliant">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">IAFS Certificate Number *</label>
+                            <input type="text" id="afcCertNo" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. CERT-98765-X">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Issue Date *</label>
+                            <input type="date" id="afcIssueDate" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                        </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Contingency Actions for High-Risk Deployments *</label>
-                        <textarea id="contingencyPlan" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none h-20" placeholder="Procedures when operating limits are exceeded (e.g., extended layups beyond 10 days, unexpected tropical route changes)."></textarea>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Upload IAFS Certificate (Optional)</label>
+                        <div class="border border-dashed border-slate-300 bg-white rounded-lg p-3 text-center cursor-pointer relative">
+                            <input type="file" id="afcUpload" class="absolute inset-0 opacity-0 cursor-pointer">
+                            <span class="text-xs text-teal-700 font-medium">Browse to attach certificate file...</span>
+                        </div>
                     </div>
+                    <button type="button" onclick="addAfcRecord()" class="bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors shadow-sm">Add Another Coating</button>
+                    
+                    <div class="overflow-x-auto mt-2">
+                        <table class="w-full text-xs text-left border border-slate-200 bg-white rounded-lg">
+                            <thead>
+                                <tr class="bg-slate-100 text-[10px] uppercase border-b border-slate-200">
+                                    <th class="p-2">Certificate Status</th>
+                                    <th class="p-2">Certificate Number</th>
+                                    <th class="p-2">Issue Date</th>
+                                    <th class="p-2 text-center w-16">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="afc-form-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Subsection B: Marine Growth Prevention Systems (MGPS) -->
+                <div class="border-t border-slate-200 pt-6">
+                    <h2 class="text-xl font-bold text-teal-950">Marine Growth Prevention Systems (MGPS)</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Provide details of all marine growth prevention systems installed on the vessel.</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Manufacturer *</label>
+                            <input type="text" id="mgpsMan" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. Shipsonic">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Model *</label>
+                            <input type="text" id="mgpsModel" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. Ultra-3000">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Type of MGPS *</label>
+                            <input type="text" id="mgpsType" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. Ultrasonic Field Array">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Service Life (years) *</label>
+                            <input type="number" step="0.5" id="mgpsLife" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. 5">
+                        </div>
+                    </div>
+                    
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Debris Capture &amp; Waste Disposal Policy *</label>
-                        <textarea id="wastePolicy" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none h-20" placeholder="Procedures to safely contain and dispose of biosecurity waste streams generated during cleaning actions."></textarea>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Locations Installed (Select all applicable areas)</label>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-700">
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="General Hull Sides"> <span>General Hull Sides</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="Flat-Bottom"> <span>Flat-Bottom</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="Sea Chests"> <span>Sea Chests</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="Vertical Sides Inlet Gratings"> <span>Vertical Sides Inlet Gratings</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="Bow Dome Sea Inlet Pipes"> <span>Bow Dome Sea Inlet Pipes</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="Boot-Top Bow/Stern Thruster"> <span>Boot-Top Bow and Stern Thruster</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="Bilge Keels Propeller/Shaft"> <span>Bilge Keels Propeller and Shaft</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="Stabilizer Fins Rope Guards"> <span>Stabilizer Fins Rope Guards</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="Rudder Box Coolers"> <span>Rudder Box Coolers</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="Dock Block Positions Moon Pools"> <span>Dock Block Positions Moon Pools</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="A-Bracket/Stern Tube Voids"> <span>A-Bracket / Stern Tube Spaces</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="Cathodic Protection Systems"> <span>Cathodic Protection Anodes</span></label>
+                            <label class="flex items-center space-x-2"><input type="checkbox" class="mgps-loc rounded border-slate-300 text-teal-600" value="Other"> <span>Other</span></label>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/3">
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">MGPS Operating Manual Available?</label>
+                        <select id="mgpsManual" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 text-sm bg-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <button type="button" onclick="addMgpsRecord()" class="bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors shadow-sm">ADD ANOTHER MGPS</button>
+                    
+                    <div class="overflow-x-auto mt-2">
+                        <table class="w-full text-xs text-left border border-slate-200 bg-white rounded-lg">
+                            <thead>
+                                <tr class="bg-slate-100 text-[10px] uppercase border-b border-slate-200">
+                                    <th class="p-2">System Config</th>
+                                    <th class="p-2">Type / Life</th>
+                                    <th class="p-2">Locations Mapping</th>
+                                    <th class="p-2 text-center w-16">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mgps-form-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Subsection C: Installation Details -->
+                <div class="border-t border-slate-200 pt-6">
+                    <h2 class="text-xl font-bold text-teal-950">Installation Details</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Specify baseline operational status parameters for areas containing zero static or dynamic protection metrics.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Are there specific areas with no biofouling protection verified? *</label>
+                        <select id="unprotectedFieldsExist" class="w-full md:w-1/4 border border-slate-300 rounded-lg px-3 py-2 bg-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
                     </div>
                 </div>
             </div>
+
+            <!-- Section 4: Inspection Schedules & Policies Summary Block -->
+                <div class="page-break pt-6">
+                    <h3 class="text-base font-bold uppercase border-b border-black pb-1 mb-4">4. Maintenance Schedules, Contingency Protocols &amp; Waste Management</h3>
+                    
+                    <div class="space-y-4 text-xs">
+                        <div>
+                            <h4 class="text-xs font-bold uppercase text-slate-700 mb-1">4.1 Planned In-Water Inspection &amp; Maintenance Intervals</h4>
+                            <p id="p-inspectionSchedule" class="p-3 bg-slate-50 border border-slate-200 rounded leading-relaxed font-mono whitespace-pre-wrap"></p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xs font-bold uppercase text-slate-700 mb-1">4.2 Biosecurity Risk Contingency Mitigation Framework</h4>
+                            <p id="p-contingencyPlan" class="p-3 bg-slate-50 border border-slate-200 rounded leading-relaxed font-mono whitespace-pre-wrap"></p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xs font-bold uppercase text-slate-700 mb-1">4.3 Subsea Cleaning Waste Capture &amp; Environmental Protection Policy</h4>
+                            <p id="p-wastePolicy" class="p-3 bg-slate-50 border border-slate-200 rounded leading-relaxed font-mono whitespace-pre-wrap"></p>
+                        </div>
+                    </div>
+                </div>
 
             <!-- PANEL 5: Generate Plan -->
             <div id="panel-5" class="step-panel space-y-6">
@@ -304,24 +481,80 @@
                     </table>
                 </div>
                 <!-- Section 2: Operating Profile Summary Block -->
-                <div class="pt-4">
-                    <h3 class="text-base font-bold uppercase border-b border-black pb-1 mb-3">2. Operational Profile &amp; High-Risk Niche Zones</h3>
-                    <div class="space-y-3 text-xs">
-                        <p><strong>Design Service Operational Speed:</strong> <span id="p-operatingSpeed"></span> knots</p>
-                        <p><strong>Target Geographic Trading Ranges &amp; Environmental Vectors:</strong><br><span id="p-operatingRoutes" class="block mt-1 pl-2 border-l-2 border-slate-300 text-slate-700"></span></p>
-                        <p><strong>Vessel Niche Structural Descriptions:</strong><br><span id="p-nicheAreas" class="block mt-1 pl-2 border-l-2 border-slate-300 text-slate-700 whitespace-pre-line"></span></p>
+                <div class="page-break pt-6">
+                    <h3 class="text-base font-bold uppercase border-b border-black pb-1 mb-4">2. Operational Profile &amp; High-Risk Niche Zones</h3>
+                    
+                    <h4 class="text-xs font-bold uppercase text-slate-700 mb-2">2.1 Vessel Operating Profile Parameters</h4>
+                    <table class="w-full text-xs text-left border border-collapse border-slate-300 mb-6">
+                        <tbody>
+                            <tr><th class="w-1/3 bg-slate-50 p-2 font-semibold border border-slate-300">Typical Operating Speed</th><td id="p-operatingSpeed" class="p-2 border border-slate-300"> knots</td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">In-service Period</th><td id="p-inservicePeriod" class="p-2 border border-slate-300"> months</td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Typical Trading Routes</th><td id="p-operatingRoutes" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Primary Operating Area</th><td id="p-primaryArea" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Climate Zones</th><td id="p-climateZones" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">AFS Suitable for Profile?</th><td id="p-afsSuitable" class="p-2 border border-slate-300 font-bold"></td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4 class="text-xs font-bold uppercase text-slate-700 mb-2">2.2 Hull &amp; Niche Areas Mapping Reference Table</h4>
+                    <table class="w-full text-xs text-left border border-collapse border-slate-300 mb-4">
+                        <thead>
+                            <tr class="bg-slate-100 text-[10px] uppercase">
+                                <th class="border border-slate-300 p-2 w-1/2">Subsea Feature Component Zone</th>
+                                <th class="border border-slate-300 p-2 text-center w-24">Risk Status Check [X]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="p-niche-table-body" class="text-[11px]">
+                            <!-- Appended dynamically by mapping script engine -->
+                        </tbody>
+                    </table>
+                    
+                    <div id="p-nicheTextContainer" class="text-xs mt-3 space-y-2">
+                        <p><strong>Supplementary Structural Metadata notes:</strong> <span id="p-nicheAreas"></span></p>
+                        <p class="text-[10px] border border-dashed border-slate-400 p-2 bg-slate-50 rounded text-slate-600 font-mono">
+                            <strong>[!] APPENDIX NOTICE FOR PORT CONTROL AUTHORITIES:</strong><br>
+                            Physical vessel drawings, general arrangements, structural subsea schematic profiles, docking plans, and interior seawater circular path plans are appended as hard-copy paper layouts directly behind this section page block.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Section 3: Anti-fouling Architecture Summary Lists Matrices -->
+                <!-- Section 3: Anti-Fouling Systems Summary Block -->
                 <div class="page-break pt-6">
-                    <h3 class="text-base font-bold uppercase border-b border-black pb-1 mb-4">3. Defensive System Array Configuration Matrix</h3>
+                    <h3 class="text-base font-bold uppercase border-b border-black pb-1 mb-4">3. Anti-Fouling Systems Specification &amp; Core Biofouling Controls</h3>
                     
-                    <h4 class="text-xs font-bold uppercase text-slate-700 mb-2">3.1 Protective Coating Applications Array</h4>
-                    <div id="p-coatings-list" class="space-y-4 mb-6"></div>
+                    <h4 class="text-xs font-bold uppercase text-slate-700 mb-2">3.1 Anti-fouling Coatings (AFC) Registry</h4>
+                    <table class="w-full text-xs text-left border border-collapse border-slate-300 mb-6">
+                        <thead>
+                            <tr class="bg-slate-100 text-[10px] uppercase">
+                                <th class="border border-slate-300 p-2">IAFS Certificate Log Status</th>
+                                <th class="border border-slate-300 p-2">Certificate Tracking Index</th>
+                                <th class="border border-slate-300 p-2">Issue Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="p-afc-table-body" class="text-[11px]"></tbody>
+                    </table>
 
-                    <h4 class="text-xs font-bold uppercase text-slate-700 mb-2">3.2 Active Marine Growth Prevention Systems (MGPS) Array</h4>
-                    <div id="p-mgps-list" class="space-y-4"></div>
+                    <h4 class="text-xs font-bold uppercase text-slate-700 mb-2">3.2 Marine Growth Prevention Systems (MGPS) Reference Log</h4>
+                    <table class="w-full text-xs text-left border border-collapse border-slate-300 mb-6">
+                        <thead>
+                            <tr class="bg-slate-100 text-[10px] uppercase">
+                                <th class="border border-slate-300 p-2 w-1/4">System Array Details</th>
+                                <th class="border border-slate-300 p-2 w-1/4">Architecture Type &amp; Life</th>
+                                <th class="border border-slate-300 p-2 w-1/2">Assigned Protective Structural Locations</th>
+                            </tr>
+                        </thead>
+                        <tbody id="p-mgps-table-body" class="text-[11px]"></tbody>
+                    </table>
+
+                    <h4 class="text-xs font-bold uppercase text-slate-700 mb-2">3.3 Baseline Installation Architecture Conditions</h4>
+                    <table class="w-full text-xs text-left border border-collapse border-slate-300">
+                        <tbody>
+                            <tr>
+                                <th class="w-1/2 bg-slate-50 p-2 font-semibold border border-slate-300">Areas with explicit zero protection mapped?</th>
+                                <td id="p-unprotectedFieldsExist" class="p-2 border border-slate-300 font-bold"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <!-- Section 4: Operational Protocols & Maintenance Plan -->
@@ -477,12 +710,64 @@
         }
 
         function buildDocumentPreview() {
-            // Process basic structural fields string transfers
-            const standardFields = ['vesselName', 'imoNumber', 'dateOfConstruction', 'vesselType', 'grossTonnage', 'beam', 'loa', 'maxDraft', 'minDraft', 'flagState', 'lastDryDock', 'nextDryDock', 'revisionNumber', 'revisionDate', 'responsiblePerson', 'responsibleRole', 'operatingSpeed', 'operatingRoutes', 'nicheAreas', 'inspectionSchedule', 'contingencyPlan', 'wastePolicy'];
-            
+            // Update array parameters to include our new operating metrics fields
+            const standardFields = ['vesselName', 'imoNumber', 'dateOfConstruction', 'vesselType', 'grossTonnage', 'beam', 'loa', 'maxDraft', 'minDraft', 'flagState', 'lastDryDock', 'nextDryDock', 'revisionNumber', 'revisionDate', 'responsiblePerson', 'responsibleRole', 'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'primaryArea', 'climateZones', 'afsSuitable', 'nicheAreas', 'inspectionSchedule', 'contingencyPlan', 'wastePolicy'];
+
+            <!-- Scroll to the bottom of index.html -->
+    <script>
+        // ... (Keep any existing variables or navigation functions like navigateStep)
+
+        // ==========================================
+        // PASTE THE ENTIRE SECTION 3 CODE BLOCK HERE
+        // ==========================================
+        let afcRecords = [];
+        let mgpsRecords = [];
+
+        function addAfcRecord() {
+            // ... (rest of the code provided in the previous step)
+        }
+
+        function addMgpsRecord() {
+            // ...
+        }
+
+        function removeAfc(idx) { afcRecords.splice(idx, 1); renderPanel3Tables(); }
+        function removeMgps(idx) { mgpsRecords.splice(idx, 1); renderPanel3Tables(); }
+
+        function renderPanel3Tables() {
+            // ...
+        }
+        // ==========================================
+
+        // Make sure this is pasted ABOVE your main buildDocumentPreview() function
+        function buildDocumentPreview() {
+            // ...
+        }
+    </script>
+</body>
+</html>
             standardFields.forEach(field => {
-                const inputVal = document.getElementById(field).value;
-                document.getElementById(`p-${field}`).innerText = inputVal || '—';
+                const element = document.getElementById(field);
+                if(element) {
+                    document.getElementById(`p-${field}`).innerText = element.value || '—';
+                }
+            });
+
+            // Parse checkbox values to print table with matching crosses [X]
+            const availableNiches = ["Flat-Bottom", "Sea Chests", "Vertical Sides", "Inlet Gratings", "Bow Dome", "Sea Inlet Pipes", "Boot-Top", "Bow and Stern Thruster", "Bilge Keels", "Propeller and Shaft", "Stabilizer Fins", "Rope Guards", "Rudder", "Box Coolers", "Dock Block Positions", "Moon Pools", "A-Bracket/Stern Tube", "Free Flood Spaces/Voids", "Cathodic Protection Anodes and Systems", "Draught and Hull Markings", "Other"];
+            
+            const checkedBoxes = Array.from(document.querySelectorAll('.niche-check:checked')).map(cb => cb.value);
+            const tableBody = document.getElementById('p-niche-table-body');
+            tableBody.innerHTML = '';
+
+            availableNiches.forEach(niche => {
+                const isChecked = checkedBoxes.includes(niche);
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="border border-slate-300 p-1.5">${niche}</td>
+                    <td class="border border-slate-300 p-1.5 text-center font-bold text-sm">${isChecked ? '[ X ]' : '[ &nbsp; ]'}</td>
+                `;
+                tableBody.appendChild(tr);
             });
 
             // Map and translate protective dynamic coating structural element arrays
