@@ -68,51 +68,92 @@
             
             <!-- PANEL 1: Vessel Details -->
             <div id="panel-1" class="step-panel active space-y-6">
+                <!-- Subsection A: Vessel Particulars -->
                 <div>
-                    <h2 class="text-xl font-bold text-slate-900">Vessel Particulars</h2>
+                    <h2 class="text-xl font-bold text-teal-950">Vessel Particulars</h2>
                     <p class="text-xs text-slate-500 mt-0.5">Information required for compliant identification under international guidelines.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Vessel Name *</label>
-                        <input type="text" id="vesselName" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="e.g. Pacific Explorer">
+                        <input type="text" id="vesselName" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. Pacific Explorer">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">IMO Number *</label>
-                        <input type="text" id="imoNumber" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="7-digit number">
+                        <input type="text" id="imoNumber" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="7-digit number">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Flag State *</label>
-                        <input type="text" id="flagState" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="e.g. Australia">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Date of Construction *</label>
+                        <input type="date" id="dateOfConstruction" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Vessel Type *</label>
-                        <select id="vesselType" required class="w-full border border-slate-300 rounded-lg px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        <select id="vesselType" required class="w-full border border-slate-300 rounded-lg px-3 py-2 bg-white focus:ring-2 focus:ring-teal-500 focus:outline-none">
                             <option value="Cargo Ship">Cargo Ship</option>
                             <option value="Tanker">Tanker</option>
                             <option value="Bulk Carrier">Bulk Carrier</option>
                             <option value="Container Ship">Container Ship</option>
                             <option value="Passenger Vessel">Passenger Vessel</option>
                             <option value="Tug/Offshore">Tug/Offshore Support</option>
+                            <option value="Fishing Vessel">Fishing Vessel Support</option>
+                            <option value="Scientific/Research">Scientific/Research Support</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Gross Tonnage *</label>
-                        <input type="number" id="grossTonnage" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="GT">
+                        <input type="number" id="grossTonnage" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="GT">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Beam (m) *</label>
+                        <input type="number" step="0.01" id="beam" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="Width in meters">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Length Overall (m) *</label>
-                        <input type="number" step="0.1" id="loa" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="LOA in meters">
+                        <input type="number" step="0.01" id="loa" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="LOA in meters">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Maximum Draft (m) *</label>
+                        <input type="number" step="0.01" id="maxDraft" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="Max draft">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Minimum Draft (m) *</label>
+                        <input type="number" step="0.01" id="minDraft" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="Min draft">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Flag State (ISO 2-Letter Code) *</label>
+                        <input type="text" id="flagState" maxlength="2" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none uppercase" placeholder="e.g. AU, US, SG">
                     </div>
                 </div>
-                <div class="border-t border-slate-100 pt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Subsection B: BFMP Revision Information -->
+                <div class="border-t border-slate-200 pt-6">
+                    <h2 class="text-xl font-bold text-teal-950">BFMP Revision Information</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Document lifecycle management tracking parameters.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Date of Last Dry-docking *</label>
-                        <input type="date" id="lastDryDock" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        <input type="date" id="lastDryDock" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Responsible Officer (Role) *</label>
-                        <input type="text" id="responsibleOfficer" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="e.g. Chief Mate / Technical Superintendent">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Date of Next Scheduled Dry-docking *</label>
+                        <input type="date" id="nextDryDock" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">BFMP Revision Number *</label>
+                        <input type="text" id="revisionNumber" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. Rev 1.0">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Revision Date *</label>
+                        <input type="date" id="revisionDate" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Responsible Person *</label>
+                        <input type="text" id="responsiblePerson" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="Full Name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Position / Role *</label>
+                        <input type="text" id="responsibleRole" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. Chief Engineer / Fleet Technical Manager">
                     </div>
                 </div>
             </div>
@@ -232,18 +273,36 @@
 
                 <!-- Section 1: Particulars Summary Table -->
                 <div class="page-break pt-6">
-                    <h3 class="text-base font-bold uppercase border-b border-black pb-1 mb-4">1. Vessel Particulars &amp; Technical Specifications</h3>
+                    <h3 class="text-base font-bold uppercase border-b border-black pb-1 mb-4">1. Vessel Specifications &amp; Management Control Record</h3>
+                    
+                    <h4 class="text-xs font-bold uppercase text-slate-700 mb-2">1.1 Vessel Particulars</h4>
+                    <table class="w-full text-xs text-left border border-collapse border-slate-300 mb-6">
+                        <tbody>
+                            <tr><th class="w-1/3 bg-slate-50 p-2 font-semibold border border-slate-300">Vessel Name</th><td id="p-vesselName" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">IMO Number</th><td id="p-imoNumber" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Date of Construction</th><td id="p-dateOfConstruction" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Vessel Type</th><td id="p-vesselType" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Gross Tonnage (GT)</th><td id="p-grossTonnage" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Beam (m)</th><td id="p-beam" class="p-2 border border-slate-300"> m</td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Length Overall (LOA)</th><td id="p-loa" class="p-2 border border-slate-300"> m</td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Maximum Draft (m)</th><td id="p-maxDraft" class="p-2 border border-slate-300"> m</td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Minimum Draft (m)</th><td id="p-minDraft" class="p-2 border border-slate-300"> m</td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Flag State (ISO Code)</th><td id="p-flagState" class="p-2 border border-slate-300"></td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4 class="text-xs font-bold uppercase text-slate-700 mb-2">1.2 BFMP Revision Information</h4>
                     <table class="w-full text-xs text-left border border-collapse border-slate-300">
                         <tbody>
-                            <tr><th class="w-1/3 bg-slate-50 p-2 font-semibold border border-slate-300">Vessel Type</th><td id="p-vesselType" class="p-2 border border-slate-300"></td></tr>
-                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Gross Tonnage (GT)</th><td id="p-grossTonnage" class="p-2 border border-slate-300"></td></tr>
-                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Length Overall (LOA)</th><td id="p-loa" class="p-2 border border-slate-300"> m</td></tr>
-                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Last Dry-docking Date</th><td id="p-lastDryDock" class="p-2 border border-slate-300"></td></tr>
-                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Designated Master/Officer</th><td id="p-responsibleOfficer" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="w-1/3 bg-slate-50 p-2 font-semibold border border-slate-300">Date of Last Dry-docking</th><td id="p-lastDryDock" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Date of Next Scheduled Dry-docking</th><td id="p-nextDryDock" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">BFMP Revision Number</th><td id="p-revisionNumber" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Revision Date</th><td id="p-revisionDate" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Responsible Person</th><td id="p-responsiblePerson" class="p-2 border border-slate-300"></td></tr>
+                            <tr><th class="bg-slate-50 p-2 font-semibold border border-slate-300">Position / Role</th><td id="p-responsibleRole" class="p-2 border border-slate-300"></td></tr>
                         </tbody>
                     </table>
                 </div>
-
                 <!-- Section 2: Operating Profile Summary Block -->
                 <div class="pt-4">
                     <h3 class="text-base font-bold uppercase border-b border-black pb-1 mb-3">2. Operational Profile &amp; High-Risk Niche Zones</h3>
@@ -419,7 +478,7 @@
 
         function buildDocumentPreview() {
             // Process basic structural fields string transfers
-            const standardFields = ['vesselName', 'imoNumber', 'flagState', 'vesselType', 'grossTonnage', 'loa', 'lastDryDock', 'responsibleOfficer', 'operatingSpeed', 'operatingRoutes', 'nicheAreas', 'inspectionSchedule', 'contingencyPlan', 'wastePolicy'];
+            const standardFields = ['vesselName', 'imoNumber', 'dateOfConstruction', 'vesselType', 'grossTonnage', 'beam', 'loa', 'maxDraft', 'minDraft', 'flagState', 'lastDryDock', 'nextDryDock', 'revisionNumber', 'revisionDate', 'responsiblePerson', 'responsibleRole', 'operatingSpeed', 'operatingRoutes', 'nicheAreas', 'inspectionSchedule', 'contingencyPlan', 'wastePolicy'];
             
             standardFields.forEach(field => {
                 const inputVal = document.getElementById(field).value;
