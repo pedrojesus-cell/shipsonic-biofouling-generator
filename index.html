@@ -8,16 +8,25 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Print Stylesheet to cleanly format the generated IMO document */
-        @media print {
-            body * { visibility: hidden; }
-            #printable-document, #printable-document * { visibility: visible; }
-            #printable-document { position: absolute; left: 0; top: 0; width: 100%; }
-            .no-print { display: none !important; }
-            .page-break { page-break-before: always; }
-            table { page-break-inside: avoid; width: 100%; border-collapse: collapse; }
-            th, td { border: 1px solid #cbd5e1; padding: 8px; text-align: left; }
-            th { background-color: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-        }
+       @media print {
+    body * { visibility: hidden; }
+    #printable-document, #printable-document * { 
+        visibility: visible; 
+        color: #000000 !important; /* Forces black text for print */
+    }
+    #printable-document { 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        background: #ffffff !important; /* Forces white background */
+    }
+    .no-print { display: none !important; }
+    .page-break { page-break-before: always; }
+    table { page-break-inside: avoid; width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #000000; padding: 8px; text-align: left; }
+    th { background-color: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
         .step-panel { display: none; }
         .step-panel.active { display: block; }
         .step-tab.active { border-color: #2563eb; color: #2563eb; font-weight: 600; }
@@ -183,7 +192,7 @@
                         <h2 class="text-xl font-bold text-slate-900">Configuration Finalized</h2>
                         <p class="text-sm text-slate-500 mt-1">All standard structural sections are parsed. You can compile your final statutory-styled vessel document package below.</p>
                     </div>
-                    <button type="button" onclick="buildDocumentPreview()" class="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors shadow">Compile Plan &amp; Record Book</button>
+                    <button onclick="buildDocumentPreview(); window.print();" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors shadow">Print / Export PDF</button>
                 </div>
             </div>
 
