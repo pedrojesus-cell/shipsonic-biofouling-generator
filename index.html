@@ -19,7 +19,7 @@
             th { background-color: #f1f5f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
         .step-panel { display: none; }
-        .step-panel.active { display: block; }
+        .step-tab.active { border-color: #0d9488; color: #0d9488; font-weight: 600; } /* #0d9488 is Tailwind's teal-600 */
         .step-tab.active { border-color: #2563eb; color: #2563eb; font-weight: 600; }
     </style>
 </head>
@@ -29,7 +29,7 @@
     <header class="bg-slate-900 text-white shadow-md no-print">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">OceanicCompliance</span>
+                <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Shipsonic</span>
                 <span class="text-xs uppercase bg-slate-800 px-2.5 py-1 rounded text-slate-400 border border-slate-700">IMO MEPC.207(62)</span>
             </div>
             <span class="text-sm text-slate-400">BFMP &amp; BFRB Digital Generator</span>
@@ -39,7 +39,7 @@
     <!-- Main Container Layout -->
     <main class="max-w-6xl mx-auto px-4 py-8 no-print">
         <div class="mb-8">
-            <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Biofouling Management Plan Generator</h1>
+            <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Shipsonic Biofouling Management Plan Generator</h1>
             <p class="text-slate-600 mt-1">Generate comprehensive, vessel-specific management plans compliant with international maritime biosecurity regulations.</p>
         </div>
 
@@ -207,11 +207,19 @@
             <!-- Target Printable Document Frame Block Layout Structure -->
             <div id="printable-document" class="p-4 bg-white text-black text-sm space-y-8">
                 <!-- Cover Page Layout Block Template Structure -->
-                <div class="text-center py-16 border-4 border-double border-slate-800 space-y-8 my-8">
-                    <div class="space-y-2">
-                        <h1 class="text-3xl font-black tracking-tight uppercase">BIOFOULING MANAGEMENT PLAN</h1>
-                        <h2 class="text-xl font-bold text-slate-700 tracking-wide">&amp; BIOFOULING RECORD BOOK</h2>
-                    </div>
+                <div class="text-center py-16 border-4 border-double border-teal-950 space-y-8 my-8">
+    <div class="space-y-2">
+        <h1 class="text-3xl font-black tracking-tight uppercase text-teal-950">BIOFOULING MANAGEMENT PLAN</h1>
+        <h2 class="text-xl font-bold text-slate-700 tracking-wide">&amp; BIOFOULING RECORD BOOK</h2>
+    </div>
+    <p class="text-xs tracking-widest uppercase text-teal-600 font-semibold">Compiled in accordance with IMO Resolution MEPC.207(62) &amp; Shipsonic Standards</p>
+    <div class="max-w-xs mx-auto border-t border-b border-slate-300 py-4 text-left space-y-1 my-8 text-xs">
+        <p><strong>Vessel Name:</strong> <span id="p-vesselName"></span></p>
+        <p><strong>IMO Number:</strong> <span id="p-imoNumber"></span></p>
+        <p><strong>Flag State:</strong> <span id="p-flagState"></span></p>
+    </div>
+    <p class="text-xs text-slate-400 font-medium tracking-wider">OFFICIAL SHIPBOARD OPERATIONS SYSTEM — POWERED BY SHIPSONIC ULTRASONIC</p>
+</div>
                     <p class="text-xs tracking-widest uppercase text-slate-500 font-semibold">Compiled In Accordance With IMO Resolution MEPC.207(62)</p>
                     <div class="max-w-xs mx-auto border-t border-b border-slate-300 py-4 text-left space-y-1 my-8">
                         <p><strong>Vessel Name:</strong> <span id="p-vesselName"></span></p>
