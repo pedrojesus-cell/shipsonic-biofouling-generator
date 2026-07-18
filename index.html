@@ -744,8 +744,9 @@
             // ...
         }
     </script>
-</body>
-</html>
+    function buildDocumentPreview() {
+            const standardFields = ['vesselName', 'imoNumber', 'dateOfConstruction', 'vesselType', 'grossTonnage', 'beam', 'loa', 'maxDraft', 'minDraft', 'flagState', 'lastDryDock', 'nextDryDock', 'revisionNumber', 'revisionDate', 'responsiblePerson', 'responsibleRole', 'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'primaryArea', 'climateZones', 'afsSuitable', 'unprotectedFieldsExist', 'nicheAreas', 'inspectionSchedule', 'contingencyPlan', 'wastePolicy'];
+            
             standardFields.forEach(field => {
                 const element = document.getElementById(field);
                 if(element) {
@@ -758,63 +759,25 @@
             
             const checkedBoxes = Array.from(document.querySelectorAll('.niche-check:checked')).map(cb => cb.value);
             const tableBody = document.getElementById('p-niche-table-body');
-            tableBody.innerHTML = '';
-
-            availableNiches.forEach(niche => {
-                const isChecked = checkedBoxes.includes(niche);
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td class="border border-slate-300 p-1.5">${niche}</td>
-                    <td class="border border-slate-300 p-1.5 text-center font-bold text-sm">${isChecked ? '[ X ]' : '[ &nbsp; ]'}</td>
-                `;
-                tableBody.appendChild(tr);
-            });
-
-            // Map and translate protective dynamic coating structural element arrays
-            const coatingListOutput = document.getElementById('p-coatings-list');
-            coatingListOutput.innerHTML = '';
-            const coatingRows = document.getElementById('coatings-container').children;
+            if(tableBody) {
+                tableBody.innerHTML = '';
+                availableNiches.forEach(niche => {
+                    const isChecked = checkedBoxes.includes(niche);
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td class="border border-slate-300 p-1.5">${niche}</td>
+                        <td class="border border-slate-300 p-1.5 text-center font-bold text-sm">${isChecked ? '[ X ]' : '[ &nbsp; ]'}</td>
+                    `;
+                    tableBody.appendChild(tr);
+                });
+            }
             
-            if(coatingRows.length === 0) {
-                coatingListOutput.innerHTML = `<p class="text-xs text-slate-400 italic">No coatings specified.</p>`;
-            } else {
-                for(let row of coatingRows) {
-                    const prod = row.querySelector('.coating-prod').value || '—';
-                    const type = row.querySelector('.coating-type').value;
-                    const loc = row.querySelector('.coating-loc').value || '—';
-                    const life = row.querySelector('.coating-life').value || '—';
-                    
-                    const el = document.createElement('div');
-                    el.className = "pl-3 border-l-4 border-blue-500 bg-slate-50 p-2 rounded";
-                    el.innerHTML = `<p class="text-xs"><strong>${prod}</strong> (${type})<br>Applied Area: ${loc} | Expected Service Life Profile: ${life} Years</p>`;
-                    coatingListOutput.appendChild(el);
-                }
-            }
-
-            // Map and translate structural passive/active dynamic MGPS element arrays
-            const mgpsListOutput = document.getElementById('p-mgps-list');
-            mgpsListOutput.innerHTML = '';
-            const mgpsRows = document.getElementById('mgps-container').children;
-
-            if(mgpsRows.length === 0) {
-                mgpsListOutput.innerHTML = `<p class="text-xs text-slate-400 italic">No MGPS tracking entries configured.</p>`;
-            } else {
-                for(let row of mgpsRows) {
-                    const type = row.querySelector('.mgps-type').value;
-                    const loc = row.querySelector('.mgps-loc').value || '—';
-                    const spec = row.querySelector('.mgps-spec').value || 'Not Specified';
-                    
-                    const el = document.createElement('div');
-                    el.className = "pl-3 border-l-4 border-indigo-500 bg-slate-50 p-2 rounded";
-                    el.innerHTML = `<p class="text-xs"><strong>${type}</strong> [Model/Specs: ${spec}]<br>Zonal Protection Layout: ${loc}</p>`;
-                    mgpsListOutput.appendChild(el);
-                }
-            }
-
             // Reveal compiled document component workspace viewport
             const previewSection = document.getElementById('preview-section');
-            previewSection.classList.remove('hidden');
-            previewSection.scrollIntoView({ behavior: 'smooth' });
+            if(previewSection) {
+                previewSection.classList.remove('hidden');
+                previewSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     </script>
 </body>
