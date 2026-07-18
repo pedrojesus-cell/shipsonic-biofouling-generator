@@ -786,14 +786,15 @@
         function buildDocumentPreview() {
             // ...
         }
-    </script>
-    function buildDocumentPreview() {
+    <script>
+        function buildDocumentPreview() {
             const standardFields = ['vesselName', 'imoNumber', 'dateOfConstruction', 'vesselType', 'grossTonnage', 'beam', 'loa', 'maxDraft', 'minDraft', 'flagState', 'lastDryDock', 'nextDryDock', 'revisionNumber', 'revisionDate', 'responsiblePerson', 'responsibleRole', 'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'primaryArea', 'climateZones', 'afsSuitable', 'unprotectedFieldsExist', 'nicheAreas', 'inspectionSchedule', 'contingencyPlan', 'wastePolicy'];
             
             standardFields.forEach(field => {
                 const element = document.getElementById(field);
                 if(element) {
-                    document.getElementById(`p-${field}`).innerText = element.value || '—';
+                    const target = document.getElementById(`p-${field}`);
+                    if(target) target.innerText = element.value || '—';
                 }
             });
 
