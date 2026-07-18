@@ -786,7 +786,94 @@
         function buildDocumentPreview() {
             // ...
         }
+    <!-- ================================================================= -->
+    <!-- CONTAINER FOR THE COMPILED PRINTABLE DOCUMENT PREVIEW             -->
+    <!-- ================================================================= -->
+    <div id="preview-section" class="hidden max-w-4xl mx-auto my-12 p-8 bg-white shadow-xl rounded-xl border border-slate-200">
+        <div id="printable-document">
+            <!-- Document Sections 1, 2, 3, and 4 will render perfectly here -->
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- CORRECTLY ISOLATED JAVASCRIPT ENGINE                              -->
+    <!-- ================================================================= -->
     <script>
+        // Track Panel 3 arrays globally inside the engine
+        let afcRecords = [];
+        let mgpsRecords = [];
+
+        function addAfcRecord() {
+            const cert = document.getElementById('afcCertificate').value;
+            const certNo = document.getElementById('afcCertNo').value;
+            const issueDate = document.getElementById('afcIssueDate').value;
+            
+            if(cert && certNo && issueDate) {
+                afcRecords.push({ cert, certNo, issueDate });
+                document.getElementById('afcCertificate').value = '';
+                document.getElementById('afcCertNo').value = '';
+                document.getElementById('afcIssueDate').value = '';
+                renderPanel3Tables();
+            }
+        }
+
+        function addMgpsRecord() {
+            const man = document.getElementById('mgpsMan').value;
+            const model = document.getElementById('mgpsModel').value;
+            const type = document.getElementById('mgpsType').value;
+            const life = document.getElementById('mgpsLife').value;
+            const manual = document.getElementById('mgpsManual').value;
+            const locs = Array.from(document.querySelectorAll('.mgps-loc:checked')).map(cb => cb.value);
+            
+            if(man && model && type) {
+                mgpsRecords.push({ man, model, type, life, manual, locations: locs.join(', ') || 'None Selected' });
+                document.getElementById('mgpsMan').value = '';
+                document.getElementById('mgpsModel').value = '';
+                document.getElementById('mgpsType').value = '';
+                document.getElementById('mgpsLife').value = '';
+                document.querySelectorAll('.mgps-loc').forEach(cb => cb.checked = false);
+                renderPanel3Tables();
+            }
+        }
+
+        function removeAfc(idx) { afcRecords.splice(idx, 1); renderPanel3Tables(); }
+        function removeMgps(idx) { mgpsRecords.splice(idx, 1); renderPanel3Tables(); }
+
+        function renderPanel3Tables() {
+            const afcForm = document.getElementById('afc-form-body');
+            if(afcForm) {
+                afcForm.innerHTML = '';
+                afcRecords.forEach((r, idx) => {
+                    afcForm.innerHTML += `<tr class="border-b border-slate-100"><td class="p-2 font-medium text-slate-800">${r.cert}</td><td class="p-2">${r.certNo}</td><td class="p-2">${r.issueDate}</td><td class="p-2 text-center"><button type="button" onclick="removeAfc(${idx})" class="text-red-500 font-bold">×</button></td></tr>`;
+                });
+            }
+
+            const mgpsForm = document.getElementById('mgps-form-body');
+            if(mgpsForm) {
+                mgpsForm.innerHTML = '';
+                mgpsRecords.forEach((r, idx) => {
+                    mgpsForm.innerHTML += `<tr class="border-b border-slate-100"><td class="p-2 font-medium text-slate-800">${r.man} (${r.model})</td><td class="p-2">${r.type} (${r.life} yrs)</td><td class="p-2 text-slate-500">${r.locations}</td><td class="p-2 text-center"><button type="button" onclick="removeMgps(${idx})" class="text-red-500 font-bold">×</button></td></tr>`;
+                });
+            }
+
+            const afcPrint = document.getElementById('p-afc-table-body');
+            if(afcPrint) {
+                afcPrint.innerHTML = afcRecords.length ? '' : '<tr><td colspan="3" class="p-2 border border-slate-300 text-center text-slate-400 italic">No coatings currently logged.</td></tr>';
+                afcRecords.forEach(r => {
+                    afcPrint.innerHTML += `<tr><td class="border border-slate-300 p-2 font-medium">${r.cert}</td><td class="border border-slate-300 p-2">${r.certNo}</td><td class="border border-slate-300 p-2">${r.issueDate}</td></tr>`;
+                });
+            }
+
+            const mgpsPrint = document.getElementById('p-mgps-table-body');
+            if(mgpsPrint) {
+                mgpsPrint.innerHTML = mgpsRecords.length ? '' : '<tr><td colspan="3" class="p-2 border border-slate-300 text-center text-slate-400 italic">No active hardware arrays logged.</td></tr>';
+                mgpsRecords.forEach(r => {
+                    mgpsPrint.innerHTML += `<tr><td class="border border-slate-300 p-2 font-medium">${r.man} - ${r.model}</td><td class="border border-slate-300 p-2">${r.type}</td><td class="border border-slate-300 p-2">${r.locations}</td></tr>`;
+                });
+            }
+        }
+
+        // Main mapping script to output document layout fields
         function buildDocumentPreview() {
             const standardFields = ['vesselName', 'imoNumber', 'dateOfConstruction', 'vesselType', 'grossTonnage', 'beam', 'loa', 'maxDraft', 'minDraft', 'flagState', 'lastDryDock', 'nextDryDock', 'revisionNumber', 'revisionDate', 'responsiblePerson', 'responsibleRole', 'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'primaryArea', 'climateZones', 'afsSuitable', 'unprotectedFieldsExist', 'nicheAreas', 'inspectionSchedule', 'contingencyPlan', 'wastePolicy'];
             
@@ -798,7 +885,6 @@
                 }
             });
 
-            // Parse checkbox values to print table with matching crosses [X]
             const availableNiches = ["Flat-Bottom", "Sea Chests", "Vertical Sides", "Inlet Gratings", "Bow Dome", "Sea Inlet Pipes", "Boot-Top", "Bow and Stern Thruster", "Bilge Keels", "Propeller and Shaft", "Stabilizer Fins", "Rope Guards", "Rudder", "Box Coolers", "Dock Block Positions", "Moon Pools", "A-Bracket/Stern Tube", "Free Flood Spaces/Voids", "Cathodic Protection Anodes and Systems", "Draught and Hull Markings", "Other"];
             
             const checkedBoxes = Array.from(document.querySelectorAll('.niche-check:checked')).map(cb => cb.value);
@@ -816,7 +902,6 @@
                 });
             }
             
-            // Reveal compiled document component workspace viewport
             const previewSection = document.getElementById('preview-section');
             if(previewSection) {
                 previewSection.classList.remove('hidden');
