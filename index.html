@@ -420,7 +420,27 @@
             <!-- Multi-step Form Wizard Control Interface Buttons -->
             <div class="border-t border-slate-100 pt-4 flex justify-between items-center">
                 <button type="button" id="prevBtn" onclick="navigateStep(-1)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-4 py-2 rounded-lg text-sm transition-colors invisible">Previous</button>
-                <button type="button" id="nextBtn" onclick="navigateStep(1)" class="bg-slate-900 hover:bg-slate-800 text-white font-medium px-5 py-2 rounded-lg text-sm transition-colors">Next</button>
+                <button type="button" id="nextBtn" onclick="(function(){
+    let visibleStep = 1;
+    for (let i = 1; i <= 5; i++) {
+        let panel = document.getElementById('panel-' + i);
+        if (panel && !panel.classList.contains('hidden')) {
+            visibleStep = i;
+            break;
+        }
+    }
+    let nextStep = visibleStep + 1;
+    if (nextStep <= 5) {
+        document.getElementById('panel-' + visibleStep).classList.add('hidden');
+        document.getElementById('panel-' + nextStep).classList.remove('hidden');
+        let oldTab = document.getElementById('tab-' + visibleStep);
+        let newTab = document.getElementById('tab-' + nextStep);
+        if (oldTab) oldTab.classList.remove('border-teal-600', 'text-teal-600');
+        if (newTab) newTab.classList.add('border-teal-600', 'text-teal-600');
+    } else if (typeof buildDocumentPreview === 'function') {
+        buildDocumentPreview();
+    }
+})()" class="bg-slate-900 hover:bg-slate-800 text-white font-medium px-5 py-2 rounded-lg text-sm transition-colors">Next</button>
             </div>
         </form>
 
