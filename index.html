@@ -961,5 +961,69 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
+});<script>
+        // ... Your existing JavaScript functions like buildDocumentPreview() are up here ...
+
+        // =================================================================
+        // PASTE THE FAIL-PROOF FORCE NAVIGATION CONNECTOR DIRECTLY HERE:
+        // =================================================================
+        window.addEventListener('DOMContentLoaded', () => {
+            // 1. Initial setup: ensure panels 2-5 start hidden if they aren't already
+            for(let i = 2; i <= 5; i++) {
+                const panel = document.getElementById(`panel-${i}`);
+                if(panel) panel.classList.add('hidden');
+            }
+
+            // 2. Find the Next button by text content
+            const buttons = Array.from(document.querySelectorAll('button'));
+            const nextButton = buttons.find(btn => btn.innerText.trim().toLowerCase() === 'next');
+            
+            if (nextButton) {
+                // Strip out any broken or conflicting click events completely
+                nextButton.removeAttribute('onclick');
+                
+                nextButton.addEventListener('click', (e) => {
+                    e.preventDefault(); // Stop form submission bugs
+                    
+                    // Dynamically detect which panel is currently open
+                    let visibleStep = 1;
+                    for (let i = 1; i <= 5; i++) {
+                        const panel = document.getElementById(`panel-${i}`);
+                        if (panel && !panel.classList.contains('hidden')) {
+                            visibleStep = i;
+                            break;
+                        }
+                    }
+
+                    const nextStep = visibleStep + 1;
+                    
+                    if (nextStep <= 5) {
+                        // Hide current active panel
+                        document.getElementById(`panel-${visibleStep}`).classList.add('hidden');
+                        
+                        // Show the next panel
+                        document.getElementById(`panel-${nextStep}`).classList.remove('hidden');
+                        
+                        // Keep the global tracking variable synced just in case
+                        if (typeof currentStep !== 'undefined') {
+                            currentStep = nextStep;
+                        }
+                        
+                        // Update navigation tab bar styles if they exist
+                        const oldTab = document.getElementById(`tab-${visibleStep}`);
+                        const newTab = document.getElementById(`tab-${nextStep}`);
+                        if (oldTab) oldTab.classList.remove('border-teal-600', 'text-teal-600');
+                        if (newTab) newTab.classList.add('border-teal-600', 'text-teal-600');
+                        
+                        console.log(`Forced change from step ${visibleStep} to step ${nextStep}`);
+                    } else {
+                        // If on step 5, trigger the print layout compiler
+                        buildDocumentPreview();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
     </script>
