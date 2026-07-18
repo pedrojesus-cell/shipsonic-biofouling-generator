@@ -758,55 +758,64 @@
 
             <!-- Scroll to the bottom of index.html -->
     <script>
-        // ... (Keep any existing variables or navigation functions like navigateStep)
-
-        // ==========================================
-        // PASTE THE ENTIRE SECTION 3 CODE BLOCK HERE
-        // ==========================================
+        // Global variables for multi-entry tracking arrays
         let afcRecords = [];
         let mgpsRecords = [];
+        let currentStep = 1;
+        const totalSteps = 5;
 
+        // SAFE NAVIGATION ENGINE
+        function navigateStep(direction) {
+            const currentPanel = document.getElementById(`panel-${currentStep}`);
+            
+            // Validate required items in the active panel before advancing
+            if (direction === 1 && currentPanel) {
+                const inputs = currentPanel.querySelectorAll('input[required], select[required], textarea[required]');
+                let isValid = true;
+                
+                inputs.forEach(input => {
+                    if (!input.checkValidity()) {
+                        input.reportValidity();
+                        isValid = false;
+                    }
+                });
+                
+                if (!isValid) return; 
+            }
+
+            const nextStep = currentStep + direction;
+            if (nextStep < 1 || nextStep > totalSteps) return;
+
+            // Hide old panel, show new panel safely
+            const oldPanel = document.getElementById(`panel-${currentStep}`);
+            const newPanel = document.getElementById(`panel-${nextStep}`);
+            
+            if (oldPanel) oldPanel.classList.add('hidden');
+            if (newPanel) newPanel.classList.remove('hidden');
+
+            // Update step indicator tabs if they exist
+            const oldTab = document.getElementById(`tab-${currentStep}`);
+            const newTab = document.getElementById(`tab-${nextStep}`);
+            if (oldTab) oldTab.classList.remove('border-teal-600', 'text-teal-600');
+            if (newTab) newTab.classList.add('border-teal-600', 'text-teal-600');
+
+            currentStep = nextStep;
+
+            // Toggle button visibilities safely
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (prevBtn) {
+                if (currentStep === 1) prevBtn.classList.add('invisible');
+                else prevBtn.classList.remove('invisible');
+            }
+        }
+
+        // PANEL 3: AFC Additions Logic
         function addAfcRecord() {
-            // ... (rest of the code provided in the previous step)
-        }
-
-        function addMgpsRecord() {
-            // ...
-        }
-
-        function removeAfc(idx) { afcRecords.splice(idx, 1); renderPanel3Tables(); }
-        function removeMgps(idx) { mgpsRecords.splice(idx, 1); renderPanel3Tables(); }
-
-        function renderPanel3Tables() {
-            // ...
-        }
-        // ==========================================
-
-        // Make sure this is pasted ABOVE your main buildDocumentPreview() function
-        function buildDocumentPreview() {
-            // ...
-        }
-    <!-- ================================================================= -->
-    <!-- CONTAINER FOR THE COMPILED PRINTABLE DOCUMENT PREVIEW             -->
-    <!-- ================================================================= -->
-    <div id="preview-section" class="hidden max-w-4xl mx-auto my-12 p-8 bg-white shadow-xl rounded-xl border border-slate-200">
-        <div id="printable-document">
-            <!-- Document Sections 1, 2, 3, and 4 will render perfectly here -->
-        </div>
-    </div>
-
-    <!-- ================================================================= -->
-    <!-- CORRECTLY ISOLATED JAVASCRIPT ENGINE                              -->
-    <!-- ================================================================= -->
-    <script>
-        // Track Panel 3 arrays globally inside the engine
-        let afcRecords = [];
-        let mgpsRecords = [];
-
-        function addAfcRecord() {
-            const cert = document.getElementById('afcCertificate').value;
-            const certNo = document.getElementById('afcCertNo').value;
-            const issueDate = document.getElementById('afcIssueDate').value;
+            const cert = document.getElementById('afcCertificate')?.value;
+            const certNo = document.getElementById('afcCertNo')?.value;
+            const issueDate = document.getElementById('afcIssueDate')?.value;
             
             if(cert && certNo && issueDate) {
                 afcRecords.push({ cert, certNo, issueDate });
@@ -817,12 +826,13 @@
             }
         }
 
+        // PANEL 3: MGPS Additions Logic
         function addMgpsRecord() {
-            const man = document.getElementById('mgpsMan').value;
-            const model = document.getElementById('mgpsModel').value;
-            const type = document.getElementById('mgpsType').value;
-            const life = document.getElementById('mgpsLife').value;
-            const manual = document.getElementById('mgpsManual').value;
+            const man = document.getElementById('mgpsMan')?.value;
+            const model = document.getElementById('mgpsModel')?.value;
+            const type = document.getElementById('mgpsType')?.value;
+            const life = document.getElementById('mgpsLife')?.value;
+            const manual = document.getElementById('mgpsManual')?.value;
             const locs = Array.from(document.querySelectorAll('.mgps-loc:checked')).map(cb => cb.value);
             
             if(man && model && type) {
@@ -873,7 +883,7 @@
             }
         }
 
-        // Main mapping script to output document layout fields
+        // MAIN COMPILATION ENGINE
         function buildDocumentPreview() {
             const standardFields = ['vesselName', 'imoNumber', 'dateOfConstruction', 'vesselType', 'grossTonnage', 'beam', 'loa', 'maxDraft', 'minDraft', 'flagState', 'lastDryDock', 'nextDryDock', 'revisionNumber', 'revisionDate', 'responsiblePerson', 'responsibleRole', 'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'primaryArea', 'climateZones', 'afsSuitable', 'unprotectedFieldsExist', 'nicheAreas', 'inspectionSchedule', 'contingencyPlan', 'wastePolicy'];
             
@@ -885,10 +895,11 @@
                 }
             });
 
+            // Parse Checkboxes safely
             const availableNiches = ["Flat-Bottom", "Sea Chests", "Vertical Sides", "Inlet Gratings", "Bow Dome", "Sea Inlet Pipes", "Boot-Top", "Bow and Stern Thruster", "Bilge Keels", "Propeller and Shaft", "Stabilizer Fins", "Rope Guards", "Rudder", "Box Coolers", "Dock Block Positions", "Moon Pools", "A-Bracket/Stern Tube", "Free Flood Spaces/Voids", "Cathodic Protection Anodes and Systems", "Draught and Hull Markings", "Other"];
-            
             const checkedBoxes = Array.from(document.querySelectorAll('.niche-check:checked')).map(cb => cb.value);
             const tableBody = document.getElementById('p-niche-table-body');
+            
             if(tableBody) {
                 tableBody.innerHTML = '';
                 availableNiches.forEach(niche => {
@@ -908,6 +919,12 @@
                 previewSection.scrollIntoView({ behavior: 'smooth' });
             }
         }
+
+        // Initialize and hide panels 2-5 when page loads first time
+        window.addEventListener('DOMContentLoaded', () => {
+            for(let i = 2; i <= 5; i++) {
+                const panel = document.getElementById(`panel-${i}`);
+                if(panel) panel.classList.add('hidden');
+            }
+        });
     </script>
-</body>
-</html>
