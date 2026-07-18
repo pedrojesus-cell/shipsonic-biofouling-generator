@@ -929,5 +929,37 @@
                 const panel = document.getElementById(`panel-${i}`);
                 if(panel) panel.classList.add('hidden');
             }
+        });// AUTOMATIC NAVIGATION CONNECTOR
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Force panels 2 through 5 to hide on startup so they stop overlapping
+    for(let i = 2; i <= 5; i++) {
+        const panel = document.getElementById(`panel-${i}`);
+        if(panel) panel.classList.add('hidden');
+    }
+
+    // 2. Find the Next button by looking for its layout text
+    const buttons = Array.from(document.querySelectorAll('button'));
+    const nextButton = buttons.find(btn => btn.innerText.trim().toLowerCase() === 'next');
+    
+    if (nextButton) {
+        // Clear any broken onclick attributes and bind it cleanly
+        nextButton.removeAttribute('onclick');
+        nextButton.addEventListener('click', () => {
+            // Run a hard layout jump forward
+            const oldPanel = document.getElementById(`panel-${currentStep}`);
+            const nextStep = currentStep + 1;
+            const newPanel = document.getElementById(`panel-${nextStep}`);
+            
+            if (newPanel && currentStep < 5) {
+                if (oldPanel) oldPanel.classList.add('hidden');
+                newPanel.classList.remove('hidden');
+                currentStep = nextStep;
+                console.log("Advanced cleanly to step: " + currentStep);
+            } else if (currentStep === 5) {
+                // If on the final step, compile the layout preview
+                buildDocumentPreview();
+            }
         });
+    }
+});
     </script>
