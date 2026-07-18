@@ -613,17 +613,60 @@
             addMgpsRow();
         });
 
+        let currentStep = 1;
+        const totalSteps = 5;
+
         function navigateStep(direction) {
-            // Basic functional validation prior to permitting advancing logic
+            // Check form validity if moving forward
             if (direction === 1) {
-                const inputs = document.getElementById(`panel-${currentStep}`).querySelectorAll('[required]');
-                for (let input of inputs) {
+                const currentPanel = document.getElementById(`panel-${currentStep}`);
+                const inputs = currentPanel.querySelectorAll('input[required], select[required], textarea[required]');
+                let isValid = true;
+                
+                inputs.forEach(input => {
                     if (!input.checkValidity()) {
                         input.reportValidity();
-                        return;
+                        isValid = false;
                     }
-                }
+                });
+                
+                if (!isValid) return; // Stop if required fields are missing
             }
+
+            // Calculate next step index
+            const nextStep = currentStep + direction;
+            if (nextStep < 1 || nextStep > totalSteps) return;
+
+            // Hide current panel and remove active tab styling
+            document.getElementById(`panel-${currentStep}`).classList.add('hidden');
+            document.getElementById(`panel-${currentStep}`).classList.remove('active');
+            
+            // Show next panel
+            document.getElementById(`panel-${nextStep}`).classList.remove('hidden');
+            document.getElementById(`panel-${nextStep}`).classList.add('active');
+
+            // Update step indicator headers if they exist in your UI layout
+            const currentTab = document.getElementById(`tab-${currentStep}`);
+            const nextTab = document.getElementById(`tab-${nextStep}`);
+            if (currentTab) currentTab.classList.remove('border-teal-600', 'text-teal-600');
+            if (nextTab) nextTab.classList.add('border-teal-600', 'text-teal-600');
+
+            currentStep = nextStep;
+
+            // Control navigation button visibilities
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (prevBtn) {
+                if (currentStep === 1) prevBtn.classList.add('invisible');
+                else prevBtn.classList.remove('invisible');
+            }
+            
+            if (nextBtn) {
+                if (currentStep === totalSteps) nextBtn.classList.add('invisible');
+                else nextBtn.classList.remove('invisible');
+            }
+        }
 
             // Execute component viewport shifting layout logic changes
             document.getElementById(`panel-${currentStep}`).classList.remove('active');
