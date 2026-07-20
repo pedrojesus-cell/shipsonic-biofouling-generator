@@ -44,15 +44,15 @@
                     <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded">IMO MEPC.378(80) / NORMAM-401/DPC Compliant</span>
                 </div>
                 <h1 class="text-2xl font-black text-teal-950 tracking-tight mt-1">Biofouling Management &amp; Digital Fouling Report Portal</h1>
-                <p class="text-sm text-slate-500 mt-0.5">Interoperable digital compliance framework and asset record engine.</p>
+                <p class="text-sm text-slate-500 mt-0.5">Interoperable digital compliance framework and asset record engine incorporating AMPP Guide 21517-2025 guidelines.</p>
             </div>
         </header>
         <!-- Form Navigation Tab Header Bar -->
         <nav class="flex border-b border-slate-200 mb-8 overflow-x-auto text-sm font-semibold text-slate-400 no-print">
             <div id="tab-1" class="border-b-2 border-teal-600 text-teal-600 px-4 py-2 whitespace-nowrap">1. Vessel Particulars</div>
-            <div id="tab-2" class="border-b-2 border-transparent px-4 py-2 whitespace-nowrap">2. Operating Profile</div>
+            <div id="tab-2" class="border-b-2 border-transparent px-4 py-2 whitespace-nowrap">2. Operating Profile &amp; Risk Areas</div>
             <div id="tab-3" class="border-b-2 border-transparent px-4 py-2 whitespace-nowrap">3. Anti-fouling &amp; MGPS Systems</div>
-            <div id="tab-4" class="border-b-2 border-transparent px-4 py-2 whitespace-nowrap">4. AMPP 21517 Digital Inspection</div>
+            <div id="tab-4" class="border-b-2 border-transparent px-4 py-2 whitespace-nowrap">4. AMPP Guide 21517-2025 Inspection</div>
             <div id="tab-5" class="border-b-2 border-transparent px-4 py-2 whitespace-nowrap">5. Finalize &amp; Audit Plan</div>
         </nav>
         <!-- Core Wizard Form Component Wrapper -->
@@ -200,23 +200,39 @@
                         </select>
                     </div>
                 </div>
-                <div class="mt-6">
-                    <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Sea-Chests" checked> <span>Sea-Chests</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Dry-docking support strips"> <span>Dry-docking support strips</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Bow and Stern Thrusters" checked> <span>Bow and Stern Thrusters</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Edges and Weld joints"> <span>Edges and Weld joints</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Rudder hinges and stabilizer fin apertures"> <span>Rudder hinges &amp; stabilizer apertures</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Propellers and shafts" checked> <span>Propellers and shafts</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Stern tube sea assemblies"> <span>Stern tube sea assemblies</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Internal surfaces of rope guards"> <span>Internal surfaces of rope guards</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Cathodic protection fittings and anodes"> <span>Cathodic protection &amp; anodes</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Pitot tubes"> <span>Pitot tubes</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Sea inlet pipes and overboard discharges"> <span>Sea inlets &amp; overboard discharges</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="A-brackets"> <span>A-brackets</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Inlet gratings"> <span>Inlet gratings</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Anchors and Chains"> <span>Anchors and Chains</span></label>
+
+                <!-- Niche Areas and Visual Diagram Section -->
+                <div class="mt-6 border-t border-slate-100 pt-4">
+                    <div class="flex flex-col lg:flex-row gap-6">
+                        <div class="flex-1">
+                            <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Sea-Chests" checked> <span>Sea-Chests</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Dry-docking support strips"> <span>Dry-docking support strips</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Bow and Stern Thrusters" checked> <span>Bow and Stern Thrusters</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Edges and Weld joints"> <span>Edges and Weld joints</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Rudder hinges and stabilizer fin apertures"> <span>Rudder hinges &amp; stabilizer apertures</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Propellers and shafts" checked> <span>Propellers and shafts</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Stern tube sea assemblies"> <span>Stern tube sea assemblies</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Internal surfaces of rope guards"> <span>Internal surfaces of rope guards</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Cathodic protection fittings and anodes"> <span>Cathodic protection &amp; anodes</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Pitot tubes"> <span>Pitot tubes</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Sea inlet pipes and overboard discharges"> <span>Sea inlets &amp; overboard discharges</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="A-brackets"> <span>A-brackets</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Inlet gratings"> <span>Inlet gratings</span></label>
+                                <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Anchors and Chains"> <span>Anchors and Chains</span></label>
+                            </div>
+                        </div>
+                        <!-- Interactive Niche Identification Reference Option -->
+                        <div class="w-full lg:w-80 border border-slate-200 rounded-xl p-3 bg-slate-50 flex flex-col justify-between">
+                            <div>
+                                <span class="block text-xs font-bold text-slate-800 uppercase tracking-wide mb-1">BFMP Risk Area Identifier Option</span>
+                                <p class="text-[11px] text-slate-500 mb-3">Use this standard hull allocation schematic to safely classify and check corresponding localized niche macrofouling clusters.</p>
+                            </div>
+                            <div class="bg-white p-2 rounded border border-slate-200 shadow-sm">
+                                <img src="image_4a9d1f.png" alt="Identification of Hull Niche Risk Areas Diagram" class="max-w-full h-auto mx-auto rounded">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -289,8 +305,8 @@
             <!-- PANEL 4: AMPP GUIDE 21517-2025 DIGITAL INSIGHTS -->
             <div id="panel-4" class="step-panel hidden space-y-6">
                 <div>
-                    <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-200 pb-2">4. NORMAM-401 &amp; AMPP Guide 21517 Joint Inspection Log</h3>
-                    <p class="text-xs text-slate-500 mt-0.5">Standardized entry parameters for performance monitoring systems and macrofouling metrics.</p>
+                    <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-200 pb-2">4. NORMAM-401 &amp; AMPP Guide 21517-2025 Joint Inspection Log</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Standardized entry parameters for performance monitoring systems and macrofouling metrics in structural alignment with AMPP Guide 21517-2025.</p>
                 </div>
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
@@ -358,7 +374,7 @@
         <div id="preview-section" class="mt-8 bg-white rounded-xl shadow-md border border-slate-200 p-6">
             <div class="flex justify-between items-center border-b border-slate-200 pb-4 mb-4 no-print">
                 <div>
-                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wide">Official IMO &amp; AMPP Compliance Document Preview Frame</h3>
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wide">Official IMO &amp; AMPP Guide 21517-2025 Compliance Document Preview Frame</h3>
                 </div>
                 <button type="button" onclick="window.print()" class="bg-teal-950 hover:bg-teal-900 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">Print Layout / Save PDF</button>
             </div>
@@ -384,7 +400,7 @@
                 </div>
                 <!-- AMPP DATASET SUMMARY -->
                 <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">NORMAM-401 / AMPP Joint Digital Dataset</h3>
+                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">NORMAM-401 / AMPP Guide 21517-2025 Joint Digital Dataset</h3>
                     <div class="grid grid-cols-3 gap-4 text-xs">
                         <div class="p-3 bg-slate-50 border border-slate-300 rounded">
                             <span class="block text-[10px] uppercase font-bold text-slate-500">Biofouling Rating</span>
