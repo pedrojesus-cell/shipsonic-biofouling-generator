@@ -346,225 +346,6 @@
                 <div class="border-4 border-double border-slate-900 p-8 text-center my-4 print-page">
                     <h2 class="text-xs font-bold tracking-widest text-slate-600">SHIPSONIC BIOFOULING INTELLIGENCE &amp; COMPLIANCE</h2>
                     <h1 class="text-2xl font-black uppercase tracking-tight mt-2">DIGITAL BIOFOULING INTEGRITY RECORD</h1>
-                    <p class="text-xs font-semibold uppercase text-slate-700 tracking-wide mt-1">Compiled in Accordance with IMO Resolution MEPC.378(80) &amp; AMPP Guide 21517-2025[cite: 2]</p>
-                    <div class="w-32 h-0.5 bg-slate-900 mx-auto my-6"></div>
-                    
-                    <div class="text-left max-w-xl mx-auto space-y-2 text-xs border border-slate-300 p-4 bg-slate-50/50 rounded-lg">
-                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>VESSEL OPERATIONAL IDENTIFIER:</strong> <span id="p-vesselName" class="font-mono font-bold text-right">—</span></div>
-                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>IMO REGISTRATION NUMBER:</strong> <span id="p-imoNumber" class="font-mono font-bold text-right">—</span></div>
-                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>PORT OF REGISTRY STATUS:</strong> <span id="p-portOfRegistry" class="font-bold text-right">—</span></div>
-                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>FLAG ADMINISTRATIVE STATE:</strong> <span id="p-flagState" class="font-mono font-bold text-right">—</span></div>
-                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>LLOYD'S REGISTER TYPE CLASS:</strong> <span id="p-vesselType" class="font-bold text-right">—</span></div>
-                        <div class="grid grid-cols-2"><strong>MANAGEMENT REVISION LEVEL:</strong> <span id="p-revisionNumber" class="font-mono font-bold text-right">—</span></div>
-                    </div>
-                </div>
-
-                <!-- AMPP DIGITIZATION RECORD BLOCK -->
-                <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">AMPP Guide 21517-2025 Interoperable Dataset Summary[cite: 2]</h3>
-                    <div class="grid grid-cols-3 gap-4 text-xs">
-                        <div class="p-3 bg-slate-50 border border-slate-300 rounded">
-                            <span class="block text-[10px] uppercase font-bold text-slate-500">Determined Fouling Degree[cite: 2]</span>
-                            <strong id="p-amppFoulingScale" class="text-sm text-teal-950">—</strong>
-                        </div>
-                        <div class="p-3 bg-slate-50 border border-slate-300 rounded">
-                            <span class="block text-[10px] uppercase font-bold text-slate-500">Distribution / Coverage[cite: 2]</span>
-                            <strong id="p-amppCoverage" class="text-sm text-teal-950">—</strong>
-                        </div>
-                        <div class="p-3 bg-slate-50 border border-slate-300 rounded">
-                            <span class="block text-[10px] uppercase font-bold text-slate-500">Coating Structural State[cite: 2]</span>
-                            <strong id="p-amppCoatingCondition" class="text-sm text-teal-950">—</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SECTION 1 CONTENT ARRAY -->
-                <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">1. MEASURED SHIP TECHNICAL PARTICULARS</h3>
-                    <div class="grid grid-cols-2 gap-x-6 gap-y-1.5 text-xs">
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Gross Tonnage (GT):</span> <strong id="p-grossTonnage">—</strong></div>
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Molded Breadth Beam (m):</span> <strong id="p-beam">—</strong></div>
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Length Overall LOA (m):</span> <strong id="p-loa">—</strong></div>
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Official Radio Call Sign:</span> <strong id="p-callSign" class="uppercase">—</strong></div>
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Last Completed Drydocking:</span> <strong id="p-lastDryDock">—</strong></div>
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Next Scheduled Drydocking:</span> <strong id="p-nextDryDock">—</strong></div>
-                    </div>
-                </div>
-
-                <!-- SECTION 2 CONTENT ARRAY -->
-                <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">2. SPECIFIC OPERATING PROFILE &amp; NICHE SPACE ANALYSIS</h3>
-                    <div class="grid grid-cols-3 gap-2 text-xs">
-                        <div class="p-2 border border-slate-300 rounded"><strong>Cruising Velocity:</strong><br><span id="p-operatingSpeed">—</span> knots</div>
-                        <div class="p-2 border border-slate-300 rounded"><strong>Max Laytime Tolerance:</strong><br><span id="p-inservicePeriod">—</span> days</div>
-                        <div class="p-2 border border-slate-300 rounded"><strong>Logged Transit Scope:</strong><br><span id="p-operatingRoutes">—</span></div>
-                    </div>
-                </div>
-
-                <!-- SECTION 3 CONTENT ARRAY -->
-                <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">3. APPLIED ANTI-FOULING COATINGS &amp; HARDWARE MATRICES</h3>
-                    <div>
-                        <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Logged Hull Coating Defense Barrier Layers</h4>
-                        <table class="w-full border-collapse border border-slate-400 text-xs text-left">
-                            <thead><tr class="bg-slate-100"><th class="border border-slate-400 p-1.5">Coating / Anti-Fouling Product Specification</th><th class="border border-slate-400 p-1.5">AFS Statement Reference No.</th><th class="border border-slate-400 p-1.5">Thickness / Operational Rating</th></tr></thead>
-                            <tbody id="p-afc-table-body"></tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- SECTION 4 CONTENT ARRAY -->
-                <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">4. TECHNICAL PROCEDURAL WORKFLOWS</h3>
-                    <div class="space-y-3 text-xs">
-                        <div>
-                            <h4 class="font-bold text-slate-800 uppercase">4.1 Subsea Cleaning Debris Containment &amp; Waste Mitigation Rules</h4>
-                            <p id="p-wastePolicy" class="text-slate-700 bg-slate-50 p-2 border border-slate-200 rounded mt-0.5延 whitespace-pre-wrap italic">—</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-slate-800 uppercase">4.2 Extended Anchored Inactivity Risk Controls</h4>
-                            <p id="p-contingencyPlan" class="text-slate-700 bg-slate-50 p-2 border border-slate-200 rounded mt-0.5 whitespace-pre-wrap italic">—</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT ARCHITECTURE ENGINE -->
-    <script>
-        let afcRecords = [];
-        let mgpsRecords = [];
-        let currentStep = 1;
-        const totalSteps = 5;
-
-        function updateWizardControls() {
-            for (let i = 1; i <= totalSteps; i++) {
-                const panel = document.getElementById(`panel-${i}`);
-                const tab = document.getElementById(`tab-${i}`);
-                
-                if (panel) {
-                    if (i === currentStep) panel.classList.remove('hidden');
-                    else panel.classList.add('hidden');
-                }
-                
-                if (tab) {
-                    if (i === currentStep) {
-                        tab.classList.add('border-teal-600', 'text-teal-600');
-                        tab.classList.remove('border-transparent', 'text-slate-400');
-                    } else {
-                        tab.classList.remove('border-teal-600', 'text-teal-600');
-                        tab.classList.add('border-transparent', 'text-slate-400');
-                    }
-                }
-            }
-
-            const prevBtn = document.getElementById('prevBtn');
-            if (prevBtn) {
-                if (currentStep === 1) prevBtn.classList.add('invisible');
-                else prevBtn.classList.remove('invisible');
-            }
-            
-            const nextBtn = document.getElementById('nextBtn');
-            if (nextBtn) {
-                if (currentStep === totalSteps) nextBtn.innerText = "Finish / Review";
-                else nextBtn.innerText = "Next";
-            }
-        }
-
-        function addAfcRecord() {
-            const cert = document.getElementById('afcCertificate')?.value.trim();
-            const certNo = document.getElementById('afcCertNo')?.value.trim();
-            const issueDate = document.getElementById('afcIssueDate')?.value.trim();
-            
-            if (cert && certNo && issueDate) {
-                afcRecords.push({ cert, certNo, issueDate });
-                document.getElementById('afcCertificate').value = '';
-                document.getElementById('afcCertNo').value = '';
-                document.getElementById('afcIssueDate').value = '';
-                renderDynamicTables();
-            }
-        }
-
-        function addMgpsRecord() {
-            const man = document.getElementById('mgpsMan')?.value.trim();
-            const model = document.getElementById('mgpsModel')?.value.trim();
-            const type = document.getElementById('mgpsType')?.value.trim();
-            
-            if (man && model && type) {
-                mgpsRecords.push({ man, model, type });
-                document.getElementById('mgpsMan').value = '';
-                document.getElementById('mgpsModel').value = '';
-                document.getElementById('mgpsType').value = '';
-                renderDynamicTables();
-            }
-        }
-
-        function removeAfcRecord(idx) {
-            afcRecords.splice(idx, 1);
-            renderDynamicTables();
-        }
-
-        function removeMgpsRecord(idx) {
-            mgpsRecords.splice(idx, 1);
-            renderDynamicTables();
-        }
-
-        function renderDynamicTables() {
-            const afcBody = document.getElementById('afc-form-body');
-            if (afcBody) {
-                afcBody.innerHTML = afcRecords.map((r, i) => `
-                    <tr class="border-b border-slate-200"><td class="p-2 font-semibold text-slate-800">${r.cert}</td><td class="p-2 font-mono">${r.certNo}</td><td class="p-2">${r.issueDate}</td><td class="p-2 text-center"><button type="button" onclick="removeAfcRecord(${i})" class="text-red-600 font-bold text-sm">×</button></td></tr>
-                `).join('');
-            }
-
-            const mgpsBody = document.getElementById('mgps-form-body');
-            if (mgpsBody) {
-                mgpsBody.innerHTML = mgpsRecords.map((r, i) => `
-                    <tr class="border-b border-slate-200"><td class="p-2 font-semibold text-slate-800">${r.man}</td><td class="p-2">${r.model}</td><td class="p-2">${r.type}</td><td class="p-2 text-center"><button type="button" onclick="removeMgpsRecord(${i})" class="text-red-600 font-bold text-sm">×</button></td></tr>
-                `).join('');
-            }
-        }
-
-        function buildDocumentPreview() {
-            const standardFields = ['vesselName', 'imoNumber', 'flagState', 'portOfRegistry', 'vesselType', 'grossTonnage', 'beam', 'loa', 'callSign', 'lastDryDock', 'nextDryDock', 'revisionNumber', 'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'wastePolicy', 'contingencyPlan', 'amppFoulingScale', 'amppCoverage', 'amppCoatingCondition'];
-            
-            standardFields.forEach(field => {
-                const el = document.getElementById(field);
-                const target = document.getElementById(`p-${field}`);
-                if (el && target) {
-                    if (field === 'amppCoverage' && el.value) {
-                        target.innerText = el.value + '%';
-                    } else {
-                        target.innerText = el.value || '—';
-                    }
-                }
-            });
-
-            const pAfc = document.getElementById('p-afc-table-body');
-            if (pAfc) {
-                pAfc.innerHTML = afcRecords.length ? afcRecords.map(r => `<tr><td class="border border-slate-400 p-1.5 font-medium">${r.cert}</td><td class="border border-slate-400 p-1.5 font-mono">${r.certNo}</td><td class="border border-slate-400 p-1.5">${r.issueDate}</td></tr>`).join('') : '<tr><td colspan="3" class="border border-slate-400 p-2 text-center text-slate-400 italic">No coatings logged in active configuration profile.</td></tr>';
-            }
-
-            document.getElementById('preview-section')?.classList.remove('hidden');
-        }
-<!-- LIVE COMPLIANCE STATIC DOCK MATRIX -->
-        <div id="preview-section" class="hidden mt-8 bg-white rounded-xl shadow-md border border-slate-200 p-6 print:block print:m-0 print:p-0 print:border-none print:shadow-none">
-            <div class="flex justify-between items-center border-b border-slate-200 pb-4 mb-4 no-print">
-                <div>
-                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wide">Official IMO &amp; AMPP Compliance Document Preview Frame</h3>
-                    <p class="text-xs text-slate-500">This mirrored print layout renders cleanly when printed or exported to PDF.</p>
-                </div>
-                <button type="button" onclick="window.print()" class="bg-teal-950 hover:bg-teal-900 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">Print Layout</button>
-            </div>
-
-            <!-- Printable Layout Area Block Wrapper -->
-            <div id="printable-document" class="p-2 bg-white text-black space-y-8">
-                
-                <!-- CERTIFICATE COVER PAGE BLOCK -->
-                <div class="border-4 border-double border-slate-900 p-8 text-center my-4 print-page">
-                    <h2 class="text-xs font-bold tracking-widest text-slate-600">SHIPSONIC BIOFOULING INTELLIGENCE &amp; COMPLIANCE</h2>
-                    <h1 class="text-2xl font-black uppercase tracking-tight mt-2">DIGITAL BIOFOULING INTEGRITY RECORD</h1>
                     <p class="text-xs font-semibold uppercase text-slate-700 tracking-wide mt-1">Compiled in Accordance with IMO Resolution MEPC.378(80) &amp; AMPP Guide 21517-2025</p>
                     <div class="w-32 h-0.5 bg-slate-900 mx-auto my-6"></div>
                     
@@ -610,173 +391,80 @@
                     </div>
                 </div>
 
-                <!-- SECTION 2 CONTENT ARRAY -->
+                <!-- SECTION 2 OPERATIONAL PROFILE -->
                 <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">2. SPECIFIC OPERATING PROFILE &amp; NICHE SPACE ANALYSIS</h3>
-                    <div class="grid grid-cols-3 gap-2 text-xs">
-                        <div class="p-2 border border-slate-300 rounded"><strong>Cruising Velocity:</strong><br><span id="p-operatingSpeed">—</span> knots</div>
-                        <div class="p-2 border border-slate-300 rounded"><strong>Max Laytime Tolerance:</strong><br><span id="p-inservicePeriod">—</span> days</div>
-                        <div class="p-2 border border-slate-300 rounded"><strong>Logged Transit Scope:</strong><br><span id="p-operatingRoutes">—</span></div>
+                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">2. OPERATIONAL PROFILE & RISK MATRIX</h3>
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-1.5 text-xs">
+                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Operating Speed:</span> <strong id="p-operatingSpeed">—</strong></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Max Planned Laytime Window:</span> <strong id="p-inservicePeriod">—</strong></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Primary Operational Routes:</span> <strong id="p-operatingRoutes">—</strong></div>
+                    </div>
+                    <div class="text-xs mt-2">
+                        <span class="block font-bold mb-1">Target Niche Inspection Zones:</span>
+                        <div id="p-nicheAreas" class="italic text-slate-700">None selected</div>
                     </div>
                 </div>
 
-                <!-- SECTION 3 CONTENT ARRAY -->
+                <!-- SECTION 3 SYSTEMS PREVIEW -->
                 <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">3. APPLIED ANTI-FOULING COATINGS &amp; HARDWARE MATRICES</h3>
-                    <div>
-                        <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Logged Hull Coating Defense Barrier Layers</h4>
-                        <table class="w-full border-collapse border border-slate-400 text-xs text-left">
-                            <thead><tr class="bg-slate-100"><th class="border border-slate-400 p-1.5">Coating / Anti-Fouling Product Specification</th><th class="border border-slate-400 p-1.5">AFS Statement Reference No.</th><th class="border border-slate-400 p-1.5">Thickness / Operational Rating</th></tr></thead>
-                            <tbody id="p-afc-table-body"></tbody>
-                        </table>
+                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">3. APPLIED ANTI-FOULING & MGPS HULL INVENTORY</h3>
+                    <div class="space-y-4 text-xs">
+                        <div>
+                            <span class="block font-bold mb-1">Registered Coating Systems:</span>
+                            <table class="w-full text-left border border-slate-300">
+                                <thead><tr class="bg-slate-100"><th class="p-1.5 border border-slate-300">Coating</th><th class="p-1.5 border border-slate-300">Cert No</th><th class="p-1.5 border border-slate-300">Thickness / Spec</th></tr></thead>
+                                <tbody id="p-afc-table-body"><tr><td colspan="3" class="p-1.5 italic text-slate-400 text-center">No active logs registered</td></tr></tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <span class="block font-bold mb-1">Active MGPS Hardware Arrays:</span>
+                            <table class="w-full text-left border border-slate-300">
+                                <thead><tr class="bg-slate-100"><th class="p-1.5 border border-slate-300">Location</th><th class="p-1.5 border border-slate-300">Principle</th><th class="p-1.5 border border-slate-300">Dosing Parameters</th></tr></thead>
+                                <tbody id="p-mgps-table-body"><tr><td colspan="3" class="p-1.5 italic text-slate-400 text-center">No active logs registered</td></tr></tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
-                <!-- SECTION 4 CONTENT ARRAY -->
+                <!-- SECTION 4 STRATEGIES PREVIEW -->
                 <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">4. TECHNICAL PROCEDURAL WORKFLOWS</h3>
+                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">4. OPERATIONS & CONTINGENCY STRATEGIES</h3>
                     <div class="space-y-3 text-xs">
                         <div>
-                            <h4 class="font-bold text-slate-800 uppercase">4.1 Subsea Cleaning Debris Containment &amp; Waste Mitigation Rules</h4>
-                            <p id="p-wastePolicy" class="text-slate-700 bg-slate-50 p-2 border border-slate-200 rounded mt-0.5 whitespace-pre-wrap italic">—</p>
+                            <span class="block font-bold text-slate-700">Cleaning Containment Strategy:</span>
+                            <p id="p-wastePolicy" class="bg-slate-50 border border-slate-200 p-2 rounded italic">—</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-slate-800 uppercase">4.2 Extended Anchored Inactivity Risk Controls</h4>
-                            <p id="p-contingencyPlan" class="text-slate-700 bg-slate-50 p-2 border border-slate-200 rounded mt-0.5 whitespace-pre-wrap italic">—</p>
+                            <span class="block font-bold text-slate-700">Inactivity Contingency Framework:</span>
+                            <p id="p-contingencyPlan" class="bg-slate-50 border border-slate-200 p-2 rounded italic">—</p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
-        </div>
-<!-- JAVASCRIPT ARCHITECTURE ENGINE -->
+    </div>
+
+    <!-- WIZARD CORE ENGINE AND STATE CONTROLLER -->
     <script>
-        let afcRecords = [];
-        let mgpsRecords = [];
         let currentStep = 1;
         const totalSteps = 5;
+        
+        let afcRecords = [];
+        let mgpsRecords = [];
 
-        function updateWizardControls() {
-            for (let i = 1; i <= totalSteps; i++) {
-                const panel = document.getElementById(`panel-${i}`);
-                const tab = document.getElementById(`tab-${i}`);
-                
-                if (panel) {
-                    if (i === currentStep) panel.classList.remove('hidden');
-                    else panel.classList.add('hidden');
-                }
-                
-                if (tab) {
-                    if (i === currentStep) {
-                        tab.classList.add('border-teal-600', 'text-teal-600');
-                        tab.classList.remove('border-transparent', 'text-slate-400');
-                    } else {
-                        tab.classList.remove('border-teal-600', 'text-teal-600');
-                        tab.classList.add('border-transparent', 'text-slate-400');
-                    }
-                }
-            }
+        const standardFields = [
+            'vesselName', 'imoNumber', 'flagState', 'portOfRegistry', 
+            'vesselType', 'grossTonnage', 'beam', 'loa', 'callSign',
+            'lastDryDock', 'nextDryDock', 'revisionNumber', 
+            'operatingSpeed', 'inservicePeriod', 'operatingRoutes',
+            'amppFoulingScale', 'amppCoatingCondition', 
+            'wastePolicy', 'contingencyPlan'
+        ];
 
-            const prevBtn = document.getElementById('prevBtn');
-            if (prevBtn) {
-                if (currentStep === 1) prevBtn.classList.add('invisible');
-                else prevBtn.classList.remove('invisible');
-            }
-            
-            const nextBtn = document.getElementById('nextBtn');
-            if (nextBtn) {
-                if (currentStep === totalSteps) nextBtn.innerText = "Finish / Review";
-                else nextBtn.innerText = "Next";
-            }
-        }
-
-        function addAfcRecord() {
-            const cert = document.getElementById('afcCertificate')?.value.trim();
-            const certNo = document.getElementById('afcCertNo')?.value.trim();
-            const issueDate = document.getElementById('afcIssueDate')?.value.trim();
-            
-            if (cert && certNo && issueDate) {
-                afcRecords.push({ cert, certNo, issueDate });
-                document.getElementById('afcCertificate').value = '';
-                document.getElementById('afcCertNo').value = '';
-                document.getElementById('afcIssueDate').value = '';
-                renderDynamicTables();
-            }
-        }
-
-        function addMgpsRecord() {
-            const man = document.getElementById('mgpsMan')?.value.trim();
-            const model = document.getElementById('mgpsModel')?.value.trim();
-            const type = document.getElementById('mgpsType')?.value.trim();
-            
-            if (man && model && type) {
-                mgpsRecords.push({ man, model, type });
-                document.getElementById('mgpsMan').value = '';
-                document.getElementById('mgpsModel').value = '';
-                document.getElementById('mgpsType').value = '';
-                renderDynamicTables();
-            }
-        }
-
-        function removeAfcRecord(idx) {
-            afcRecords.splice(idx, 1);
-            renderDynamicTables();
-        }
-
-        function removeMgpsRecord(idx) {
-            mgpsRecords.splice(idx, 1);
-            renderDynamicTables();
-        }
-
-        function renderDynamicTables() {
-            const afcBody = document.getElementById('afc-form-body');
-            if (afcBody) {
-                afcBody.innerHTML = afcRecords.map((r, i) => `
-                    <tr class="border-b border-slate-200"><td class="p-2 font-semibold text-slate-800">${r.cert}</td><td class="p-2 font-mono">${r.certNo}</td><td class="p-2">${r.issueDate}</td><td class="p-2 text-center"><button type="button" onclick="removeAfcRecord(${i})" class="text-red-600 font-bold text-sm">×</button></td></tr>
-                `).join('');
-            }
-
-            const mgpsBody = document.getElementById('mgps-form-body');
-            if (mgpsBody) {
-                mgpsBody.innerHTML = mgpsRecords.map((r, i) => `
-                    <tr class="border-b border-slate-200"><td class="p-2 font-semibold text-slate-800">${r.man}</td><td class="p-2">${r.model}</td><td class="p-2">${r.type}</td><td class="p-2 text-center"><button type="button" onclick="removeMgpsRecord(${i})" class="text-red-600 font-bold text-sm">×</button></td></tr>
-                `).join('');
-            }
-        }
-
-        function buildDocumentPreview() {
-            const standardFields = ['vesselName', 'imoNumber', 'flagState', 'portOfRegistry', 'vesselType', 'grossTonnage', 'beam', 'loa', 'callSign', 'lastDryDock', 'nextDryDock', 'revisionNumber', 'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'wastePolicy', 'contingencyPlan', 'amppFoulingScale', 'amppCoverage', 'amppCoatingCondition'];
-            
-            standardFields.forEach(field => {
-                const el = document.getElementById(field);
-                const target = document.getElementById(`p-${field}`);
-                if (el && target) {
-                    if (field === 'amppCoverage' && el.value) {
-                        target.innerText = el.value + '%';
-                    } else {
-                        target.innerText = el.value || '—';
-                    }
-                }
-            });
-            const pAfc = document.getElementById('p-afc-table-body');
-        if (pAfc) {
-            if (afcRecords.length) {
-                pAfc.innerHTML = afcRecords.map(r => {
-                    return `<tr><td class="border border-slate-400 p-1.5 font-medium">${r.cert}</td><td class="border border-slate-400 p-1.5 font-mono">${r.certNo}</td><td class="border border-slate-400 p-1.5">${r.issueDate}</td></tr>`;
-                }).join('');
-            } else {
-                pAfc.innerHTML = '<tr><td colspan="3" class="border border-slate-400 p-2 text-center text-slate-400 italic">No coatings logged in active configuration profile.</td></tr>';
-            }
-        }
-
-        document.getElementById('preview-section')?.classList.remove('hidden');
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-        updateWizardControls();
-
-        document.getElementById('nextBtn')?.addEventListener('click', (e) => {
-            e.preventDefault();
+        // Global Navigation Logic
+        window.goToNextStep = function(e) {
+            if (e) e.preventDefault();
             if (currentStep < totalSteps) {
                 currentStep++;
                 updateWizardControls();
@@ -784,16 +472,164 @@
             } else {
                 buildDocumentPreview();
             }
-        });
+        };
 
-        document.getElementById('prevBtn')?.addEventListener('click', (e) => {
-            e.preventDefault();
+        window.goToPrevStep = function(e) {
+            if (e) e.preventDefault();
             if (currentStep > 1) {
                 currentStep--;
                 updateWizardControls();
             }
+        };
+
+        function updateWizardControls() {
+            // Panel toggling loop
+            for (let i = 1; i <= totalSteps; i++) {
+                const panel = document.getElementById('panel-' + i);
+                const tab = document.getElementById('tab-' + i);
+                
+                if (panel) {
+                    if (i === currentStep) {
+                        panel.classList.remove('hidden');
+                    } else {
+                        panel.classList.add('hidden');
+                    }
+                }
+                
+                if (tab) {
+                    if (i === currentStep) {
+                        tab.className = "border-b-2 border-teal-600 text-teal-600 px-4 py-2 whitespace-nowrap";
+                    } else if (i < currentStep) {
+                        tab.className = "border-b-2 border-emerald-500 text-emerald-600 px-4 py-2 whitespace-nowrap";
+                    } else {
+                        tab.className = "border-b-2 border-transparent px-4 py-2 whitespace-nowrap";
+                    }
+                }
+            }
+
+            // Button Tray Layout Management
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (prevBtn) {
+                prevBtn.style.visibility = (currentStep === 1) ? 'hidden' : 'visible';
+            }
+            if (nextBtn) {
+                nextBtn.innerText = (currentStep === totalSteps) ? 'Finalize' : 'Next';
+            }
+        }
+
+        // Sub-Table Add Managers
+        window.addAfcRecord = function() {
+            const cert = document.getElementById('afcCertificate');
+            const no = document.getElementById('afcCertNo');
+            const date = document.getElementById('afcIssueDate');
+            
+            if (cert && cert.value) {
+                afcRecords.push({ cert: cert.value, certNo: no.value || '-', issueDate: date.value || '-' });
+                cert.value = ''; no.value = ''; date.value = '';
+                renderSubTables();
+                buildDocumentPreview();
+            }
+        };
+
+        window.removeAfcRecord = function(index) {
+            afcRecords.splice(index, 1);
+            renderSubTables();
+            buildDocumentPreview();
+        };
+
+        window.addMgpsRecord = function() {
+            const man = document.getElementById('mgpsMan');
+            const mod = document.getElementById('mgpsModel');
+            const type = document.getElementById('mgpsType');
+            
+            if (man && man.value) {
+                mgpsRecords.push({ man: man.value, model: mod.value || '-', type: type.value || '-' });
+                man.value = ''; mod.value = ''; type.value = '';
+                renderSubTables();
+                buildDocumentPreview();
+            }
+        };
+
+        window.removeMgpsRecord = function(index) {
+            mgpsRecords.splice(index, 1);
+            renderSubTables();
+            buildDocumentPreview();
+        };
+
+        function renderSubTables() {
+            // Dynamic Form UI Arrays
+            const fAfc = document.getElementById('afc-form-body');
+            if (fAfc) {
+                fAfc.innerHTML = afcRecords.map((r, i) => `
+                    <tr class="border-t border-slate-100">
+                        <td class="p-2">${r.cert}</td><td class="p-2">${r.certNo}</td><td class="p-2">${r.issueDate}</td>
+                        <td class="p-2 text-center"><button type="button" onclick="removeAfcRecord(${i})" class="text-red-600 font-bold">×</button></td>
+                    </tr>
+                `).join('');
+            }
+
+            const fMgps = document.getElementById('mgps-form-body');
+            if (fMgps) {
+                fMgps.innerHTML = mgpsRecords.map((r, i) => `
+                    <tr class="border-t border-slate-100">
+                        <td class="p-2">${r.man}</td><td class="p-2">${r.model}</td><td class="p-2">${r.type}</td>
+                        <td class="p-2 text-center"><button type="button" onclick="removeMgpsRecord(${i})" class="text-red-600 font-bold">×</button></td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        // Mirrors Inputs to Dynamic Document Grid
+        function buildDocumentPreview() {
+            standardFields.forEach(field => {
+                const el = document.getElementById(field);
+                const target = document.getElementById(`p-${field}`);
+                if (el && target) {
+                    if (field === 'amppCoverage' && el.value) {
+                        target.innerText = el.value + ' %';
+                    } else {
+                        target.innerText = el.value || '—';
+                    }
+                }
+            });
+
+            // Target Niche Checkbox Evaluation
+            const checkedNiches = [];
+            document.querySelectorAll('.niche-check:checked').forEach(c => {
+                checkedNiches.push(c.value);
+            });
+            const pNiche = document.getElementById('p-nicheAreas');
+            if (pNiche) {
+                pNiche.innerText = checkedNiches.length ? checkedNiches.join(', ') : 'None selected';
+            }
+
+            // Output Dynamic Printing Grids
+            const pAfc = document.getElementById('p-afc-table-body');
+            if (pAfc) {
+                pAfc.innerHTML = afcRecords.length ? afcRecords.map(r => `
+                    <tr><td class="border border-slate-300 p-1.5">${r.cert}</td><td class="border border-slate-300 p-1.5">${r.certNo}</td><td class="border border-slate-300 p-1.5">${r.issueDate}</td></tr>
+                `).join('') : '<tr><td colspan="3" class="p-1.5 italic text-slate-400 text-center">No active logs registered</td></tr>';
+            }
+
+            const pMgps = document.getElementById('p-mgps-table-body');
+            if (pMgps) {
+                pMgps.innerHTML = mgpsRecords.length ? mgpsRecords.map(r => `
+                    <tr><td class="border border-slate-300 p-1.5">${r.man}</td><td class="border border-slate-300 p-1.5">${r.model}</td><td class="border border-slate-300 p-1.5">${r.type}</td></tr>
+                `).join('') : '<tr><td colspan="3" class="p-1.5 italic text-slate-400 text-center">No active logs registered</td></tr>';
+            }
+
+            document.getElementById('preview-section')?.classList.remove('hidden');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            updateWizardControls();
+            
+            // Explicitly bind the Next and Prev event targets safely
+            document.getElementById('nextBtn')?.addEventListener('click', window.goToNextStep);
+            document.getElementById('prevBtn')?.addEventListener('click', window.goToPrevStep);
         });
-    });
-</script>
+    </script>
 </body>
 </html>
