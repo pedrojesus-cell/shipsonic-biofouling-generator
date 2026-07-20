@@ -41,7 +41,7 @@
             <div>
                 <div class="flex items-center gap-2">
                     <span class="text-xs font-black bg-teal-950 text-white px-2 py-0.5 rounded tracking-wider">SHIPSONIC BIOFOULING INTELLIGENCE &amp; COMPLIANCE</span>
-                    <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded">IMO MEPC.378(80) / AMPP Guide 21517-2025</span>
+                    <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded">IMO MEPC.378(80) / NORMAM-401/DPC Compliant</span>
                 </div>
                 <h1 class="text-2xl font-black text-teal-950 tracking-tight mt-1">Biofouling Management &amp; Digital Fouling Report Portal</h1>
                 <p class="text-sm text-slate-500 mt-0.5">Interoperable digital compliance framework and asset record engine.</p>
@@ -190,6 +190,15 @@
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Trading Routes</label>
                         <input type="text" id="operatingRoutes" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Inter-American Corridors / Transpacific">
                     </div>
+                    <div>
+                        <label class="block text-xs font-bold text-teal-950 mb-1">Target Brazilian Biogeographic Region (NORMAM-401)</label>
+                        <select id="biogeographicRegion" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none bg-teal-50/50">
+                            <option value="Not Applicable / International Waters">Not Applicable / International Waters</option>
+                            <option value="Northern Region (Amazon Mouth to Barreirinhas)">Northern Region (Amazon Mouth to Barreirinhas)</option>
+                            <option value="Northeast Region (Ceará to Mucuri)">Northeast Region (Ceará to Mucuri)</option>
+                            <option value="Southeast-South Region (Espírito Santo to Pelotas)">Southeast-South Region (Espírito Santo to Pelotas)</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="mt-6">
                     <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
@@ -267,7 +276,6 @@
                         <input type="file" id="mgpsFiles" multiple onchange="handleMgpsFiles(this)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none bg-white">
                         <p class="text-[10px] text-slate-500 mt-1">Files attached here will automatically generate an index profile link on the official printed compliance record layout.</p>
                     </div>
-
                     <button type="button" onclick="addMgpsRecord()" class="mt-3 px-4 py-1.5 bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold rounded-lg transition-colors">Add Hardware Log</button>
                     
                     <div class="mt-3 overflow-x-auto">
@@ -281,16 +289,18 @@
             <!-- PANEL 4: AMPP GUIDE 21517-2025 DIGITAL INSIGHTS -->
             <div id="panel-4" class="step-panel hidden space-y-6">
                 <div>
-                    <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-200 pb-2">4. AMPP Guide 21517-2025 Interoperable Inspection Log</h3>
+                    <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-200 pb-2">4. NORMAM-401 &amp; AMPP Guide 21517 Joint Inspection Log</h3>
                     <p class="text-xs text-slate-500 mt-0.5">Standardized entry parameters for performance monitoring systems and macrofouling metrics.</p>
                 </div>
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Scale of Fouling (0 to 5)</label>
-                        <select id="amppFoulingScale" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-2 text-sm focus:outline-none">
-                            <option value="0 - Light Slime / Biofilm">0 - Light Slime / Biofilm</option>
-                            <option value="1 - Heavy Slime">1 - Dense Slime Layer</option>
-                            <option value="3 - Hard Macrofouling">3 - Macrofouling / Barnacles</option>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Scale of Fouling (NORMAM-401 Scale)</label>
+                        <select id="amppFoulingScale" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-2 text-sm focus:outline-none" onchange="evaluateRegulatoryAlert()">
+                            <option value="Rating 0 - No Biofouling (Surface Clean)">Rating 0 - No Biofouling (Surface Clean)</option>
+                            <option value="Rating 1 - Microfouling (Slime Layer)">Rating 1 - Microfouling (Slime Layer)</option>
+                            <option value="Rating 2 - Light Macrofouling (1-15% coverage)">Rating 2 - Light Macrofouling (1-15% coverage)</option>
+                            <option value="Rating 3 - Medium Macrofouling (16-40% coverage)">Rating 3 - Medium Macrofouling (16-40% coverage)</option>
+                            <option value="Rating 4 - Heavy Macrofouling (41-100% coverage)">Rating 4 - Heavy Macrofouling (41-100% coverage)</option>
                         </select>
                     </div>
                     <div>
@@ -304,6 +314,11 @@
                             <option value="Minor Degradation">Minor Degradation / Fair</option>
                         </select>
                     </div>
+                </div>
+                <!-- Dynamic Regulatory Warning Banner (no-print) -->
+                <div id="brazilRiskBanner" class="hidden p-4 bg-amber-50 border border-amber-300 text-amber-900 rounded-xl text-xs space-y-1">
+                    <strong class="block uppercase font-bold text-amber-950">⚠️ NORMAM-401/DPC Regulatory Action Required</strong>
+                    <p>A biofouling rating of 2 or higher requires active cleaning before navigating between distinct Brazilian biogeographic regions. In-water cleaning operations require waste capture and approval requests submitted to local authorities at least 10 days in advance.</p>
                 </div>
                 <div class="space-y-4">
                     <div>
@@ -369,10 +384,10 @@
                 </div>
                 <!-- AMPP DATASET SUMMARY -->
                 <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">AMPP Guide 21517-2025 Interoperable Dataset</h3>
+                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">NORMAM-401 / AMPP Joint Digital Dataset</h3>
                     <div class="grid grid-cols-3 gap-4 text-xs">
                         <div class="p-3 bg-slate-50 border border-slate-300 rounded">
-                            <span class="block text-[10px] uppercase font-bold text-slate-500">Fouling Degree</span>
+                            <span class="block text-[10px] uppercase font-bold text-slate-500">Biofouling Rating</span>
                             <strong id="p-amppFoulingScale" class="text-sm text-teal-950">—</strong>
                         </div>
                         <div class="p-3 bg-slate-50 border border-slate-300 rounded">
@@ -383,6 +398,10 @@
                             <span class="block text-[10px] uppercase font-bold text-slate-500">Coating Rating</span>
                             <strong id="p-amppCoatingCondition" class="text-sm text-teal-950">—</strong>
                         </div>
+                    </div>
+                    <!-- Printable Warning Block -->
+                    <div id="p-brazilPrintRisk" class="hidden p-3 border-2 border-red-400 bg-red-50 text-red-950 text-xs rounded">
+                        <strong>🚨 CRITICAL STATUTORY COMPLIANCE ALERT (NORMAM-401/DPC):</strong> Hull macrofouling rating equals or exceeds Rating 2. Vessel is prohibited from navigating between distinct biogeographic zones or entering Brazilian waters without executing localized in-water cleaning utilizing waste capture matrices. Prior authorization forms must be forwarded to the local maritime authority at least 10 days before operations.
                     </div>
                 </div>
                 <!-- SECTION 1 CONTENT ARRAY -->
@@ -404,6 +423,7 @@
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Service Speed (Knots):</span> <strong id="p-operatingSpeed">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Max Operational Laytime Frame (Days):</span> <strong id="p-inservicePeriod">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Geographic Trading Routes / Corridors:</span> <strong id="p-operatingRoutes" class="text-right max-w-[200px] truncate">—</strong></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Target Biogeographic Region:</span> <strong id="p-biogeographicRegion" class="text-right text-teal-900 font-bold">—</strong></div>
                     </div>
                     <div class="mt-4">
                         <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Identified Vulnerable Niche Areas Checklist:</span>
@@ -460,7 +480,8 @@
                 'grossTonnage', 'beam', 'loa', 'callSign', 'lastDryDock', 'nextDryDock', 
                 'amppFoulingScale', 'amppCoverage', 'amppCoatingCondition', 'vesselOwner', 
                 'vesselManager', 'bfmpResponsiblePerson', 'bfmpResponsiblePosition',
-                'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'wastePolicy', 'contingencyPlan'
+                'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'wastePolicy', 'contingencyPlan',
+                'biogeographicRegion'
             ];
             boundFields.forEach(fieldId => {
                 const element = document.getElementById(fieldId);
@@ -469,12 +490,29 @@
                     previewEl.innerText = element.value || '—';
                 }
             });
-
             // Synchronize niche areas checklist display in print preview framework
             const checkedNiches = Array.from(document.querySelectorAll('.niche-check:checked')).map(el => el.value);
             const nichePreview = document.getElementById('p-nicheAreasList');
             if(nichePreview) {
                 nichePreview.innerText = checkedNiches.length > 0 ? checkedNiches.join(', ') : 'None Selected';
+            }
+            evaluateRegulatoryAlert();
+        }
+        function evaluateRegulatoryAlert() {
+            const selectVal = document.getElementById('amppFoulingScale').value;
+            const screenBanner = document.getElementById('brazilRiskBanner');
+            const printBanner = document.getElementById('p-brazilPrintRisk');
+            
+            const isRisk = selectVal.includes('Rating 2') || selectVal.includes('Rating 3') || selectVal.includes('Rating 4');
+            
+            if (screenBanner && printBanner) {
+                if (isRisk) {
+                    screenBanner.classList.remove('hidden');
+                    printBanner.classList.remove('hidden');
+                } else {
+                    screenBanner.classList.add('hidden');
+                    printBanner.classList.add('hidden');
+                }
             }
         }
         function moveStep(direction) {
@@ -528,7 +566,6 @@
             
             const formBody = document.getElementById('mgps-form-body');
             formBody.insertAdjacentHTML('beforeend', row);
-
             // Sync up print table array logic
             const printBody = document.getElementById('p-mgps-table-body');
             if(printBody.innerHTML.includes('No entries recorded')) printBody.innerHTML = '';
@@ -556,7 +593,7 @@
         
         // Listen to dynamic change ticks on checkbox triggers to handle preview updates in real-time
         document.addEventListener('change', function(e) {
-            if(e.target && e.target.classList.contains('niche-check')) {
+            if(e.target && (e.target.classList.contains('niche-check') || e.target.id === 'biogeographicRegion')) {
                 updateBindings();
             }
         });
