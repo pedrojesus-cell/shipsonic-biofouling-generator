@@ -758,37 +758,42 @@
                     }
                 }
             });
-
             const pAfc = document.getElementById('p-afc-table-body');
-            if (pAfc) {
-                pAfc.innerHTML = afcRecords.length ? afcRecords.map(r => `<tr><td class="border border-slate-400 p-1.5 font-medium">${r.cert}</td><td class="border border-slate-400 p-1.5 font-mono">${r.certNo}</td><td class="border border-slate-400 p-1.5">${r.issueDate}</td></tr>`).join('') : '<tr><td colspan="3" class="border border-slate-400 p-2 text-center text-slate-400 italic">No coatings logged in active configuration profile.</td></tr>';
+        if (pAfc) {
+            if (afcRecords.length) {
+                pAfc.innerHTML = afcRecords.map(r => {
+                    return `<tr><td class="border border-slate-400 p-1.5 font-medium">${r.cert}</td><td class="border border-slate-400 p-1.5 font-mono">${r.certNo}</td><td class="border border-slate-400 p-1.5">${r.issueDate}</td></tr>`;
+                }).join('');
+            } else {
+                pAfc.innerHTML = '<tr><td colspan="3" class="border border-slate-400 p-2 text-center text-slate-400 italic">No coatings logged in active configuration profile.</td></tr>';
             }
-
-            document.getElementById('preview-section')?.classList.remove('hidden');
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            updateWizardControls();
+        document.getElementById('preview-section')?.classList.remove('hidden');
+    }
 
-            document.getElementById('nextBtn')?.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (currentStep < totalSteps) {
-                    currentStep++;
-                    updateWizardControls();
-                    buildDocumentPreview();
-                } else {
-                    buildDocumentPreview();
-                }
-            });
+    window.addEventListener('DOMContentLoaded', () => {
+        updateWizardControls();
 
-            document.getElementById('prevBtn')?.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (currentStep > 1) {
-                    currentStep--;
-                    updateWizardControls();
-                }
-            });
+        document.getElementById('nextBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateWizardControls();
+                buildDocumentPreview();
+            } else {
+                buildDocumentPreview();
+            }
         });
-    </script>
+
+        document.getElementById('prevBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentStep > 1) {
+                currentStep--;
+                updateWizardControls();
+            }
+        });
+    });
+</script>
 </body>
 </html>
