@@ -69,17 +69,46 @@
                         <input type="text" id="portOfRegistry" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Santos">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Vessel Type</label>
-                        <select id="vesselType" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
-                            <option value="Bulk Carrier">Bulk Carrier</option>
-                            <option value="Crude Oil Tanker">Crude Oil Tanker</option>
-                            <option value="Fully Cellular Containership">Fully Cellular Containership</option>
-                            <option value="Chemical Tanker">Chemical Tanker</option>
-                            <option value="LNG Carrier">LNG Carrier</option>
-                            <option value="Support / Offshore Supply">Support / Offshore Supply</option>
-                        </select>
-                    </div>
-                    <div>
+    <label class="block text-xs font-semibold text-slate-700 mb-1">Vessel Type</label>
+    <select id="vesselType" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
+        <!-- MARPOL Annex VI / EEDI / CII Core Fleet Categories -->
+        <optgroup label="MARPOL / EEDI Statutory Framework">
+            <option value="Bulk Carrier">Bulk Carrier</option>
+            <option value="Gas Carrier">Gas Carrier (LPG / Ammonia)</option>
+            <option value="LNG Carrier">LNG Carrier</option>
+            <option value="Crude Oil Tanker">Crude Oil Tanker</option>
+            <option value="Chemical Tanker">Chemical Tanker</option>
+            <option value="Product Tanker">Product Tanker</option>
+            <option value="Fully Cellular Containership">Fully Cellular Containership</option>
+            <option value="General Cargo Ship">General Cargo Ship</option>
+            <option value="Refrigerated Cargo Carrier">Refrigerated Cargo Carrier</option>
+            <option value="Combination Carrier">Combination Carrier</option>
+            <option value="Cruise Passenger Ship">Cruise Passenger Ship</option>
+            <option value="Ro-Ro Cargo Ship">Ro-Ro Cargo Ship (Vehicle / Pure Car)</option>
+            <option value="Ro-Ro Passenger Ship">Ro-Ro Passenger Ship (Ro-Pax Ferry)</option>
+        </optgroup>
+        
+        <!-- SOLAS & Specialized Code Classes -->
+        <optgroup label="SOLAS &amp; IMO Specialized Codes">
+            <option value="Passenger Ship">Passenger Ship (Non-Cruise >12 Pax)</option>
+            <option value="Fishing Vessel">Fishing Vessel (Commercial / Factory)</option>
+            <option value="Special Purpose Ship">Special Purpose Ship (SPS Code / Research)</option>
+            <option value="High-Speed Craft">High-Speed Craft (HSC Code)</option>
+            <option value="Mobile Offshore Drilling Unit">Mobile Offshore Drilling Unit (MODU)</option>
+            <option value="Nuclear Ship">Nuclear Powered Merchant Ship</option>
+            <option value="Wing-In-Ground Craft">Wing-In-Ground (WIG) Craft</option>
+        </optgroup>
+
+        <!-- Offshore, Support, & Infrastructure Classes -->
+        <optgroup label="Offshore &amp; Port Infrastructure">
+            <option value="Offshore Support Vessel">Offshore Support Vessel (OSV / PSV / AHTS)</option>
+            <option value="Dredger">Dredger / Excavation Craft</option>
+            <option value="Tugboat">Tugboat / Harbour &amp; Ocean Towage</option>
+            <option value="Inland Waterways Craft">Inland Navigation Craft</option>
+            <option value="Other / Non-Specified">Other / GISIS Unclassified Vessel</option>
+        </optgroup>
+    </select>
+</div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Gross Tonnage</label>
                         <input type="number" id="grossTonnage" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. 45000">
                     </div>
