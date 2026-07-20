@@ -649,7 +649,124 @@
             </div>
         </div>
         </div>
-<script>
+<!-- JAVASCRIPT ARCHITECTURE ENGINE -->
+    <script>
+        let afcRecords = [];
+        let mgpsRecords = [];
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        function updateWizardControls() {
+            for (let i = 1; i <= totalSteps; i++) {
+                const panel = document.getElementById(`panel-${i}`);
+                const tab = document.getElementById(`tab-${i}`);
+                
+                if (panel) {
+                    if (i === currentStep) panel.classList.remove('hidden');
+                    else panel.classList.add('hidden');
+                }
+                
+                if (tab) {
+                    if (i === currentStep) {
+                        tab.classList.add('border-teal-600', 'text-teal-600');
+                        tab.classList.remove('border-transparent', 'text-slate-400');
+                    } else {
+                        tab.classList.remove('border-teal-600', 'text-teal-600');
+                        tab.classList.add('border-transparent', 'text-slate-400');
+                    }
+                }
+            }
+
+            const prevBtn = document.getElementById('prevBtn');
+            if (prevBtn) {
+                if (currentStep === 1) prevBtn.classList.add('invisible');
+                else prevBtn.classList.remove('invisible');
+            }
+            
+            const nextBtn = document.getElementById('nextBtn');
+            if (nextBtn) {
+                if (currentStep === totalSteps) nextBtn.innerText = "Finish / Review";
+                else nextBtn.innerText = "Next";
+            }
+        }
+
+        function addAfcRecord() {
+            const cert = document.getElementById('afcCertificate')?.value.trim();
+            const certNo = document.getElementById('afcCertNo')?.value.trim();
+            const issueDate = document.getElementById('afcIssueDate')?.value.trim();
+            
+            if (cert && certNo && issueDate) {
+                afcRecords.push({ cert, certNo, issueDate });
+                document.getElementById('afcCertificate').value = '';
+                document.getElementById('afcCertNo').value = '';
+                document.getElementById('afcIssueDate').value = '';
+                renderDynamicTables();
+            }
+        }
+
+        function addMgpsRecord() {
+            const man = document.getElementById('mgpsMan')?.value.trim();
+            const model = document.getElementById('mgpsModel')?.value.trim();
+            const type = document.getElementById('mgpsType')?.value.trim();
+            
+            if (man && model && type) {
+                mgpsRecords.push({ man, model, type });
+                document.getElementById('mgpsMan').value = '';
+                document.getElementById('mgpsModel').value = '';
+                document.getElementById('mgpsType').value = '';
+                renderDynamicTables();
+            }
+        }
+
+        function removeAfcRecord(idx) {
+            afcRecords.splice(idx, 1);
+            renderDynamicTables();
+        }
+
+        function removeMgpsRecord(idx) {
+            mgpsRecords.splice(idx, 1);
+            renderDynamicTables();
+        }
+
+        function renderDynamicTables() {
+            const afcBody = document.getElementById('afc-form-body');
+            if (afcBody) {
+                afcBody.innerHTML = afcRecords.map((r, i) => `
+                    <tr class="border-b border-slate-200"><td class="p-2 font-semibold text-slate-800">${r.cert}</td><td class="p-2 font-mono">${r.certNo}</td><td class="p-2">${r.issueDate}</td><td class="p-2 text-center"><button type="button" onclick="removeAfcRecord(${i})" class="text-red-600 font-bold text-sm">×</button></td></tr>
+                `).join('');
+            }
+
+            const mgpsBody = document.getElementById('mgps-form-body');
+            if (mgpsBody) {
+                mgpsBody.innerHTML = mgpsRecords.map((r, i) => `
+                    <tr class="border-b border-slate-200"><td class="p-2 font-semibold text-slate-800">${r.man}</td><td class="p-2">${r.model}</td><td class="p-2">${r.type}</td><td class="p-2 text-center"><button type="button" onclick="removeMgpsRecord(${i})" class="text-red-600 font-bold text-sm">×</button></td></tr>
+                `).join('');
+            }
+        }
+
+        function buildDocumentPreview() {
+            const standardFields = ['vesselName', 'imoNumber', 'flagState', 'portOfRegistry', 'vesselType', 'grossTonnage', 'beam', 'loa', 'callSign', 'lastDryDock', 'nextDryDock', 'revisionNumber', 'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'wastePolicy', 'contingencyPlan', 'amppFoulingScale', 'amppCoverage', 'amppCoatingCondition'];
+            
+            standardFields.forEach(field => {
+                const el = document.getElementById(field);
+                const target = document.getElementById(`p-${field}`);
+                if (el && target) {
+                    if (field === 'amppCoverage' && el.value) {
+                        target.innerText = el.value + '%';
+                    } else {
+                        target.innerText = el.value || '—';
+                    }
+                }
+            });
+
+            const pAfc = document.getElementById('p-afc-table-body');
+            if (pAfc) {
+                pAfc.innerHTML = afcRecords.length ? afcRecords.map(r => `<tr><td class="border border-slate-400 p-1.5 font-medium">${r.cert}</td><td class="border border-slate-400 p-1.5 font-mono">${r.certNo}</td><td class="border border-slate-400 p-1.5">${r.issueDate}</td></tr>`).join('') : '<tr><td colspan="3" class="border border-slate-400 p-2 text-center text-slate-400 italic">No coatings logged in active configuration profile.</td></tr>';
+            }
+
+            document.getElementById('preview-section')?.classList.remove('hidden');
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             updateWizardControls();
 
