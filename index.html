@@ -85,38 +85,38 @@
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Vessel Type</label>
                         <select id="vesselType" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
-                            <optgroup label="MARPOL / EEDI Statutory Framework">
-                                <option value="Bulk Carrier">Bulk Carrier</option>
-                                <option value="Gas Carrier">Gas Carrier (LPG / Ammonia)</option>
-                                <option value="LNG Carrier">LNG Carrier</option>
-                                <option value="Crude Oil Tanker">Crude Oil Tanker</option>
-                                <option value="Chemical Tanker">Chemical Tanker</option>
-                                <option value="Product Tanker">Product Tanker</option>
-                                <option value="Fully Cellular Containership">Fully Cellular Containership</option>
-                                <option value="General Cargo Ship">General Cargo Ship</option>
-                                <option value="Refrigerated Cargo Carrier">Refrigerated Cargo Carrier</option>
-                                <option value="Combination Carrier">Combination Carrier</option>
-                                <option value="Cruise Passenger Ship">Cruise Passenger Ship</option>
-                                <option value="Ro-Ro Cargo Ship">Ro-Ro Cargo Ship (Vehicle / Pure Car)</option>
-                                <option value="Ro-Ro Passenger Ship">Ro-Ro Passenger Ship (Ro-Pax Ferry)</option>
-                            </optgroup>
-                            <optgroup label="SOLAS &amp; IMO Specialized Codes">
-                                <option value="Passenger Ship">Passenger Ship (Non-Cruise &gt;12 Pax)</option>
-                                <option value="Fishing Vessel">Fishing Vessel (Commercial / Factory)</option>
-                                <option value="Special Purpose Ship">Special Purpose Ship (SPS Code / Research)</option>
-                                <option value="High-Speed Craft">High-Speed Craft (HSC Code)</option>
-                                <option value="Mobile Offshore Drilling Unit">Mobile Offshore Drilling Unit (MODU)</option>
-                                <option value="Nuclear Ship">Nuclear Powered Merchant Ship</option>
-                                <option value="Wing-In-Ground Craft">Wing-In-Ground (WIG) Craft</option>
-                            </optgroup>
-                            <optgroup label="Offshore &amp; Port Infrastructure">
-                                <option value="Offshore Support Vessel">Offshore Support Vessel (OSV / PSV / AHTS)</option>
-                                <option value="Dredger">Dredger / Excavation Craft</option>
-                                <option value="Tugboat">Tugboat / Harbour &amp; Ocean Towage</option>
-                                <option value="Inland Waterways Craft">Inland Navigation Craft</option>
-                                <option value="Other / Non-Specified">Other / GISIS Unclassified Vessel</option>
-                            </optgroup>
-                        </select>
+    <optgroup label="MARPOL / EEDI Statutory Framework">
+        <option value="Bulk Carrier">Bulk Carrier</option>
+        <option value="Gas Carrier">Gas Carrier (LPG / Ammonia)</option>
+        <option value="LNG Carrier">LNG Carrier</option>
+        <option value="Crude Oil Tanker">Crude Oil Tanker</option>
+        <option value="Chemical Tanker">Chemical Tanker</option>
+        <option value="Product Tanker">Product Tanker</option>
+        <option value="Fully Cellular Containership">Fully Cellular Containership</option>
+        <option value="General Cargo Ship">General Cargo Ship</option>
+        <option value="Refrigerated Cargo Carrier">Refrigerated Cargo Carrier</option>
+        <option value="Combination Carrier">Combination Carrier</option>
+        <option value="Cruise Passenger Ship">Cruise Passenger Ship</option>
+        <option value="Ro-Ro Cargo Ship">Ro-Ro Cargo Ship (Vehicle / Pure Car)</option>
+        <option value="Ro-Ro Passenger Ship">Ro-Ro Passenger Ship (Ro-Pax Ferry)</option>
+    </optgroup>
+    <optgroup label="SOLAS &amp; IMO Specialized Codes">
+        <option value="Passenger Ship">Passenger Ship (Non-Cruise &gt;12 Pax)</option>
+        <option value="Fishing Vessel">Fishing Vessel (Commercial / Factory)</option>
+        <option value="Special Purpose Ship">Special Purpose Ship (SPS Code / Research)</option>
+        <option value="High-Speed Craft">High-Speed Craft (HSC Code)</option>
+        <option value="Mobile Offshore Drilling Unit">Mobile Offshore Drilling Unit (MODU)</option>
+        <option value="Nuclear Ship">Nuclear Powered Merchant Ship</option>
+        <option value="Wing-In-Ground Craft">Wing-In-Ground (WIG) Craft</option>
+    </optgroup>
+    <optgroup label="Offshore &amp; Port Infrastructure">
+        <option value="Offshore Support Vessel">Offshore Support Vessel (OSV / PSV / AHTS)</option>
+        <option value="Dredger">Dredger / Excavation Craft</option>
+        <option value="Tugboat">Tugboat / Harbour &amp; Ocean Towage</option>
+        <option value="Inland Waterways Craft">Inland Navigation Craft</option>
+        <option value="Other / Non-Specified">Other / GISIS Unclassified Vessel</option>
+    </optgroup>
+</select>
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Gross Tonnage</label>
@@ -133,22 +133,6 @@
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Call Sign</label>
                         <input type="text" id="callSign" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none uppercase" placeholder="E.g. ABC12">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Vessel Owner</label>
-                        <input type="text" id="vesselOwner" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Ocean Shipping Ltd">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Vessel Operating Manager</label>
-                        <input type="text" id="vesselManager" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Global Maritime Management">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Person Responsible for BFMP</label>
-                        <input type="text" id="bfmpResponsiblePerson" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Capt. J. Smith">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Position / Rank</label>
-                        <input type="text" id="bfmpResponsiblePosition" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Designated Person Ashore / Chief Mate">
                     </div>
                 </div>
                 <div>
@@ -260,14 +244,6 @@
                             <input type="text" id="mgpsType" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="E.g. 22 active transducers (12x80W, 10x100W)">
                         </div>
                     </div>
-                    
-                    <!-- MGPS Document Upload Field Block -->
-                    <div class="mt-4 pt-4 border-t border-slate-200">
-                        <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Upload MGPS Documentation / Technical Specifications</label>
-                        <input type="file" id="mgpsFiles" multiple onchange="handleMgpsFiles(this)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none bg-white">
-                        <p class="text-[10px] text-slate-500 mt-1">Files attached here will automatically generate an index profile link on the official printed compliance record layout.</p>
-                    </div>
-
                     <button type="button" onclick="addMgpsRecord()" class="mt-3 px-4 py-1.5 bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold rounded-lg transition-colors">Add Hardware Log</button>
                     
                     <div class="mt-3 overflow-x-auto">
@@ -351,7 +327,7 @@
             <div id="printable-document" class="p-2 bg-white text-black space-y-8">
                 <div class="border-4 border-double border-slate-900 p-8 text-center my-4 print-page">
                     <h2 class="text-xs font-bold tracking-widest text-slate-600">SHIPSONIC BIOFOULING INTELLIGENCE &amp; COMPLIANCE</h2>
-                    <h1 class="text-2xl font-black uppercase tracking-tight mt-2">DIGITAL BIOFOULING INTEGRITY RECORD</h1>
+                    <h1 class="text-2xl font-black uppercase tracking-tight mt-2">BIOFOULING MANAGEMENT PLAN</h1>
                     <div class="w-32 h-0.5 bg-slate-900 mx-auto my-6"></div>
                     
                     <div class="text-left max-w-xl mx-auto space-y-2 text-xs border border-slate-300 p-4 bg-slate-50/50 rounded-lg">
@@ -360,10 +336,6 @@
                         <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>PORT OF REGISTRY:</strong> <span id="p-portOfRegistry" class="text-right">—</span></div>
                         <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>FLAG STATE:</strong> <span id="p-flagState" class="text-right">—</span></div>
                         <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>VESSEL TYPE CLASS:</strong> <span id="p-vesselType" class="text-right">—</span></div>
-                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>VESSEL OWNER:</strong> <span id="p-vesselOwner" class="text-right">—</span></div>
-                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>VESSEL OPERATING MANAGER:</strong> <span id="p-vesselManager" class="text-right">—</span></div>
-                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>BFMP RESPONSIBLE PERSON:</strong> <span id="p-bfmpResponsiblePerson" class="text-right">—</span></div>
-                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>POSITION / RANK:</strong> <span id="p-bfmpResponsiblePosition" class="text-right">—</span></div>
                         <div class="grid grid-cols-2"><strong>REVISION LEVEL:</strong> <span id="p-revisionNumber" class="text-right">—</span></div>
                     </div>
                 </div>
@@ -397,56 +369,6 @@
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Next Scheduled Drydocking:</span> <strong id="p-nextDryDock">—</strong></div>
                     </div>
                 </div>
-                <!-- SECTION 2 FULL OPERATING PROFILE DATASET -->
-                <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">2. HULL OPERATING PROFILE &amp; STATUTORY DATA FIELD REPORT</h3>
-                    <div class="grid grid-cols-2 gap-x-6 gap-y-1.5 text-xs">
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Service Speed (Knots):</span> <strong id="p-operatingSpeed">—</strong></div>
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Max Operational Laytime Frame (Days):</span> <strong id="p-inservicePeriod">—</strong></div>
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Geographic Trading Routes / Corridors:</span> <strong id="p-operatingRoutes" class="text-right max-w-[200px] truncate">—</strong></div>
-                    </div>
-                    <div class="mt-4">
-                        <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Identified Vulnerable Niche Areas Checklist:</span>
-                        <div id="p-nicheAreasList" class="text-xs text-slate-700 bg-slate-50 border border-slate-200 rounded p-3 min-h-[30px]">None Selected</div>
-                    </div>
-                </div>
-                <!-- SECTION 3 FULL COATING SYSTEMS & MGPS REGISTER -->
-                <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">3. RECORDED ANTI-FOULING LAYER COATINGS &amp; ACTIVE MGPS ARRAY MATRIX</h3>
-                    <div>
-                        <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Active Anti-Fouling Coating Specification Log:</span>
-                        <table class="w-full text-left text-xs bg-white border border-slate-300">
-                            <thead><tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300"><th class="p-2">Coating System Spec</th><th class="p-2">AFS Cert ref No.</th><th class="p-2">Thickness / Rating</th></tr></thead>
-                            <tbody id="p-afc-table-body"><tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr></tbody>
-                        </table>
-                    </div>
-                    <div class="mt-4">
-                        <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Marine Growth Prevention Systems (MGPS) Hardware Log:</span>
-                        <table class="w-full text-left text-xs bg-white border border-slate-300">
-                            <thead><tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300"><th class="p-2">Location / Subsystem</th><th class="p-2">Treatment Principle</th><th class="p-2">Operational Parameters</th></tr></thead>
-                            <tbody id="p-mgps-table-body"><tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr></tbody>
-                        </table>
-                    </div>
-                    <!-- MGPS Dynamic Upload Documentation Print Index Frame -->
-                    <div class="mt-4 border border-slate-300 rounded p-3 bg-slate-50/50">
-                        <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Attached MGPS Documentation Reference Index:</span>
-                        <div id="p-mgpsAttachedFilesIndex" class="text-xs text-slate-600 italic">No files attached to record.</div>
-                    </div>
-                </div>
-                <!-- SECTION 4 OPERATIONAL POLICIES & STRATEGIES -->
-                <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">4. OPERATIONS POLICIES &amp; CONTINGENCY AUDIT STATEMENT</h3>
-                    <div class="space-y-3 text-xs">
-                        <div class="border border-slate-300 rounded p-3 bg-slate-50/50">
-                            <span class="block font-bold text-slate-800 uppercase mb-1">Operational Cleaning Containment Strategy:</span>
-                            <div id="p-wastePolicy" class="text-slate-700 whitespace-pre-wrap">—</div>
-                        </div>
-                        <div class="border border-slate-300 rounded p-3 bg-slate-50/50">
-                            <span class="block font-bold text-slate-800 uppercase mb-1">Extended Inactivity Contingency Framework:</span>
-                            <div id="p-contingencyPlan" class="text-slate-700 whitespace-pre-wrap">—</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -455,13 +377,7 @@
         let currentStep = 1;
         const totalSteps = 5;
         function updateBindings() {
-            const boundFields = [
-                'vesselName', 'imoNumber', 'portOfRegistry', 'flagState', 'vesselType', 'revisionNumber', 
-                'grossTonnage', 'beam', 'loa', 'callSign', 'lastDryDock', 'nextDryDock', 
-                'amppFoulingScale', 'amppCoverage', 'amppCoatingCondition', 'vesselOwner', 
-                'vesselManager', 'bfmpResponsiblePerson', 'bfmpResponsiblePosition',
-                'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'wastePolicy', 'contingencyPlan'
-            ];
+            const boundFields = ['vesselName', 'imoNumber', 'portOfRegistry', 'flagState', 'vesselType', 'revisionNumber', 'grossTonnage', 'beam', 'loa', 'callSign', 'lastDryDock', 'nextDryDock', 'amppFoulingScale', 'amppCoverage', 'amppCoatingCondition'];
             boundFields.forEach(fieldId => {
                 const element = document.getElementById(fieldId);
                 const previewEl = document.getElementById('p-' + fieldId);
@@ -469,13 +385,6 @@
                     previewEl.innerText = element.value || '—';
                 }
             });
-
-            // Synchronize niche areas checklist display in print preview framework
-            const checkedNiches = Array.from(document.querySelectorAll('.niche-check:checked')).map(el => el.value);
-            const nichePreview = document.getElementById('p-nicheAreasList');
-            if(nichePreview) {
-                nichePreview.innerText = checkedNiches.length > 0 ? checkedNiches.join(', ') : 'None Selected';
-            }
         }
         function moveStep(direction) {
             document.getElementById(`panel-${currentStep}`).classList.add('hidden');
@@ -499,67 +408,17 @@
             const cert = document.getElementById('afcCertNo').value;
             const thick = document.getElementById('afcIssueDate').value;
             if(!name || !cert) return alert('Fill core coating info');
-            const row = `<tr><td class="p-2 border-b border-slate-200">${name}</td><td class="p-2 border-b border-slate-200">${cert}</td><td class="p-2 border-b border-slate-200">${thick}</td><td class="p-2 text-center border-b border-slate-200 no-print"><button type="button" class="text-red-600" onclick="removeAfcRow(this)">X</button></td></tr>`;
-            
-            const formBody = document.getElementById('afc-form-body');
-            formBody.insertAdjacentHTML('beforeend', row);
-            
-            // Sync up print table array logic
-            const printBody = document.getElementById('p-afc-table-body');
-            if(printBody.innerHTML.includes('No entries recorded')) printBody.innerHTML = '';
-            const printRow = `<tr><td class="p-2 border-b border-slate-200">${name}</td><td class="p-2 border-b border-slate-200">${cert}</td><td class="p-2 border-b border-slate-200">${thick}</td></tr>`;
-            printBody.insertAdjacentHTML('beforeend', printRow);
-        }
-        function removeAfcRow(btn) {
-            const rowIndex = btn.closest('tr').rowIndex - 1;
-            btn.closest('tr').remove();
-            const printBody = document.getElementById('p-afc-table-body');
-            printBody.deleteRow(rowIndex);
-            if(printBody.rows.length === 0) {
-                printBody.innerHTML = `<tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
-            }
+            const row = `<tr><td class="p-2">${name}</td><td class="p-2">${cert}</td><td class="p-2">${thick}</td><td class="p-2 text-center"><button class="text-red-600" onclick="this.closest('tr').remove()">X</button></td></tr>`;
+            document.getElementById('afc-form-body').insertAdjacentHTML('beforeend', row);
         }
         function addMgpsRecord() {
             const loc = document.getElementById('mgpsMan').value;
             const type = document.getElementById('mgpsModel').value;
             const param = document.getElementById('mgpsType').value;
             if(!loc || !type) return alert('Fill core MGPS hardware details');
-            const row = `<tr><td class="p-2 border-b border-slate-200">${loc}</td><td class="p-2 border-b border-slate-200">${type}</td><td class="p-2 border-b border-slate-200">${param}</td><td class="p-2 text-center border-b border-slate-200 no-print"><button type="button" class="text-red-600" onclick="removeMgpsRow(this)">X</button></td></tr>`;
-            
-            const formBody = document.getElementById('mgps-form-body');
-            formBody.insertAdjacentHTML('beforeend', row);
-
-            // Sync up print table array logic
-            const printBody = document.getElementById('p-mgps-table-body');
-            if(printBody.innerHTML.includes('No entries recorded')) printBody.innerHTML = '';
-            const printRow = `<tr><td class="p-2 border-b border-slate-200">${loc}</td><td class="p-2 border-b border-slate-200">${type}</td><td class="p-2 border-b border-slate-200">${param}</td></tr>`;
-            printBody.insertAdjacentHTML('beforeend', printRow);
+            const row = `<tr><td class="p-2">${loc}</td><td class="p-2">${type}</td><td class="p-2">${param}</td><td class="p-2 text-center"><button class="text-red-600" onclick="this.closest('tr').remove()">X</button></td></tr>`;
+            document.getElementById('mgps-form-body').insertAdjacentHTML('beforeend', row);
         }
-        function removeMgpsRow(btn) {
-            const rowIndex = btn.closest('tr').rowIndex - 1;
-            btn.closest('tr').remove();
-            const printBody = document.getElementById('p-mgps-table-body');
-            printBody.deleteRow(rowIndex);
-            if(printBody.rows.length === 0) {
-                printBody.innerHTML = `<tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
-            }
-        }
-        function handleMgpsFiles(input) {
-            const fileIndexEl = document.getElementById('p-mgpsAttachedFilesIndex');
-            if(input.files && input.files.length > 0) {
-                const names = Array.from(input.files).map(f => f.name);
-                fileIndexEl.innerHTML = `<ul class="list-disc list-inside space-y-0.5">${names.map(name => `<li>Attached Spec Artifact: <strong>${name}</strong></li>`).join('')}</ul>`;
-            } else {
-                fileIndexEl.innerText = 'No files attached to record.';
-            }
-        }
-        
-        // Listen to dynamic change ticks on checkbox triggers to handle preview updates in real-time
-        document.addEventListener('change', function(e) {
-            if(e.target && e.target.classList.contains('niche-check')) {
-                updateBindings();
-            }
-        });
     </script>
 </body>
 </html>
