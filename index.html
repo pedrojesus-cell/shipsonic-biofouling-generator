@@ -68,71 +68,87 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Vessel Name</label>
-                        <input type="text" id="vesselName" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="Bourbon Liberty 313" placeholder="E.g. Shipsonic Vanguard">
+                        <input type="text" id="vesselName" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Shipsonic Vanguard">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">IMO Unique Number</label>
-                        <input type="text" id="imoNumber" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="9619139" placeholder="E.g. 9876543">
+                        <input type="text" id="imoNumber" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. 9876543">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Flag State (ISO)</label>
-                        <input type="text" id="flagState" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none uppercase" value="LU" placeholder="E.g. BR / AU / SG">
+                        <input type="text" id="flagState" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none uppercase" placeholder="E.g. BR / AU / SG">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Port of Registry</label>
-                        <input type="text" id="portOfRegistry" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="Luxembourg" placeholder="E.g. Santos">
+                        <input type="text" id="portOfRegistry" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Santos">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Vessel Type</label>
                         <select id="vesselType" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
-    <optgroup label="MARPOL / EEDI Statutory Framework">
-        <option value="Bulk Carrier">Bulk Carrier</option>
-        <option value="Gas Carrier">Gas Carrier (LPG / Ammonia)</option>
-        <option value="LNG Carrier">LNG Carrier</option>
-        <option value="Crude Oil Tanker">Crude Oil Tanker</option>
-        <option value="Chemical Tanker">Chemical Tanker</option>
-        <option value="Product Tanker">Product Tanker</option>
-        <option value="Fully Cellular Containership">Fully Cellular Containership</option>
-        <option value="General Cargo Ship">General Cargo Ship</option>
-        <option value="Refrigerated Cargo Carrier">Refrigerated Cargo Carrier</option>
-        <option value="Combination Carrier">Combination Carrier</option>
-        <option value="Cruise Passenger Ship">Cruise Passenger Ship</option>
-        <option value="Ro-Ro Cargo Ship">Ro-Ro Cargo Ship (Vehicle / Pure Car)</option>
-        <option value="Ro-Ro Passenger Ship">Ro-Ro Passenger Ship (Ro-Pax Ferry)</option>
-    </optgroup>
-    <optgroup label="SOLAS &amp; IMO Specialized Codes">
-        <option value="Passenger Ship">Passenger Ship (Non-Cruise &gt;12 Pax)</option>
-        <option value="Fishing Vessel">Fishing Vessel (Commercial / Factory)</option>
-        <option value="Special Purpose Ship">Special Purpose Ship (SPS Code / Research)</option>
-        <option value="High-Speed Craft">High-Speed Craft (HSC Code)</option>
-        <option value="Mobile Offshore Drilling Unit">Mobile Offshore Drilling Unit (MODU)</option>
-        <option value="Nuclear Ship">Nuclear Powered Merchant Ship</option>
-        <option value="Wing-In-Ground Craft">Wing-In-Ground (WIG) Craft</option>
-    </optgroup>
-    <optgroup label="Offshore &amp; Port Infrastructure">
-        <option value="Offshore Support Vessel" selected>Offshore Support Vessel (OSV / PSV / AHTS)</option>
-        <option value="Dredger">Dredger / Excavation Craft</option>
-        <option value="Tugboat">Tugboat / Harbour &amp; Ocean Towage</option>
-        <option value="Inland Waterways Craft">Inland Navigation Craft</option>
-        <option value="Other / Non-Specified">Other / GISIS Unclassified Vessel</option>
-    </optgroup>
-</select>
+                            <optgroup label="MARPOL / EEDI Statutory Framework">
+                                <option value="Bulk Carrier">Bulk Carrier</option>
+                                <option value="Gas Carrier">Gas Carrier (LPG / Ammonia)</option>
+                                <option value="LNG Carrier">LNG Carrier</option>
+                                <option value="Crude Oil Tanker">Crude Oil Tanker</option>
+                                <option value="Chemical Tanker">Chemical Tanker</option>
+                                <option value="Product Tanker">Product Tanker</option>
+                                <option value="Fully Cellular Containership">Fully Cellular Containership</option>
+                                <option value="General Cargo Ship">General Cargo Ship</option>
+                                <option value="Refrigerated Cargo Carrier">Refrigerated Cargo Carrier</option>
+                                <option value="Combination Carrier">Combination Carrier</option>
+                                <option value="Cruise Passenger Ship">Cruise Passenger Ship</option>
+                                <option value="Ro-Ro Cargo Ship">Ro-Ro Cargo Ship (Vehicle / Pure Car)</option>
+                                <option value="Ro-Ro Passenger Ship">Ro-Ro Passenger Ship (Ro-Pax Ferry)</option>
+                            </optgroup>
+                            <optgroup label="SOLAS &amp; IMO Specialized Codes">
+                                <option value="Passenger Ship">Passenger Ship (Non-Cruise &gt;12 Pax)</option>
+                                <option value="Fishing Vessel">Fishing Vessel (Commercial / Factory)</option>
+                                <option value="Special Purpose Ship">Special Purpose Ship (SPS Code / Research)</option>
+                                <option value="High-Speed Craft">High-Speed Craft (HSC Code)</option>
+                                <option value="Mobile Offshore Drilling Unit">Mobile Offshore Drilling Unit (MODU)</option>
+                                <option value="Nuclear Ship">Nuclear Powered Merchant Ship</option>
+                                <option value="Wing-In-Ground Craft">Wing-In-Ground (WIG) Craft</option>
+                            </optgroup>
+                            <optgroup label="Offshore &amp; Port Infrastructure">
+                                <option value="Offshore Support Vessel">Offshore Support Vessel (OSV / PSV / AHTS)</option>
+                                <option value="Dredger">Dredger / Excavation Craft</option>
+                                <option value="Tugboat">Tugboat / Harbour &amp; Ocean Towage</option>
+                                <option value="Inland Waterways Craft">Inland Navigation Craft</option>
+                                <option value="Other / Non-Specified">Other / GISIS Unclassified Vessel</option>
+                            </optgroup>
+                        </select>
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Gross Tonnage</label>
-                        <input type="number" id="grossTonnage" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="2245" placeholder="E.g. 45000">
+                        <input type="number" id="grossTonnage" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. 45000">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Molded Beam (m)</label>
-                        <input type="number" step="0.01" id="beam" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="16.00" placeholder="E.g. 32.2">
+                        <input type="number" step="0.01" id="beam" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. 32.2">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Length Overall LOA (m)</label>
-                        <input type="number" step="0.01" id="loa" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="66.00" placeholder="E.g. 225.0">
+                        <input type="number" step="0.01" id="loa" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. 225.0">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Call Sign</label>
-                        <input type="text" id="callSign" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none uppercase" value="LXDH" placeholder="E.g. ABC12">
+                        <input type="text" id="callSign" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none uppercase" placeholder="E.g. ABC12">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Vessel Owner</label>
+                        <input type="text" id="vesselOwner" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Ocean Shipping Ltd">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Vessel Operating Manager</label>
+                        <input type="text" id="vesselManager" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Global Maritime Management">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Person Responsible for BFMP</label>
+                        <input type="text" id="bfmpResponsiblePerson" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Capt. J. Smith">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Position / Rank</label>
+                        <input type="text" id="bfmpResponsiblePosition" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Designated Person Ashore / Chief Mate">
                     </div>
                 </div>
                 <div>
@@ -142,15 +158,15 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Date of Last Dry-docking</label>
-                        <input type="date" id="lastDryDock" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="2024-11-15">
+                        <input type="date" id="lastDryDock" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Next Scheduled Dry-docking</label>
-                        <input type="date" id="nextDryDock" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="2027-11-14">
+                        <input type="date" id="nextDryDock" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Plan Revision Number</label>
-                        <input type="text" id="revisionNumber" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="BFMP-BL313-REV02" placeholder="E.g. BMP-REV-03">
+                        <input type="text" id="revisionNumber" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. BMP-REV-03">
                     </div>
                 </div>
             </div>
@@ -164,34 +180,34 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Typical Operating Speed (knots)</label>
-                        <input type="number" step="0.1" id="operatingSpeed" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="11.5" placeholder="14.5">
+                        <input type="number" step="0.1" id="operatingSpeed" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="14.5">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Max Planned Laytime Period (Days)</label>
-                        <input type="number" id="inservicePeriod" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="28" placeholder="E.g. 21">
+                        <input type="number" id="inservicePeriod" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. 21">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Trading Routes</label>
-                        <input type="text" id="operatingRoutes" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" value="West Africa - Gulf of Guinea Logistics Corridors" placeholder="E.g. Inter-American Corridors / Transpacific">
+                        <input type="text" id="operatingRoutes" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Inter-American Corridors / Transpacific">
                     </div>
                 </div>
                 <div class="mt-6">
                     <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
                         <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Sea-Chests" checked> <span>Sea-Chests</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Dry-docking support strips" checked> <span>Dry-docking support strips</span></label>
+                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Dry-docking support strips"> <span>Dry-docking support strips</span></label>
                         <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Bow and Stern Thrusters" checked> <span>Bow and Stern Thrusters</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Edges and Weld joints" checked> <span>Edges and Weld joints</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Rudder hinges and stabilizer fin apertures" checked> <span>Rudder hinges &amp; stabilizer apertures</span></label>
+                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Edges and Weld joints"> <span>Edges and Weld joints</span></label>
+                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Rudder hinges and stabilizer fin apertures"> <span>Rudder hinges &amp; stabilizer apertures</span></label>
                         <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Propellers and shafts" checked> <span>Propellers and shafts</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Stern tube sea assemblies" checked> <span>Stern tube sea assemblies</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Internal surfaces of rope guards" checked> <span>Internal surfaces of rope guards</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Cathodic protection fittings and anodes" checked> <span>Cathodic protection &amp; anodes</span></label>
+                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Stern tube sea assemblies"> <span>Stern tube sea assemblies</span></label>
+                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Internal surfaces of rope guards"> <span>Internal surfaces of rope guards</span></label>
+                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Cathodic protection fittings and anodes"> <span>Cathodic protection &amp; anodes</span></label>
                         <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Pitot tubes"> <span>Pitot tubes</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Sea inlet pipes and overboard discharges" checked> <span>Sea inlets &amp; overboard discharges</span></label>
+                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Sea inlet pipes and overboard discharges"> <span>Sea inlets &amp; overboard discharges</span></label>
                         <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="A-brackets"> <span>A-brackets</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Inlet gratings" checked> <span>Inlet gratings</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Anchors and Chains" checked> <span>Anchors and Chains</span></label>
+                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Inlet gratings"> <span>Inlet gratings</span></label>
+                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Anchors and Chains"> <span>Anchors and Chains</span></label>
                     </div>
                 </div>
             </div>
@@ -229,7 +245,7 @@
                 </div>
                 <!-- MGPS Hardware Entry Block -->
                 <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 mt-4">
-                    <h4 class="text-xs font-bold text-slate-700 uppercase mb-2 text-teal-900">Add Marine Growth Prevention System (MGPS Array)</h4>
+                    <h4 class="text-xs font-bold text-slate-700 uppercase mb-2 text-teal-900">Add Marine Growth Protection System (MGPS Array)</h4>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-600 mb-0.5">MGPS Placement Location</label>
@@ -244,16 +260,19 @@
                             <input type="text" id="mgpsType" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="E.g. 22 active transducers (12x80W, 10x100W)">
                         </div>
                     </div>
-                    <!-- File Upload Input Block -->
-                    <div class="mt-3">
-                        <label class="block text-[11px] font-semibold text-slate-600 mb-0.5">Attach System Certificates / Evidence Images</label>
-                        <input type="file" id="mgpsFiles" multiple accept="image/*,application/pdf" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none file:mr-4 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100">
+                    
+                    <!-- MGPS Document Upload Field Block -->
+                    <div class="mt-4 pt-4 border-t border-slate-200">
+                        <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Upload MGPS Documentation / Technical Specifications</label>
+                        <input type="file" id="mgpsFiles" multiple onchange="handleMgpsFiles(this)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none bg-white">
+                        <p class="text-[10px] text-slate-500 mt-1">Files attached here will automatically generate an index profile link on the official printed compliance record layout.</p>
                     </div>
+
                     <button type="button" onclick="addMgpsRecord()" class="mt-3 px-4 py-1.5 bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold rounded-lg transition-colors">Add Hardware Log</button>
                     
                     <div class="mt-3 overflow-x-auto">
                         <table class="w-full text-left text-xs bg-white rounded-lg border border-slate-200">
-                            <thead><tr class="bg-slate-100 text-slate-600 font-bold"><th class="p-2">Location / Subsystem</th><th class="p-2">Treatment Principle</th><th class="p-2">Operational Parameters / Attachments</th><th class="p-2 text-center w-12">Action</th></tr></thead>
+                            <thead><tr class="bg-slate-100 text-slate-600 font-bold"><th class="p-2">Location / Subsystem</th><th class="p-2">Treatment Principle</th><th class="p-2">Operational Parameters</th><th class="p-2 text-center w-12">Action</th></tr></thead>
                             <tbody id="mgps-form-body"></tbody>
                         </table>
                     </div>
@@ -269,19 +288,19 @@
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">Scale of Fouling (0 to 5)</label>
                         <select id="amppFoulingScale" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-2 text-sm focus:outline-none">
-                            <option value="0 - Light Slime / Biofilm" selected>0 - Light Slime / Biofilm</option>
+                            <option value="0 - Light Slime / Biofilm">0 - Light Slime / Biofilm</option>
                             <option value="1 - Heavy Slime">1 - Dense Slime Layer</option>
                             <option value="3 - Hard Macrofouling">3 - Macrofouling / Barnacles</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">Percentage of Hull Coverage (%)</label>
-                        <input type="number" id="amppCoverage" min="0" max="100" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-2 text-sm focus:outline-none" value="5" placeholder="E.g. 0">
+                        <input type="number" id="amppCoverage" min="0" max="100" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-2 text-sm focus:outline-none" placeholder="E.g. 0">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">Coating Condition Rating</label>
                         <select id="amppCoatingCondition" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-2 text-sm focus:outline-none">
-                            <option value="Intact / Good Condition" selected>Intact / Good Condition</option>
+                            <option value="Intact / Good Condition">Intact / Good Condition</option>
                             <option value="Minor Degradation">Minor Degradation / Fair</option>
                         </select>
                     </div>
@@ -289,11 +308,11 @@
                 <div class="space-y-4">
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Operational Cleaning Containment Strategy</label>
-                        <textarea id="wastePolicy" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none h-16 bg-white text-slate-800" placeholder="Closed-circuit debris removal parameters...">All macro-fouling remediation requires closed-circuit ROV capture with multi-stage high-efficiency particulate segregation down to 5 microns.</textarea>
+                        <textarea id="wastePolicy" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none h-16 bg-white text-slate-800" placeholder="Closed-circuit debris removal parameters..."></textarea>
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Extended Inactivity Contingency Framework</label>
-                        <textarea id="contingencyPlan" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none h-16 bg-white text-slate-800" placeholder="Tactical procedures...">If anchorage layout exceeds 14 days in tropical bio-risk hot zones, ultrasonic arrays shift to high-amplitude active mode followed by automated hull camera inspection sweeps.</textarea>
+                        <textarea id="contingencyPlan" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none h-16 bg-white text-slate-800" placeholder="Tactical procedures..."></textarea>
                     </div>
                 </div>
             </div>
@@ -341,6 +360,10 @@
                         <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>PORT OF REGISTRY:</strong> <span id="p-portOfRegistry" class="text-right">—</span></div>
                         <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>FLAG STATE:</strong> <span id="p-flagState" class="text-right">—</span></div>
                         <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>VESSEL TYPE CLASS:</strong> <span id="p-vesselType" class="text-right">—</span></div>
+                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>VESSEL OWNER:</strong> <span id="p-vesselOwner" class="text-right">—</span></div>
+                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>VESSEL OPERATING MANAGER:</strong> <span id="p-vesselManager" class="text-right">—</span></div>
+                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>BFMP RESPONSIBLE PERSON:</strong> <span id="p-bfmpResponsiblePerson" class="text-right">—</span></div>
+                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>POSITION / RANK:</strong> <span id="p-bfmpResponsiblePosition" class="text-right">—</span></div>
                         <div class="grid grid-cols-2"><strong>REVISION LEVEL:</strong> <span id="p-revisionNumber" class="text-right">—</span></div>
                     </div>
                 </div>
@@ -374,66 +397,53 @@
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Next Scheduled Drydocking:</span> <strong id="p-nextDryDock">—</strong></div>
                     </div>
                 </div>
-                <!-- SECTION 2: OPERATIONAL PROFILE & NICHE AREAS (FULL BFMP DATA INTEGRATION) -->
+                <!-- SECTION 2 FULL OPERATING PROFILE DATASET -->
                 <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">2. OPERATING PROFILE &amp; EXTRA-VULNERABLE RISK MATRICES</h3>
+                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">2. HULL OPERATING PROFILE &amp; STATUTORY DATA FIELD REPORT</h3>
                     <div class="grid grid-cols-2 gap-x-6 gap-y-1.5 text-xs">
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Operating Speed:</span> <strong id="p-operatingSpeed">—</strong></div>
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Max Planned Laytime Window:</span> <strong id="p-inservicePeriod">—</strong></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Service Speed (Knots):</span> <strong id="p-operatingSpeed">—</strong></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Max Operational Laytime Frame (Days):</span> <strong id="p-inservicePeriod">—</strong></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Geographic Trading Routes / Corridors:</span> <strong id="p-operatingRoutes" class="text-right max-w-[200px] truncate">—</strong></div>
                     </div>
-                    <div class="text-xs space-y-1">
-                        <div><span class="font-bold text-slate-700">Primary Trading Corridors:</span> <span id="p-operatingRoutes" class="font-medium">—</span></div>
-                    </div>
-                    <div class="mt-2">
-                        <span class="block text-xs font-bold uppercase text-slate-800 mb-1">Identified Critical Niche Zones:</span>
-                        <div id="p-nicheAreas" class="text-xs text-slate-700 grid grid-cols-2 gap-1 bg-slate-50 p-3 border border-slate-200 rounded">
-                            <!-- Populated via script -->
-                        </div>
+                    <div class="mt-4">
+                        <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Identified Vulnerable Niche Areas Checklist:</span>
+                        <div id="p-nicheAreasList" class="text-xs text-slate-700 bg-slate-50 border border-slate-200 rounded p-3 min-h-[30px]">None Selected</div>
                     </div>
                 </div>
-                <!-- SECTION 3: ACTIVE SYSTEM MATRICES (FULL BFMP DATA INTEGRATION) -->
+                <!-- SECTION 3 FULL COATING SYSTEMS & MGPS REGISTER -->
                 <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">3. APPLIED ANTI-FOULING COATINGS &amp; ACTIVE HARDWARE LOGS</h3>
-                    <div class="space-y-3">
-                        <div>
-                            <span class="block text-xs font-bold uppercase text-slate-800 mb-1">Hull Coating Infrastructure Logs</span>
-                            <table class="w-full text-left text-xs bg-white border border-slate-300">
-                                <thead><tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300"><th class="p-2 border-r border-slate-300">Coating Specification</th><th class="p-2 border-r border-slate-300">AFS Certificate No.</th><th class="p-2">Thickness / Life</th></tr></thead>
-                                <tbody id="p-afc-body">
-                                    <!-- Dynamic rows -->
-                                </tbody>
-                            </table>
-                        </div>
-                        <div>
-                            <span class="block text-xs font-bold uppercase text-slate-800 mb-1">Marine Growth Prevention System (MGPS) Hardware Arrays</span>
-                            <table class="w-full text-left text-xs bg-white border border-slate-300">
-                                <thead><tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300"><th class="p-2 border-r border-slate-300">Subsystem / Location</th><th class="p-2 border-r border-slate-300">Treatment Principle</th><th class="p-2">Parameters / Attachments</th></tr></thead>
-                                <tbody id="p-mgps-body">
-                                    <!-- Dynamic rows -->
-                                </tbody>
-                            </table>
-                        </div>
+                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">3. RECORDED ANTI-FOULING LAYER COATINGS &amp; ACTIVE MGPS ARRAY MATRIX</h3>
+                    <div>
+                        <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Active Anti-Fouling Coating Specification Log:</span>
+                        <table class="w-full text-left text-xs bg-white border border-slate-300">
+                            <thead><tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300"><th class="p-2">Coating System Spec</th><th class="p-2">AFS Cert ref No.</th><th class="p-2">Thickness / Rating</th></tr></thead>
+                            <tbody id="p-afc-table-body"><tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr></tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4">
+                        <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Marine Growth Prevention Systems (MGPS) Hardware Log:</span>
+                        <table class="w-full text-left text-xs bg-white border border-slate-300">
+                            <thead><tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300"><th class="p-2">Location / Subsystem</th><th class="p-2">Treatment Principle</th><th class="p-2">Operational Parameters</th></tr></thead>
+                            <tbody id="p-mgps-table-body"><tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr></tbody>
+                        </table>
+                    </div>
+                    <!-- MGPS Dynamic Upload Documentation Print Index Frame -->
+                    <div class="mt-4 border border-slate-300 rounded p-3 bg-slate-50/50">
+                        <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Attached MGPS Documentation Reference Index:</span>
+                        <div id="p-mgpsAttachedFilesIndex" class="text-xs text-slate-600 italic">No files attached to record.</div>
                     </div>
                 </div>
-                <!-- ATTACHED EVIDENCE FILES PRINT DISPLAY PANEL -->
+                <!-- SECTION 4 OPERATIONAL POLICIES & STRATEGIES -->
                 <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">APPENDIX: MGPS COMPLIANCE ATTACHMENTS &amp; EVIDENCE</h3>
-                    <div id="p-attached-files-gallery" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                        <!-- Uploaded image renderings or reference indicators will match inline configurations here -->
-                        <div class="text-slate-400 italic p-4 border border-dashed border-slate-300 rounded text-center col-span-2">No files currently attached to record logs.</div>
-                    </div>
-                </div>
-                <!-- SECTION 4: CONTINGENCY FRAMEWORK & REMEDIATION POLICIES (FULL BFMP DATA INTEGRATION) -->
-                <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">4. OPERATIONS RISK REMEDIATION &amp; TACTICAL STRATEGIES</h3>
+                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">4. OPERATIONS POLICIES &amp; CONTINGENCY AUDIT STATEMENT</h3>
                     <div class="space-y-3 text-xs">
-                        <div class="p-3 bg-slate-50 border border-slate-300 rounded">
-                            <span class="block text-[10px] uppercase font-bold text-slate-600 mb-1">In-Water Remediation Cleaning &amp; Waste Containment Policy</span>
-                            <p id="p-wastePolicy" class="text-slate-900 italic font-medium leading-relaxed">—</p>
+                        <div class="border border-slate-300 rounded p-3 bg-slate-50/50">
+                            <span class="block font-bold text-slate-800 uppercase mb-1">Operational Cleaning Containment Strategy:</span>
+                            <div id="p-wastePolicy" class="text-slate-700 whitespace-pre-wrap">—</div>
                         </div>
-                        <div class="p-3 bg-slate-50 border border-slate-300 rounded">
-                            <span class="block text-[10px] uppercase font-bold text-slate-600 mb-1">Extended Out-of-Service / Inactivity Contingency Framework</span>
-                            <p id="p-contingencyPlan" class="text-slate-900 italic font-medium leading-relaxed">—</p>
+                        <div class="border border-slate-300 rounded p-3 bg-slate-50/50">
+                            <span class="block font-bold text-slate-800 uppercase mb-1">Extended Inactivity Contingency Framework:</span>
+                            <div id="p-contingencyPlan" class="text-slate-700 whitespace-pre-wrap">—</div>
                         </div>
                     </div>
                 </div>
@@ -444,77 +454,27 @@
     <script>
         let currentStep = 1;
         const totalSteps = 5;
-        let attachedMgpsFiles = []; // Array to store Base64/Object data of uploaded files for session state tracking
-
         function updateBindings() {
-            const boundFields = ['vesselName', 'imoNumber', 'portOfRegistry', 'flagState', 'vesselType', 'revisionNumber', 'grossTonnage', 'beam', 'loa', 'callSign', 'lastDryDock', 'nextDryDock', 'amppFoulingScale', 'amppCoverage', 'amppCoatingCondition', 'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'wastePolicy', 'contingencyPlan'];
+            const boundFields = [
+                'vesselName', 'imoNumber', 'portOfRegistry', 'flagState', 'vesselType', 'revisionNumber', 
+                'grossTonnage', 'beam', 'loa', 'callSign', 'lastDryDock', 'nextDryDock', 
+                'amppFoulingScale', 'amppCoverage', 'amppCoatingCondition', 'vesselOwner', 
+                'vesselManager', 'bfmpResponsiblePerson', 'bfmpResponsiblePosition',
+                'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'wastePolicy', 'contingencyPlan'
+            ];
             boundFields.forEach(fieldId => {
                 const element = document.getElementById(fieldId);
                 const previewEl = document.getElementById('p-' + fieldId);
                 if (element && previewEl) {
-                    if (fieldId === 'operatingSpeed' && element.value) {
-                        previewEl.innerText = element.value + ' knots';
-                    } else if (fieldId === 'inservicePeriod' && element.value) {
-                        previewEl.innerText = element.value + ' Days';
-                    } else {
-                        previewEl.innerText = element.value || '—';
-                    }
+                    previewEl.innerText = element.value || '—';
                 }
             });
 
-            // Sync niche checkboxes
-            const nicheContainer = document.getElementById('p-nicheAreas');
-            if (nicheContainer) {
-                nicheContainer.innerHTML = '';
-                document.querySelectorAll('.niche-check:checked').forEach(cb => {
-                    const el = document.createElement('div');
-                    el.className = 'flex items-center gap-1 before:content-["•"] before:text-teal-700 before:font-bold';
-                    el.innerText = ' ' + cb.value;
-                    nicheContainer.appendChild(el);
-                });
-                if (nicheContainer.innerHTML === '') {
-                    nicheContainer.innerHTML = '<span class="text-slate-400 italic">No vulnerable niche structures selected.</span>';
-                }
-            }
-
-            // Sync dynamic list components to preview panels
-            document.getElementById('p-afc-body').innerHTML = document.getElementById('afc-form-body').innerHTML;
-            document.getElementById('p-mgps-body').innerHTML = document.getElementById('mgps-form-body').innerHTML;
-            
-            // Strip action columns from copy inside print frame
-            document.querySelectorAll('#p-afc-body td:last-child, #p-mgps-body td:last-child').forEach(td => td.remove());
-
-            // Synchronize the Appendix PDF image files gallery
-            const gallery = document.getElementById('p-attached-files-gallery');
-            if (gallery) {
-                if (attachedMgpsFiles.length === 0) {
-                    gallery.innerHTML = '<div class="text-slate-400 italic p-4 border border-dashed border-slate-300 rounded text-center col-span-2">No files currently attached to record logs.</div>';
-                } else {
-                    gallery.innerHTML = '';
-                    attachedMgpsFiles.forEach(file => {
-                        const wrapper = document.createElement('div');
-                        wrapper.className = 'border border-slate-300 p-2 rounded bg-slate-50 flex flex-col items-center justify-center space-y-1';
-                        
-                        if (file.type.startsWith('image/')) {
-                            const img = document.createElement('img');
-                            img.src = file.data;
-                            img.className = 'max-h-48 object-contain rounded border border-slate-200';
-                            wrapper.appendChild(img);
-                        } else {
-                            const icon = document.createElement('div');
-                            icon.className = 'w-12 h-12 bg-red-100 text-red-700 flex items-center justify-center font-bold rounded text-xs border border-red-200';
-                            icon.innerText = 'PDF';
-                            wrapper.appendChild(icon);
-                        }
-                        
-                        const meta = document.createElement('span');
-                        meta.className = 'text-[10px] text-slate-600 font-mono truncate max-w-full';
-                        meta.innerText = file.name;
-                        wrapper.appendChild(meta);
-                        
-                        gallery.appendChild(wrapper);
-                    });
-                }
+            // Synchronize niche areas checklist display in print preview framework
+            const checkedNiches = Array.from(document.querySelectorAll('.niche-check:checked')).map(el => el.value);
+            const nichePreview = document.getElementById('p-nicheAreasList');
+            if(nichePreview) {
+                nichePreview.innerText = checkedNiches.length > 0 ? checkedNiches.join(', ') : 'None Selected';
             }
         }
         function moveStep(direction) {
@@ -539,75 +499,66 @@
             const cert = document.getElementById('afcCertNo').value;
             const thick = document.getElementById('afcIssueDate').value;
             if(!name || !cert) return alert('Fill core coating info');
-            const row = `<tr><td class="p-2 border-b border-slate-200 border-r border-slate-300">${name}</td><td class="p-2 border-b border-slate-200 border-r border-slate-300">${cert}</td><td class="p-2 border-b border-slate-200">${thick}</td><td class="p-2 text-center border-b border-slate-200"><button type="button" class="text-red-600 font-bold" onclick="this.closest('tr').remove(); updateBindings();">X</button></td></tr>`;
-            document.getElementById('afc-form-body').insertAdjacentHTML('beforeend', row);
-            updateBindings();
+            const row = `<tr><td class="p-2 border-b border-slate-200">${name}</td><td class="p-2 border-b border-slate-200">${cert}</td><td class="p-2 border-b border-slate-200">${thick}</td><td class="p-2 text-center border-b border-slate-200 no-print"><button type="button" class="text-red-600" onclick="removeAfcRow(this)">X</button></td></tr>`;
+            
+            const formBody = document.getElementById('afc-form-body');
+            formBody.insertAdjacentHTML('beforeend', row);
+            
+            // Sync up print table array logic
+            const printBody = document.getElementById('p-afc-table-body');
+            if(printBody.innerHTML.includes('No entries recorded')) printBody.innerHTML = '';
+            const printRow = `<tr><td class="p-2 border-b border-slate-200">${name}</td><td class="p-2 border-b border-slate-200">${cert}</td><td class="p-2 border-b border-slate-200">${thick}</td></tr>`;
+            printBody.insertAdjacentHTML('beforeend', printRow);
+        }
+        function removeAfcRow(btn) {
+            const rowIndex = btn.closest('tr').rowIndex - 1;
+            btn.closest('tr').remove();
+            const printBody = document.getElementById('p-afc-table-body');
+            printBody.deleteRow(rowIndex);
+            if(printBody.rows.length === 0) {
+                printBody.innerHTML = `<tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
+            }
         }
         function addMgpsRecord() {
             const loc = document.getElementById('mgpsMan').value;
             const type = document.getElementById('mgpsModel').value;
             const param = document.getElementById('mgpsType').value;
-            const fileInput = document.getElementById('mgpsFiles');
             if(!loc || !type) return alert('Fill core MGPS hardware details');
+            const row = `<tr><td class="p-2 border-b border-slate-200">${loc}</td><td class="p-2 border-b border-slate-200">${type}</td><td class="p-2 border-b border-slate-200">${param}</td><td class="p-2 text-center border-b border-slate-200 no-print"><button type="button" class="text-red-600" onclick="removeMgpsRow(this)">X</button></td></tr>`;
             
-            // Build attachment names sub-list representation
-            let attachmentsText = '';
-            if (fileInput && fileInput.files.length > 0) {
-                const names = Array.from(fileInput.files).map(f => f.name);
-                attachmentsText = `<div class="text-[10px] text-teal-800 font-semibold mt-1">Attached: ${names.join(', ')}</div>`;
-                
-                // Process files asynchronously for the print view matrix
-                Array.from(fileInput.files).forEach(file => {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        attachedMgpsFiles.push({
-                            name: file.name,
-                            type: file.type,
-                            data: e.target.result
-                        });
-                        updateBindings();
-                    };
-                    reader.readAsDataURL(file);
-                });
-            }
+            const formBody = document.getElementById('mgps-form-body');
+            formBody.insertAdjacentHTML('beforeend', row);
 
-            const row = `<tr><td class="p-2 border-b border-slate-200 border-r border-slate-300">${loc}</td><td class="p-2 border-b border-slate-200 border-r border-slate-300">${type}</td><td class="p-2 border-b border-slate-200">${param}${attachmentsText}</td><td class="p-2 text-center border-b border-slate-200"><button type="button" class="text-red-600 font-bold" onclick="this.closest('tr').remove(); updateBindings();">X</button></td></tr>`;
-            document.getElementById('mgps-form-body').insertAdjacentHTML('beforeend', row);
-            
-            if (fileInput) fileInput.value = ''; // Reset standard uploader field input loop state
-            updateBindings();
+            // Sync up print table array logic
+            const printBody = document.getElementById('p-mgps-table-body');
+            if(printBody.innerHTML.includes('No entries recorded')) printBody.innerHTML = '';
+            const printRow = `<tr><td class="p-2 border-b border-slate-200">${loc}</td><td class="p-2 border-b border-slate-200">${type}</td><td class="p-2 border-b border-slate-200">${param}</td></tr>`;
+            printBody.insertAdjacentHTML('beforeend', printRow);
         }
-
-        // Preload baseline operational records for Bourbon Liberty 313
-        window.addEventListener('DOMContentLoaded', () => {
-            // Add coating sample layer
-            document.getElementById('afcCertificate').value = "Jotun SeaQuantum Ultra III";
-            document.getElementById('afcCertNo').value = "BV-AFS-9619139-A";
-            document.getElementById('afcIssueDate').value = "175 μm / 36 Months";
-            addAfcRecord();
-
-            // Add hardware sample layer
-            document.getElementById('mgpsMan').value = "Sea-Chests & Overboard Pipes";
-            document.getElementById('mgpsModel').value = "Shipsonic Core USAF System";
-            document.getElementById('mgpsType').value = "16 Transducers (80W HF Arrays)";
-            addMgpsRecord();
-
-            // Reset forms fields to pristine state
-            document.getElementById('afcCertificate').value = "";
-            document.getElementById('afcCertNo').value = "";
-            document.getElementById('afcIssueDate').value = "";
-            document.getElementById('mgpsMan').value = "";
-            document.getElementById('mgpsModel').value = "";
-            document.getElementById('mgpsType').value = "";
-
-            // Register checkbox event triggers to auto-update view updates
-            document.querySelectorAll('.niche-check').forEach(cb => {
-                cb.addEventListener('change', updateBindings);
-            });
-            document.getElementById('wastePolicy').addEventListener('input', updateBindings);
-            document.getElementById('contingencyPlan').addEventListener('input', updateBindings);
-
-            updateBindings();
+        function removeMgpsRow(btn) {
+            const rowIndex = btn.closest('tr').rowIndex - 1;
+            btn.closest('tr').remove();
+            const printBody = document.getElementById('p-mgps-table-body');
+            printBody.deleteRow(rowIndex);
+            if(printBody.rows.length === 0) {
+                printBody.innerHTML = `<tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
+            }
+        }
+        function handleMgpsFiles(input) {
+            const fileIndexEl = document.getElementById('p-mgpsAttachedFilesIndex');
+            if(input.files && input.files.length > 0) {
+                const names = Array.from(input.files).map(f => f.name);
+                fileIndexEl.innerHTML = `<ul class="list-disc list-inside space-y-0.5">${names.map(name => `<li>Attached Spec Artifact: <strong>${name}</strong></li>`).join('')}</ul>`;
+            } else {
+                fileIndexEl.innerText = 'No files attached to record.';
+            }
+        }
+        
+        // Listen to dynamic change ticks on checkbox triggers to handle preview updates in real-time
+        document.addEventListener('change', function(e) {
+            if(e.target && e.target.classList.contains('niche-check')) {
+                updateBindings();
+            }
         });
     </script>
 </body>
