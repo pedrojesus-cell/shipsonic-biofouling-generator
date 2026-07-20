@@ -198,6 +198,43 @@
                         <input type="text" id="operatingRoutes" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Inter-American Corridors / Transpacific">
                     </div>
                     <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Typical trading areas</label>
+                        <select id="typicalTradingAreas" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                            <option value="Domestic">Domestic</option>
+                            <option value="great coasting">great coasting</option>
+                            <option value="North Sea and Baltic trade">North Sea and Baltic trade</option>
+                            <option value="European trade">European trade</option>
+                            <option value="short international voyage">short international voyage</option>
+                            <option value="international voyage">international voyage</option>
+                            <option value="overseas voyage">overseas voyage</option>
+                            <option value="unrestricted voyages">unrestricted voyages</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Typical operating areas (Climate Zones)</label>
+                        <select id="typicalClimateZones" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                            <option value="Temperate">Temperate</option>
+                            <option value="semi-temperate">semi-temperate</option>
+                            <option value="tropical">tropical</option>
+                            <option value="arctic">arctic</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Typical salinities of operating areas</label>
+                        <select id="typicalSalinities" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                            <option value="Fresh water">Fresh water</option>
+                            <option value="brackish water">brackish water</option>
+                            <option value="marine water">marine water</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">AFS installed suitable for operating profile</label>
+                        <select id="afsSuitable" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                        </select>
+                    </div>
+                    <div>
                         <label class="block text-xs font-bold text-teal-950 mb-1">Target Brazilian Biogeographic Region (NORMAM-401)</label>
                         <select id="biogeographicRegion" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none bg-teal-50/50">
                             <option value="Not Applicable / International Waters">Not Applicable / International Waters</option>
@@ -207,7 +244,6 @@
                         </select>
                     </div>
                 </div>
-
                 <!-- Interactive Hull Niche Mapping Section -->
                 <div class="mt-6 border border-slate-200 rounded-xl p-4 bg-slate-50/30">
                     <label class="block text-xs font-bold uppercase text-slate-800 mb-3">Interactive Niche Area Mapper (Figure 2 Risk Assessment)</label>
@@ -225,7 +261,6 @@
                                 <!-- Keel Line -->
                                 <line x1="90" y1="170" x2="720" y2="170" stroke="#0f172a" stroke-width="4"/>
                             </svg>
-
                             <!-- Visual Indicator Hotspots linking dynamically to the checkboxes below -->
                             <div class="absolute top-[145px] left-[45px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Rudder, shaft & hinge')">
                                 <div id="dot-rudder" class="w-3 h-3 rounded-full bg-slate-400 border border-white niche-marker-dot"></div>
@@ -285,7 +320,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="mt-4">
                     <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
@@ -379,7 +413,7 @@
             <!-- PANEL 4: AMPP GUIDE 21517-2025 DIGITAL INSIGHTS -->
             <div id="panel-4" class="step-panel hidden space-y-6">
                 <div>
-                    <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-200 pb-2">4. NORMAM-401 &amp; AMPP Guide 21517 Joint Inspection Log</h3>
+                    <h3 class="text-xs font-bold uppercase text-teal-950 border-b border-slate-200 pb-2">4. NORMAM-401 &amp; AMPP Guide 21517 Joint Inspection Log</h3>
                     <p class="text-xs text-slate-500 mt-0.5">Standardized entry parameters for performance monitoring systems and macrofouling metrics.</p>
                 </div>
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -513,6 +547,10 @@
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Service Speed (Knots):</span> <strong id="p-operatingSpeed">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Max Operational Laytime Frame (Days):</span> <strong id="p-inservicePeriod">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Geographic Trading Routes / Corridors:</span> <strong id="p-operatingRoutes" class="text-right max-w-[200px] truncate">—</strong></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Trading Areas:</span> <strong id="p-typicalTradingAreas">—</strong></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Operating Areas (Climate):</span> <strong id="p-typicalClimateZones">—</strong></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Salinities:</span> <strong id="p-typicalSalinities">—</strong></div>
+                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>AFS Suitable for Operating Profile:</span> <strong id="p-afsSuitable">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Target Biogeographic Region:</span> <strong id="p-biogeographicRegion" class="text-right text-teal-900 font-bold">—</strong></div>
                     </div>
                     
@@ -542,7 +580,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="mt-2">
                         <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Identified Vulnerable Niche Areas Checklist:</span>
                         <div id="p-nicheAreasList" class="text-xs text-slate-700 bg-slate-50 border border-slate-200 rounded p-3 min-h-[30px]">None Selected</div>
@@ -563,7 +600,6 @@
                         <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Attached Anti-Fouling Layer Records/Certificates:</span>
                         <div id="p-afcAttachedFilesIndex" class="text-xs text-slate-600 italic">No files attached to record.</div>
                     </div>
-
                     <div class="mt-4">
                         <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Marine Growth Prevention Systems (MGPS) Hardware Log:</span>
                         <table class="w-full text-left text-xs bg-white border border-slate-300">
@@ -598,7 +634,6 @@
     <script>
         let currentStep = 1;
         const totalSteps = 5;
-
         // Visual Niche Area Toggle helper mapping visual diagram dots to form checkboxes
         const elementMapping = {
             'Sea-Chests': { dot: 'dot-seachests', printDot: 'p-dot-seachests', chk: 'chk-seachests' },
@@ -613,7 +648,6 @@
             'Intake or outflow openings': { dot: 'dot-openings', printDot: 'p-dot-openings', chk: 'chk-openings' },
             'Anchors and Chains': { dot: 'dot-anchors', printDot: 'p-dot-anchors', chk: 'chk-anchors' }
         };
-
         function toggleNicheViaVisual(nicheValue) {
             const config = elementMapping[nicheValue];
             if (config) {
@@ -624,7 +658,6 @@
                 }
             }
         }
-
         function syncVisualDots() {
             Object.keys(elementMapping).forEach(key => {
                 const config = elementMapping[key];
@@ -645,7 +678,6 @@
                 }
             });
         }
-
         function updateBindings() {
             const boundFields = [
                 'vesselName', 'imoNumber', 'portOfRegistry', 'flagState', 'vesselType', 'revisionNumber', 
@@ -653,7 +685,7 @@
                 'amppFoulingScale', 'amppCoverage', 'amppCoatingCondition', 'vesselOwner', 
                 'vesselManager', 'bfmpResponsiblePerson', 'bfmpResponsiblePosition',
                 'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'wastePolicy', 'contingencyPlan',
-                'biogeographicRegion'
+                'biogeographicRegion', 'typicalTradingAreas', 'typicalClimateZones', 'typicalSalinities', 'afsSuitable'
             ];
             boundFields.forEach(fieldId => {
                 const element = document.getElementById(fieldId);
@@ -672,7 +704,6 @@
             syncVisualDots();
             evaluateRegulatoryAlert();
         }
-
         function evaluateRegulatoryAlert() {
             const selectVal = document.getElementById('amppFoulingScale').value;
             const screenBanner = document.getElementById('brazilRiskBanner');
@@ -690,7 +721,6 @@
                 }
             }
         }
-
         function moveStep(direction) {
             document.getElementById(`panel-${currentStep}`).classList.add('hidden');
             document.getElementById(`tab-${currentStep}`).className = "border-b-2 border-transparent px-4 py-2 whitespace-nowrap";
@@ -708,7 +738,6 @@
             }
             updateBindings();
         }
-
         function handleAfcFiles(input) {
             const fileIndexEl = document.getElementById('p-afcAttachedFilesIndex');
             if(input.files && input.files.length > 0) {
@@ -718,7 +747,6 @@
                 fileIndexEl.innerText = 'No files attached to record.';
             }
         }
-
         function addAfcRecord() {
             const name = document.getElementById('afcCertificate').value;
             const cert = document.getElementById('afcCertNo').value;
@@ -735,7 +763,6 @@
             const printRow = `<tr><td class="p-2 border-b border-slate-200">${name}</td><td class="p-2 border-b border-slate-200">${cert}</td><td class="p-2 border-b border-slate-200">${thick}</td></tr>`;
             printBody.insertAdjacentHTML('beforeend', printRow);
         }
-
         function removeAfcRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -745,7 +772,6 @@
                 printBody.innerHTML = `<tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
             }
         }
-
         function handleMgpsFiles(input) {
             const fileIndexEl = document.getElementById('p-mgpsAttachedFilesIndex');
             if(input.files && input.files.length > 0) {
@@ -755,7 +781,6 @@
                 fileIndexEl.innerText = 'No files attached to record.';
             }
         }
-
         function addMgpsRecord() {
             const loc = document.getElementById('mgpsMan').value;
             const type = document.getElementById('mgpsModel').value;
@@ -772,7 +797,6 @@
             const printRow = `<tr><td class="p-2 border-b border-slate-200">${loc}</td><td class="p-2 border-b border-slate-200">${type}</td><td class="p-2 border-b border-slate-200">${param}</td></tr>`;
             printBody.insertAdjacentHTML('beforeend', printRow);
         }
-
         function removeMgpsRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -785,11 +809,10 @@
         
         // Listen to dynamic change ticks on checkbox triggers to handle preview updates in real-time
         document.addEventListener('change', function(e) {
-            if(e.target && (e.target.classList.contains('niche-check') || e.target.id === 'biogeographicRegion')) {
+            if(e.target && (e.target.classList.contains('niche-check') || e.target.id === 'biogeographicRegion' || e.target.id === 'typicalTradingAreas' || e.target.id === 'typicalClimateZones' || e.target.id === 'typicalSalinities' || e.target.id === 'afsSuitable')) {
                 updateBindings();
             }
         });
-
         // Initialize display configuration states
         window.onload = function() {
             updateBindings();
