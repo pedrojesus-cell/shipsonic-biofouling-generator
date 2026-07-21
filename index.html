@@ -29,13 +29,6 @@
                 page-break-after: always; 
                 display: block !important; 
             }
-            .niche-marker-dot {
-                background-color: #000000 !important;
-                border: 2px solid #000000 !important;
-            }
-            .niche-marker-line {
-                border-color: #000000 !important;
-            }
         }
     </style>
 </head>
@@ -80,6 +73,10 @@
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">IMO Unique Number</label>
                         <input type="text" id="imoNumber" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. 9876543">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Date of Build (yyyy/mm)</label>
+                        <input type="month" id="dateOfBuild" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Flag State (ISO)</label>
@@ -234,7 +231,7 @@
             <!-- PANEL 2: OPERATIONAL PROFILE -->
             <div id="panel-2" class="step-panel hidden space-y-6">
                 <div>
-                    <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">2. Operating Profile &amp; Risk Exposure Indicators</h3>
+                    <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Operating Profile &amp; Risk Exposure Indicators</h3>
                     <p class="text-xs text-slate-500 mt-0.5">Calculates colonization rate parameters based on layout velocity, laytime windows, and trading routes.</p>
                 </div>
                 
@@ -294,99 +291,65 @@
                         </select>
                     </div>
                 </div>
-                <!-- Interactive Hull Niche Mapping Section -->
-                <div class="mt-6 border border-slate-200 rounded-xl p-4 bg-slate-50/30">
-                    <label class="block text-xs font-bold uppercase text-slate-800 mb-3">Interactive Niche Area Mapper (Figure 2 Risk Assessment)</label>
-                    <div class="relative w-full max-w-3xl mx-auto overflow-x-auto bg-white p-4 border border-slate-200 rounded-lg shadow-sm">
-                        <!-- Hull SVG Schematic Layout -->
-                        <div class="relative min-w-[650px] h-48 mx-auto">
-                            <svg class="w-full h-full text-slate-300" viewBox="0 0 800 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Ship Hull Outer Profile -->
-                                <path d="M40 70 H180 V30 H320 V80 H650 L760 120 C780 135 780 165 740 170 H90 L60 150 L50 110 Z" fill="#475569" opacity="0.85"/>
-                                <!-- Propeller Schematic -->
-                                <circle cx="85" cy="165" r="14" stroke="#e2e8f0" stroke-width="2" fill="#334155"/>
-                                <path d="M85 151 L85 179 M71 165 L99 165" stroke="#e2e8f0" stroke-width="3"/>
-                                <!-- Rudder Schematic -->
-                                <rect x="42" y="140" width="18" height="42" fill="#1e293b" rx="2"/>
-                                <!-- Keel Line -->
-                                <line x1="90" y1="170" x2="720" y2="170" stroke="#0f172a" stroke-width="4"/>
-                            </svg>
-                            <!-- Visual Indicator Hotspots linking dynamically to the checkboxes below -->
-                            <div class="absolute top-[145px] left-[45px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Rudder, shaft & hinge')">
-                                <div id="dot-rudder" class="w-3 h-3 rounded-full bg-slate-400 border border-white niche-marker-dot"></div>
-                                <div class="w-0.5 h-6 bg-red-500 niche-marker-line"></div>
-                                <span class="bg-slate-900 text-white text-[9px] px-1 rounded whitespace-nowrap -mt-1 font-medium">Rudder/Hinge</span>
-                            </div>
-                            <div class="absolute top-[165px] left-[85px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Propellers and shafts')">
-                                <div id="dot-propeller" class="w-3 h-3 rounded-full bg-teal-500 border border-white niche-marker-dot"></div>
-                                <div class="w-0.5 h-6 bg-red-500 niche-marker-line"></div>
-                                <span class="bg-slate-900 text-white text-[9px] px-1 rounded whitespace-nowrap -mt-1 font-medium">Propeller & Shaft</span>
-                            </div>
-                            <div class="absolute top-[155px] left-[150px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Cathodic protection fittings and anodes')">
-                                <div id="dot-anodes" class="w-3 h-3 rounded-full bg-slate-400 border border-white niche-marker-dot"></div>
-                                <div class="w-0.5 h-6 bg-red-500 niche-marker-line"></div>
-                                <span class="bg-slate-900 text-white text-[9px] px-1 rounded whitespace-nowrap -mt-1 font-medium">Anodes</span>
-                            </div>
-                            <div class="absolute top-[155px] left-[220px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Intake or outflow openings')">
-                                <div id="dot-openings" class="w-3 h-3 rounded-full bg-slate-400 border border-white niche-marker-dot"></div>
-                                <div class="w-0.5 h-6 bg-red-500 niche-marker-line"></div>
-                                <span class="bg-slate-900 text-white text-[9px] px-1 rounded whitespace-nowrap -mt-1 font-medium">Intake/Outflow</span>
-                            </div>
-                            <div class="absolute top-[155px] left-[280px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Sea-Chests')">
-                                <div id="dot-seachests" class="w-3 h-3 rounded-full bg-teal-500 border border-white niche-marker-dot"></div>
-                                <div class="w-0.5 h-6 bg-red-500 niche-marker-line"></div>
-                                <span class="bg-slate-900 text-white text-[9px] px-1 rounded whitespace-nowrap -mt-1 font-medium">Sea Chest Box</span>
-                            </div>
-                            <div class="absolute top-[155px] left-[380px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Internal surfaces of rope guards')">
-                                <div id="dot-internal" class="w-3 h-3 rounded-full bg-slate-400 border border-white niche-marker-dot"></div>
-                                <div class="w-0.5 h-6 bg-red-500 niche-marker-line"></div>
-                                <span class="bg-slate-900 text-white text-[9px] px-1 rounded whitespace-nowrap -mt-1 font-medium">Internal Seawater</span>
-                            </div>
-                            <div class="absolute top-[155px] left-[460px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Dry-docking support strips')">
-                                <div id="dot-drydock" class="w-3 h-3 rounded-full bg-slate-400 border border-white niche-marker-dot"></div>
-                                <div class="w-0.5 h-6 bg-red-500 niche-marker-line"></div>
-                                <span class="bg-slate-900 text-white text-[9px] px-1 rounded whitespace-nowrap -mt-1 font-medium">Drydock Strips</span>
-                            </div>
-                            <div class="absolute top-[155px] left-[540px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Edges and Weld joints')">
-                                <div id="dot-bilge" class="w-3 h-3 rounded-full bg-slate-400 border border-white niche-marker-dot"></div>
-                                <div class="w-0.5 h-6 bg-red-500 niche-marker-line"></div>
-                                <span class="bg-slate-900 text-white text-[9px] px-1 rounded whitespace-nowrap -mt-1 font-medium">Bilge Keel</span>
-                            </div>
-                            <div class="absolute top-[135px] left-[630px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Bow and Stern Thrusters')">
-                                <div id="dot-bowthruster" class="w-3 h-3 rounded-full bg-teal-500 border border-white niche-marker-dot"></div>
-                                <div class="w-0.5 h-6 bg-red-500 niche-marker-line"></div>
-                                <span class="bg-slate-900 text-white text-[9px] px-1 rounded whitespace-nowrap -mt-1 font-medium">Bow Thruster</span>
-                            </div>
-                            <div class="absolute top-[100px] left-[680px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Anchors and Chains')">
-                                <div id="dot-anchors" class="w-3 h-3 rounded-full bg-slate-400 border border-white niche-marker-dot"></div>
-                                <div class="w-0.5 h-6 bg-red-500 niche-marker-line"></div>
-                                <span class="bg-slate-900 text-white text-[9px] px-1 rounded whitespace-nowrap -mt-1 font-medium">Anchors/Chains</span>
-                            </div>
-                            <div class="absolute top-[125px] left-[730px] flex flex-col items-center group cursor-pointer" onclick="toggleNicheViaVisual('Rudder hinges and stabilizer fin apertures')">
-                                <div id="dot-paintdamage" class="w-3 h-3 rounded-full bg-slate-400 border border-white niche-marker-dot"></div>
-                                <div class="w-0.5 h-6 bg-red-500 niche-marker-line"></div>
-                                <span class="bg-slate-900 text-white text-[9px] px-1 rounded whitespace-nowrap -mt-1 font-medium">Paint Damage Areas</span>
-                            </div>
+
+                <div class="mt-4">
+                    <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
+                    <p class="text-xs text-slate-500 mb-3">The hull and niche areas where biofouling may accumulate are described below.</p>
+                    
+                    <!-- Subsection: Areas on hull -->
+                    <div class="mb-4">
+                        <h4 class="text-xs font-bold text-teal-900 uppercase mb-2">Areas on hull</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="hull-check" value="flat - bottom - front"> <span>flat - bottom - front</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="hull-check" value="flat - bottom - mid"> <span>flat - bottom - mid</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="hull-check" value="flat - bottom - aft"> <span>flat - bottom - aft</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="hull-check" value="bow dome"> <span>bow dome</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="hull-check" value="boot top"> <span>boot top</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="hull-check" value="vertical sides - port side"> <span>vertical sides - port side</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="hull-check" value="vertical sides - starboard side"> <span>vertical sides - starboard side</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="hull-check" value="vertical side - aft"> <span>vertical side - aft</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="hull-check" value="transom"> <span>transom</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="hull-check" value="others"> <span>others</span></label>
                         </div>
                     </div>
-                </div>
-                <div class="mt-4">
-                    <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" id="chk-seachests" value="Sea-Chests" checked> <span>Sea-Chests</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" id="chk-drydock" value="Dry-docking support strips"> <span>Dry-docking support strips</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" id="chk-bowthruster" value="Bow and Stern Thrusters" checked> <span>Bow and Stern Thrusters</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" id="chk-bilge" value="Edges and Weld joints"> <span>Edges and Weld joints</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" id="chk-paintdamage" value="Rudder hinges and stabilizer fin apertures"> <span>Rudder hinges &amp; stabilizer apertures</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" id="chk-propeller" value="Propellers and shafts" checked> <span>Propellers and shafts</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" id="chk-rudder" value="Rudder, shaft & hinge"> <span>Rudder, shaft &amp; hinge</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" id="chk-internal" value="Internal surfaces of rope guards"> <span>Internal surfaces of rope guards</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" id="chk-anodes" value="Cathodic protection fittings and anodes"> <span>Cathodic protection &amp; anodes</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" id="chk-openings" value="Intake or outflow openings"> <span>Intake or outflow openings</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Sea inlet pipes and overboard discharges"> <span>Sea inlets &amp; overboard discharges</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="A-brackets"> <span>A-brackets</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Inlet gratings"> <span>Inlet gratings</span></label>
-                        <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" id="chk-anchors" value="Anchors and Chains"> <span>Anchors and Chains</span></label>
+
+                    <!-- Subsection: Niche areas -->
+                    <div>
+                        <h4 class="text-xs font-bold text-teal-900 uppercase mb-2">Niche areas</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="Sea chests" checked> <span>Sea chests</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="bow dome"> <span>bow dome</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="bow thruster tunnel" checked> <span>bow thruster tunnel</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="tunnel grates"> <span>tunnel grates</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="cathodic protection anodes"> <span>cathodic protection anodes</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="bilge keels"> <span>bilge keels</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="anchor chain"> <span>anchor chain</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="chain locker"> <span>chain locker</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="stabilizer fins"> <span>stabilizer fins</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="rudder"> <span>rudder</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="dock block positions"> <span>dock block positions</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="A-brackets/stern tube"> <span>A-brackets/stern tube</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="cathodic protection anodes and systems draft"> <span>cathodic protection anodes and systems draft</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="internal pipework"> <span>internal pipework</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="ballast uptake system"> <span>ballast uptake system</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="inlet gratings"> <span>inlet gratings</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="sea inlet pipes"> <span>sea inlet pipes</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="stern thruster"> <span>stern thruster</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="thruster body"> <span>thruster body</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="velocity probes"> <span>velocity probes</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="propeller" checked> <span>propeller</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="propeller shaft"> <span>propeller shaft</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="stern tube seal"> <span>stern tube seal</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="echo sounders"> <span>echo sounders</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="rope guards"> <span>rope guards</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="box coolers"> <span>box coolers</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="moon pools"> <span>moon pools</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="free-flood spaces/voids"> <span>free-flood spaces/voids</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="engine cooling system"> <span>engine cooling system</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="fire-fighting system"> <span>fire-fighting system</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="auxiliary service system"> <span>auxiliary service system</span></label>
+                            <label class="flex items-center space-x-2 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="niche-check" value="others"> <span>others</span></label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -577,6 +540,7 @@
                     <div class="text-left max-w-xl mx-auto space-y-2 text-xs border border-slate-300 p-4 bg-slate-50/50 rounded-lg">
                         <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>VESSEL NAME:</strong> <span id="p-vesselName" class="text-right">—</span></div>
                         <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>IMO REGISTRATION NUMBER:</strong> <span id="p-imoNumber" class="text-right">—</span></div>
+                        <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>DATE OF BUILD:</strong> <span id="p-dateOfBuild" class="text-right">—</span></div>
                         <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>PORT OF REGISTRY:</strong> <span id="p-portOfRegistry" class="text-right">—</span></div>
                         <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>FLAG STATE:</strong> <span id="p-flagState" class="text-right">—</span></div>
                         <div class="grid grid-cols-2 border-b border-slate-200 pb-1"><strong>VESSEL TYPE CLASS:</strong> <span id="p-vesselType" class="text-right">—</span></div>
@@ -652,49 +616,33 @@
                         </table>
                     </div>
                 </div>
-                <!-- SECTION 2 FULL OPERATING PROFILE DATASET WITH SCHEMATIC DIAGRAM -->
+                <!-- SECTION 2 FULL OPERATING PROFILE DATASET -->
                 <div class="print-page space-y-4">
-                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">2. HULL OPERATING PROFILE &amp; STATUTORY DATA FIELD REPORT</h3>
+                    <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">HULL OPERATING PROFILE &amp; STATUTORY DATA FIELD REPORT</h3>
                     <div class="grid grid-cols-2 gap-x-6 gap-y-1.5 text-xs">
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Service Speed (Knots):</span> <strong id="p-operatingSpeed">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Max Operational Laytime Frame (Days):</span> <strong id="p-inservicePeriod">—</strong></div>
-                        <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Geographic Trading Routes / Corridors:</span> <strong id="p-operatingRoutes" class="text-right max-w-[200px] truncate">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Trading Areas:</span> <strong id="p-typicalTradingAreas">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Operating Areas (Climate):</span> <strong id="p-typicalClimateZones">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Typical Salinities:</span> <strong id="p-typicalSalinities">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>AFS Suitable for Operating Profile:</span> <strong id="p-afsSuitable">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Target Biogeographic Region:</span> <strong id="p-biogeographicRegion" class="text-right text-teal-900 font-bold">—</strong></div>
                     </div>
-                    
-                    <!-- Print Layout Niche Visual Matrix -->
-                    <div class="mt-4 border border-slate-300 p-4 rounded bg-white">
-                        <span class="block text-xs font-bold text-slate-800 uppercase mb-2">Figure 2: Risk Profile &amp; Identified Vulnerable Niche Areas Location Map</span>
-                        <div class="relative w-full max-w-2xl mx-auto border border-slate-200 p-2">
-                            <div class="relative w-full h-36">
-                                <svg class="w-full h-full text-slate-400" viewBox="0 0 800 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M40 70 H180 V30 H320 V80 H650 L760 120 C780 135 780 165 740 170 H90 L60 150 L50 110 Z" fill="#64748b"/>
-                                    <circle cx="85" cy="165" r="14" fill="#334155"/>
-                                    <rect x="42" y="140" width="18" height="42" fill="#1e293b"/>
-                                    <line x1="90" y1="170" x2="720" y2="170" stroke="#000000" stroke-width="4"/>
-                                </svg>
-                                <!-- Dynamic marker overlays for print based on selection -->
-                                <div id="p-dot-rudder" class="hidden absolute top-[145px] left-[45px] w-3 h-3 rounded-full bg-black border border-white niche-marker-dot"></div>
-                                <div id="p-dot-propeller" class="hidden absolute top-[165px] left-[85px] w-3 h-3 rounded-full bg-black border border-white niche-marker-dot"></div>
-                                <div id="p-dot-anodes" class="hidden absolute top-[155px] left-[150px] w-3 h-3 rounded-full bg-black border border-white niche-marker-dot"></div>
-                                <div id="p-dot-openings" class="hidden absolute top-[155px] left-[220px] w-3 h-3 rounded-full bg-black border border-white niche-marker-dot"></div>
-                                <div id="p-dot-seachests" class="hidden absolute top-[155px] left-[280px] w-3 h-3 rounded-full bg-black border border-white niche-marker-dot"></div>
-                                <div id="p-dot-internal" class="hidden absolute top-[155px] left-[380px] w-3 h-3 rounded-full bg-black border border-white niche-marker-dot"></div>
-                                <div id="p-dot-drydock" class="hidden absolute top-[155px] left-[460px] w-3 h-3 rounded-full bg-black border border-white niche-marker-dot"></div>
-                                <div id="p-dot-bilge" class="hidden absolute top-[155px] left-[540px] w-3 h-3 rounded-full bg-black border border-white niche-marker-dot"></div>
-                                <div id="p-dot-bowthruster" class="hidden absolute top-[135px] left-[630px] w-3 h-3 rounded-full bg-black border border-white niche-marker-dot"></div>
-                                <div id="p-dot-anchors" class="hidden absolute top-[100px] left-[680px] w-3 h-3 rounded-full bg-black border border-white niche-marker-dot"></div>
-                                <div id="p-dot-paintdamage" class="hidden absolute top-[125px] left-[730px] w-3 h-3 rounded-full bg-black border border-white niche-marker-dot"></div>
+
+                    <div class="mt-4 border-t border-slate-200 pt-3">
+                        <span class="block text-xs font-bold text-slate-800 uppercase mb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</span>
+                        <p class="text-xs text-slate-600 mb-2">The hull and niche areas where biofouling may accumulate are described below.</p>
+                        
+                        <div class="space-y-3">
+                            <div>
+                                <span class="block text-xs font-bold text-teal-950 uppercase mb-1">Areas on hull:</span>
+                                <div id="p-hullAreasList" class="text-xs text-slate-700 bg-slate-50 border border-slate-200 rounded p-2.5 min-h-[30px]">None Selected</div>
+                            </div>
+                            <div>
+                                <span class="block text-xs font-bold text-teal-950 uppercase mb-1">Niche areas:</span>
+                                <div id="p-nicheAreasList" class="text-xs text-slate-700 bg-slate-50 border border-slate-200 rounded p-2.5 min-h-[30px]">None Selected</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mt-2">
-                        <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Identified Vulnerable Niche Areas Checklist:</span>
-                        <div id="p-nicheAreasList" class="text-xs text-slate-700 bg-slate-50 border border-slate-200 rounded p-3 min-h-[30px]">None Selected</div>
                     </div>
                 </div>
                 <!-- SECTION 3 FULL COATING SYSTEMS & MGPS REGISTER -->
@@ -761,57 +709,14 @@
     <script>
         let currentStep = 1;
         const totalSteps = 5;
-        // Visual Niche Area Toggle helper mapping visual diagram dots to form checkboxes
-        const elementMapping = {
-            'Sea-Chests': { dot: 'dot-seachests', printDot: 'p-dot-seachests', chk: 'chk-seachests' },
-            'Dry-docking support strips': { dot: 'dot-drydock', printDot: 'p-dot-drydock', chk: 'chk-drydock' },
-            'Bow and Stern Thrusters': { dot: 'dot-bowthruster', printDot: 'p-dot-bowthruster', chk: 'chk-bowthruster' },
-            'Edges and Weld joints': { dot: 'dot-bilge', printDot: 'p-dot-bilge', chk: 'chk-bilge' },
-            'Rudder hinges and stabilizer fin apertures': { dot: 'dot-paintdamage', printDot: 'p-dot-paintdamage', chk: 'chk-paintdamage' },
-            'Propellers and shafts': { dot: 'dot-propeller', printDot: 'p-dot-propeller', chk: 'chk-propeller' },
-            'Rudder, shaft & hinge': { dot: 'dot-rudder', printDot: 'p-dot-rudder', chk: 'chk-rudder' },
-            'Internal surfaces of rope guards': { dot: 'dot-internal', printDot: 'p-dot-internal', chk: 'chk-internal' },
-            'Cathodic protection fittings and anodes': { dot: 'dot-anodes', printDot: 'p-dot-anodes', chk: 'chk-anodes' },
-            'Intake or outflow openings': { dot: 'dot-openings', printDot: 'p-dot-openings', chk: 'chk-openings' },
-            'Anchors and Chains': { dot: 'dot-anchors', printDot: 'p-dot-anchors', chk: 'chk-anchors' }
-        };
-        function toggleNicheViaVisual(nicheValue) {
-            const config = elementMapping[nicheValue];
-            if (config) {
-                const targetCheckbox = document.getElementById(config.chk);
-                if (targetCheckbox) {
-                    targetCheckbox.checked = !targetCheckbox.checked;
-                    updateBindings();
-                }
-            }
-        }
-        function syncVisualDots() {
-            Object.keys(elementMapping).forEach(key => {
-                const config = elementMapping[key];
-                const checkbox = document.getElementById(config.chk);
-                const dotElement = document.getElementById(config.dot);
-                const printDotElement = document.getElementById(config.printDot);
-                
-                if (checkbox && dotElement) {
-                    if (checkbox.checked) {
-                        dotElement.classList.remove('bg-slate-400');
-                        dotElement.classList.add('bg-teal-500');
-                        if (printDotElement) printDotElement.classList.remove('hidden');
-                    } else {
-                        dotElement.classList.remove('bg-teal-500');
-                        dotElement.classList.add('bg-slate-400');
-                        if (printDotElement) printDotElement.classList.add('hidden');
-                    }
-                }
-            });
-        }
+
         function updateBindings() {
             const boundFields = [
-                'vesselName', 'imoNumber', 'portOfRegistry', 'flagState', 'vesselType', 'revisionNumber', 
+                'vesselName', 'imoNumber', 'dateOfBuild', 'portOfRegistry', 'flagState', 'vesselType', 'revisionNumber', 
                 'grossTonnage', 'beam', 'loa', 'callSign', 'lastDryDock', 'nextDryDock', 
                 'amppFoulingScale', 'amppCoverage', 'amppCoatingCondition', 'vesselOwner', 
                 'vesselManager', 'bfmpResponsiblePerson', 'bfmpResponsiblePosition',
-                'operatingSpeed', 'inservicePeriod', 'operatingRoutes', 'wastePolicy', 'contingencyPlan',
+                'operatingSpeed', 'inservicePeriod', 'wastePolicy', 'contingencyPlan',
                 'biogeographicRegion', 'typicalTradingAreas', 'typicalClimateZones', 'typicalSalinities', 'afsSuitable',
                 'initialInspectionInterval', 'subsequentInspectionInterval', 'proactiveCleaningDesc', 'riskParametersMatrix'
             ];
@@ -822,14 +727,21 @@
                     previewEl.innerText = element.value || '—';
                 }
             });
-            // Synchronize niche areas checklist display in print preview framework
+
+            // Synchronize Areas on Hull checklist preview
+            const checkedHullAreas = Array.from(document.querySelectorAll('.hull-check:checked')).map(el => el.value);
+            const hullPreview = document.getElementById('p-hullAreasList');
+            if(hullPreview) {
+                hullPreview.innerText = checkedHullAreas.length > 0 ? checkedHullAreas.join(', ') : 'None Selected';
+            }
+
+            // Synchronize Niche Areas checklist preview
             const checkedNiches = Array.from(document.querySelectorAll('.niche-check:checked')).map(el => el.value);
             const nichePreview = document.getElementById('p-nicheAreasList');
             if(nichePreview) {
                 nichePreview.innerText = checkedNiches.length > 0 ? checkedNiches.join(', ') : 'None Selected';
             }
             
-            syncVisualDots();
             evaluateRegulatoryAlert();
         }
         function evaluateRegulatoryAlert() {
@@ -967,7 +879,7 @@
         
         // Listen to dynamic change ticks on checkbox triggers to handle preview updates in real-time
         document.addEventListener('change', function(e) {
-            if(e.target && (e.target.classList.contains('niche-check') || e.target.id === 'biogeographicRegion' || e.target.id === 'typicalTradingAreas' || e.target.id === 'typicalClimateZones' || e.target.id === 'typicalSalinities' || e.target.id === 'afsSuitable')) {
+            if(e.target && (e.target.classList.contains('niche-check') || e.target.classList.contains('hull-check') || e.target.id === 'biogeographicRegion' || e.target.id === 'typicalTradingAreas' || e.target.id === 'typicalClimateZones' || e.target.id === 'typicalSalinities' || e.target.id === 'afsSuitable' || e.target.id === 'dateOfBuild')) {
                 updateBindings();
             }
         });
