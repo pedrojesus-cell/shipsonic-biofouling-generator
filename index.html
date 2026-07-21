@@ -612,6 +612,14 @@
                         </div>
                     </div>
 
+                    <!-- Required maintenance and frequency (Automated dynamic selection) -->
+                    <div class="mt-4 pt-3 border-t border-slate-200">
+                        <label class="block text-xs font-bold uppercase text-teal-900 mb-2">Required maintenance and frequency</label>
+                        <div id="mgpsMaintenanceDynamicWrap" class="p-3 bg-white border border-slate-200 rounded-lg text-xs space-y-1">
+                            <!-- Injected dynamically via JS based on mgpsTypeSelect -->
+                        </div>
+                    </div>
+
                     <!-- Operating Conditions / Frequency of Use -->
                     <div class="mt-4 pt-3 border-t border-slate-200">
                         <label class="block text-xs font-bold uppercase text-slate-800 mb-2">Operating Conditions / Frequency of Use (Select all that apply)</label>
@@ -643,7 +651,7 @@
                                 <tr class="bg-slate-100 text-slate-600 font-bold">
                                     <th class="p-2">Manufacturer / Type / Model</th>
                                     <th class="p-2">Operating Conditions</th>
-                                    <th class="p-2">Service Life</th>
+                                    <th class="p-2">Service Life &amp; Maintenance</th>
                                     <th class="p-2">Harmful Discharge</th>
                                     <th class="p-2 text-center w-12">Action</th>
                                 </tr>
@@ -904,7 +912,7 @@
                                 <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300">
                                     <th class="p-2">Manufacturer / Type / Model</th>
                                     <th class="p-2">Operating Conditions</th>
-                                    <th class="p-2">Service Life</th>
+                                    <th class="p-2">Service Life &amp; Maintenance</th>
                                     <th class="p-2">Harmful Discharge</th>
                                 </tr>
                             </thead>
@@ -953,6 +961,51 @@
     <script>
         let currentStep = 1;
         const totalSteps = 5;
+
+        // Dynamic maintenance schedule options map
+        const mgpsMaintenanceData = {
+            "Electrolytic / Sacrificial Anode Systems": [
+                "Daily: Log current and voltage outputs",
+                "Monthly: Check the status of bilge and sea chest structures",
+                "Every 6 Months: Conduct a diver visual inspection",
+                "Every 3 to 5 Years (Dry-Dock): Execute complete anode replacement"
+            ],
+            "Ultrasonic Anti-Fouling (USAF) Systems": [
+                "Weekly: Run control panel diagnostics",
+                "Monthly: Inspect the physical mounting sites",
+                "Every 2 Years: Recalibrate acoustic pulse frequencies",
+                "Condition-Based: Replace failed transducers"
+            ],
+            "Electrochlorination / Sodium Hypochlorite Generation": [
+                "Daily: Monitor cell voltage and flow rates",
+                "Every 1 to 3 Months: Perform acid chemical cleaning (Backwashing)",
+                "Annually: Calibrate the Total Residual Oxidant (TRO) sensors",
+                "Every 5 Years (Dry-Dock): Execute a complete cell overhaul"
+            ],
+            "Ultraviolet (UV) Radiation Systems": [
+                "Weekly: Check the UV intensity meter readings",
+                "Monthly: Inspect and service the automated wiper system",
+                "Every 6 Months: Perform a manual quartz sleeve chemical flush",
+                "Annually (or every 8,000–12,000 hours): Replace the UV-C lamps"
+            ],
+            "Ozonification / Ozone Injection Systems": [
+                "Daily: Conduct ambient air safety checks",
+                "Daily: Monitor the system's Oxidation-Reduction Potential (ORP)",
+                "Every 3 Months: Service the oxygen concentrator",
+                "Annually: Replace the corona-discharge dielectric tubes"
+            ],
+            "Thermal Treatment Systems": [
+                "Monthly: Perform a valve actuation test",
+                "Every 1 to 3 Months (or Region-Dependent)",
+                "Annually: Calibrate all internal pipeline temperature sensors"
+            ],
+            "Alternative Chemical Dosing (Ferrous Chloride / Chemical Pumps)": [
+                "Daily: Conduct a chemical tank level audit",
+                "Monthly: Clean the injection nozzles",
+                "Annually: Overhaul the chemical dosing pumps"
+            ]
+        };
+
         // Toggle text field visibility for dropdowns with "Other"
         function toggleOtherInput(selectId, wrapId) {
             const val = document.getElementById(selectId).value;
@@ -963,6 +1016,7 @@
                 wrap.classList.add('hidden');
             }
         }
+
         // Toggle text field visibility for checkboxes with "Other"
         function toggleOtherCheckboxWrap(chkId, wrapId) {
             setTimeout(() => {
@@ -975,22 +1029,40 @@
                 }
             }, 50);
         }
-        // Toggle MGPS Sacrificial Anode Sub-options Wrap
+
+        // Toggle MGPS Sacrificial Anode Sub-options & Maintenance Dynamic Wrap
         function toggleMgpsTypeOptions() {
             const val = document.getElementById('mgpsTypeSelect').value;
             const anodeWrap = document.getElementById('mgpsAnodeSubWrap');
             const otherWrap = document.getElementById('mgpsTypeOtherWrap');
+            const maintWrap = document.getElementById('mgpsMaintenanceDynamicWrap');
+
             if (val === 'Electrolytic / Sacrificial Anode Systems') {
                 anodeWrap.classList.remove('hidden');
             } else {
                 anodeWrap.classList.add('hidden');
             }
+
             if (val === 'Other') {
                 otherWrap.classList.remove('hidden');
             } else {
                 otherWrap.classList.add('hidden');
             }
+
+            // Render Dynamic Maintenance Checkboxes
+            const items = mgpsMaintenanceData[val];
+            if (items && items.length > 0) {
+                maintWrap.innerHTML = items.map((item, idx) => `
+                    <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50">
+                        <input type="checkbox" class="mgps-maint-chk" value="${item}" checked>
+                        <span>${item}</span>
+                    </label>
+                `).join('');
+            } else {
+                maintWrap.innerHTML = `<span class="text-slate-400 italic">No automated maintenance presets for this selection. Specify in notes if required.</span>`;
+            }
         }
+
         function updateBindings() {
             const boundFields = [
                 'vesselName', 'imoNumber', 'dateOfBuild', 'portOfRegistry', 'flagState', 'vesselType', 'revisionNumber', 
@@ -1023,6 +1095,7 @@
             
             evaluateRegulatoryAlert();
         }
+
         function evaluateRegulatoryAlert() {
             const selectVal = document.getElementById('amppFoulingScale').value;
             const screenBanner = document.getElementById('brazilRiskBanner');
@@ -1040,6 +1113,7 @@
                 }
             }
         }
+
         function moveStep(direction) {
             document.getElementById(`panel-${currentStep}`).classList.add('hidden');
             document.getElementById(`tab-${currentStep}`).className = "border-b-2 border-transparent px-4 py-2 whitespace-nowrap";
@@ -1057,6 +1131,7 @@
             }
             updateBindings();
         }
+
         function handleAfcFiles(input) {
             const fileIndexEl = document.getElementById('p-afcAttachedFilesIndex');
             if(input.files && input.files.length > 0) {
@@ -1066,6 +1141,7 @@
                 fileIndexEl.innerText = 'No files attached to record.';
             }
         }
+
         function addAfcRecord() {
             const name = document.getElementById('afcCertificate').value;
             const cert = document.getElementById('afcCertNo').value;
@@ -1143,6 +1219,7 @@
             </tr>`;
             printBody.insertAdjacentHTML('beforeend', printRow);
         }
+
         function removeAfcRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -1152,6 +1229,7 @@
                 printBody.innerHTML = `<tr><td colspan="4" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
             }
         }
+
         function handleMgpsFiles(input) {
             const fileIndexEl = document.getElementById('p-mgpsAttachedFilesIndex');
             if(input.files && input.files.length > 0) {
@@ -1161,6 +1239,7 @@
                 fileIndexEl.innerText = 'No files attached to record.';
             }
         }
+
         function addMgpsRecord() {
             const manufacturer = document.getElementById('mgpsManufacturerName').value || 'Unspecified';
             const model = document.getElementById('mgpsModelName').value || 'Unspecified';
@@ -1185,22 +1264,30 @@
                 return e.value;
             });
             const opCondStr = opConditions.length > 0 ? opConditions.join(', ') : 'Not Specified';
+
             // Service Life
             let serviceLife = document.getElementById('mgpsServiceLife').value;
             if (serviceLife === 'Other') {
                 const spec = document.getElementById('mgpsServiceLifeOther').value;
                 serviceLife = `Other (${spec || 'Unspecified'})`;
             }
+
+            // Maintenance Tasks
+            const selectedMaint = Array.from(document.querySelectorAll('.mgps-maint-chk:checked')).map(e => e.value);
+            const maintStr = selectedMaint.length > 0 ? selectedMaint.join('; ') : 'None Selected';
+
             // Harmful Discharge
             let discharge = document.getElementById('mgpsDischarge').value;
             if (discharge === 'Other') {
                 const spec = document.getElementById('mgpsDischargeOther').value;
                 discharge = `Other (${spec || 'Unspecified'})`;
             }
+
             const col1 = `<div><strong>Mfr:</strong> ${manufacturer}</div><div><strong>Model:</strong> ${model}</div><div class="text-[11px] text-slate-500"><strong>Type:</strong> ${mgpsType}</div>`;
             const col2 = `<div>${opCondStr}</div>`;
-            const col3 = `<div>${serviceLife}</div>`;
+            const col3 = `<div><strong>Life:</strong> ${serviceLife}</div><div class="text-[10px] text-slate-600 mt-1"><strong>Maint:</strong> ${maintStr}</div>`;
             const col4 = `<div>${discharge}</div>`;
+
             const row = `<tr>
                 <td class="p-2 border-b border-slate-200">${col1}</td>
                 <td class="p-2 border-b border-slate-200">${col2}</td>
@@ -1223,6 +1310,7 @@
             </tr>`;
             printBody.insertAdjacentHTML('beforeend', printRow);
         }
+
         function removeMgpsRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -1232,6 +1320,7 @@
                 printBody.innerHTML = `<tr><td colspan="4" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
             }
         }
+
         function addRevisionRecord() {
             const date = document.getElementById('revDate').value;
             const person = document.getElementById('revPerson').value;
@@ -1253,6 +1342,7 @@
             document.getElementById('revPerson').value = '';
             document.getElementById('revParts').value = '';
         }
+
         function removeRevisionRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -1269,6 +1359,7 @@
                 updateBindings();
             }
         });
+
         // Initialize display configuration states
         window.onload = function() {
             updateBindings();
