@@ -149,7 +149,7 @@
                 </div>
                 <div>
                     <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2 mt-6">BFMP Lifecycle Tracking</h3>
-                    <p class="text-xs text-slate-500 mt-0.5">The plan should be re-evaluated and, if necessary, updated after a dry-docking and/or if any changes are made that have an impact on the anticipated biofouling.</p>
+                    <p class="text-xs text-slate-500 mt-0.5">The plan should be re-evaluated and, if necessary, updated after a dry-docking and/or if any changes are made that have an impact on the anticipated biofouling[cite: 3, 4, 5].</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
@@ -293,7 +293,7 @@
                 </div>
                 <div class="mt-4">
                     <label class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
-                    <p class="text-xs text-slate-500 mb-3">The hull and niche areas where biofouling may accumulate are described below.[cite: 3, 4]</p>
+                    <p class="text-xs text-slate-500 mb-3">The hull and niche areas where biofouling may accumulate are described below[cite: 3, 4, 5].</p>
                     
                     <!-- Subsection: Areas on hull -->
                     <div class="mb-4">
@@ -355,7 +355,7 @@
             <div id="panel-3" class="step-panel hidden space-y-6">
                 <div>
                     <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Active Anti-Fouling Systems &amp; Hardware Matrices</h3>
-                    <p class="text-xs text-slate-500 mt-0.5">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions.</p>
+                    <p class="text-xs text-slate-500 mt-0.5">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions[cite: 3, 4, 5].</p>
                 </div>
                 <!-- Anti-Fouling Coating Entry Block -->
                 <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
@@ -429,7 +429,7 @@
                         </div>
                         <!-- Repair Regime -->
                         <div>
-                            <label class="block font-semibold text-slate-700 mb-1">Repair Regime</label>
+                            <label class="block font-semibold text-slate-700 mb-1">The Repair Regime (Addressing Localized Damage)</label>
                             <select id="afcRepairRegime" onchange="toggleOtherInput('afcRepairRegime', 'afcRepairOtherWrap')" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
                                 <option value="Hydro-blasting / Mechanical Cleaning">Hydro-blasting / Mechanical Cleaning</option>
                                 <option value="Feathering Edges">Feathering Edges</option>
@@ -444,7 +444,7 @@
                         </div>
                         <!-- Maintenance Regime -->
                         <div>
-                            <label class="block font-semibold text-slate-700 mb-1">Maintenance Regime</label>
+                            <label class="block font-semibold text-slate-700 mb-1">Maintenance Regime (Preserving the Current Coating)</label>
                             <select id="afcMaintenanceRegime" onchange="toggleOtherInput('afcMaintenanceRegime', 'afcMaintenanceOtherWrap')" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
                                 <option value="In-Water Hull Inspections">In-Water Hull Inspections</option>
                                 <option value="Gentle Micro-Fouling Removal">Gentle Micro-Fouling Removal</option>
@@ -458,7 +458,7 @@
                         </div>
                         <!-- Renewal Regime -->
                         <div class="md:col-span-2">
-                            <label class="block font-semibold text-slate-700 mb-1">Renewal Regime</label>
+                            <label class="block font-semibold text-slate-700 mb-1">Renewal Regime (Full System Replacement)</label>
                             <select id="afcRenewalRegime" onchange="toggleOtherInput('afcRenewalRegime', 'afcRenewalOtherWrap')" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
                                 <option value="Inter-Coat Compatibility Testing">Inter-Coat Compatibility Testing</option>
                                 <option value="Complete Paint Stripping">Complete Paint Stripping</option>
@@ -553,7 +553,6 @@
                                 <input type="text" id="mgpsTypeOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify custom MGPS type / model...">
                             </div>
                         </div>
-
                         <!-- Sacrificial Anode Sub-options -->
                         <div id="mgpsAnodeSubWrap" class="p-2 bg-teal-50/50 border border-teal-200 rounded-lg">
                             <label class="block font-bold text-teal-950 mb-1">Electrolytic Anode Materials (Select all applied)</label>
@@ -563,7 +562,6 @@
                                 <label class="flex items-center space-x-1.5"><input type="checkbox" class="mgps-anode-sub" value="Ferrous / Iron Anodes (Fe)"> <span>Ferrous / Iron Anodes (Fe)</span></label>
                             </div>
                         </div>
-
                         <!-- System Service Life -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Service Life of MGPS</label>
@@ -580,7 +578,6 @@
                                 <input type="text" id="mgpsServiceLifeOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify service life...">
                             </div>
                         </div>
-
                         <!-- Harmful Discharge Type -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Type(s) of Harmful Discharge from MGPS</label>
@@ -599,7 +596,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Operating Conditions / Frequency of Use -->
                     <div class="mt-4 pt-3 border-t border-slate-200">
                         <label class="block text-xs font-bold uppercase text-slate-800 mb-2">Operating Conditions / Frequency of Use (Select all that apply)</label>
@@ -740,7 +736,6 @@
                 </button>
             </div>
         </form>
-
         <!-- LIVE COMPLIANCE PREVIEW FRAME -->
         <div id="preview-section" class="mt-8 bg-white rounded-xl shadow-md border border-slate-200 p-6">
             <div class="flex justify-between items-center border-b border-slate-200 pb-4 mb-4 no-print">
@@ -849,7 +844,7 @@
                     </div>
                     <div class="mt-4 border-t border-slate-200 pt-3">
                         <span class="block text-xs font-bold text-slate-800 uppercase mb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</span>
-                        <p class="text-xs text-slate-600 mb-2">The hull and niche areas where biofouling may accumulate are described below.</p>
+                        <p class="text-xs text-slate-600 mb-2">The hull and niche areas where biofouling may accumulate are described below[cite: 3, 4, 5].</p>
                         
                         <div class="space-y-3">
                             <div>
@@ -866,7 +861,7 @@
                 <!-- SECTION 3 FULL COATING SYSTEMS & MGPS REGISTER -->
                 <div class="print-page space-y-4">
                     <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">RECORDED ANTI-FOULING LAYER COATINGS &amp; ACTIVE MGPS ARRAY MATRIX</h3>
-                    <p class="text-xs text-slate-600 mb-3">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions.</p>
+                    <p class="text-xs text-slate-600 mb-3">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions[cite: 3, 4, 5].</p>
                     <div>
                         <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Active Anti-Fouling Coating Specification Log:</span>
                         <table class="w-full text-left text-xs bg-white border border-slate-300">
@@ -938,12 +933,10 @@
             </div>
         </div>
     </div>
-
     <!-- Active State & Binding Script Layer Engine -->
     <script>
         let currentStep = 1;
         const totalSteps = 5;
-
         // Toggle text field visibility for dropdowns with "Other"
         function toggleOtherInput(selectId, wrapId) {
             const val = document.getElementById(selectId).value;
@@ -954,7 +947,6 @@
                 wrap.classList.add('hidden');
             }
         }
-
         // Toggle text field visibility for checkboxes with "Other"
         function toggleOtherCheckboxWrap(chkId, wrapId) {
             setTimeout(() => {
@@ -967,26 +959,22 @@
                 }
             }, 50);
         }
-
         // Toggle MGPS Sacrificial Anode Sub-options Wrap
         function toggleMgpsTypeOptions() {
             const val = document.getElementById('mgpsTypeSelect').value;
             const anodeWrap = document.getElementById('mgpsAnodeSubWrap');
             const otherWrap = document.getElementById('mgpsTypeOtherWrap');
-
             if (val === 'Electrolytic / Sacrificial Anode Systems') {
                 anodeWrap.classList.remove('hidden');
             } else {
                 anodeWrap.classList.add('hidden');
             }
-
             if (val === 'Other') {
                 otherWrap.classList.remove('hidden');
             } else {
                 otherWrap.classList.add('hidden');
             }
         }
-
         function updateBindings() {
             const boundFields = [
                 'vesselName', 'imoNumber', 'dateOfBuild', 'portOfRegistry', 'flagState', 'vesselType', 'revisionNumber', 
@@ -1019,7 +1007,6 @@
             
             evaluateRegulatoryAlert();
         }
-
         function evaluateRegulatoryAlert() {
             const selectVal = document.getElementById('amppFoulingScale').value;
             const screenBanner = document.getElementById('brazilRiskBanner');
@@ -1037,7 +1024,6 @@
                 }
             }
         }
-
         function moveStep(direction) {
             document.getElementById(`panel-${currentStep}`).classList.add('hidden');
             document.getElementById(`tab-${currentStep}`).className = "border-b-2 border-transparent px-4 py-2 whitespace-nowrap";
@@ -1055,7 +1041,6 @@
             }
             updateBindings();
         }
-
         function handleAfcFiles(input) {
             const fileIndexEl = document.getElementById('p-afcAttachedFilesIndex');
             if(input.files && input.files.length > 0) {
@@ -1065,7 +1050,6 @@
                 fileIndexEl.innerText = 'No files attached to record.';
             }
         }
-
         function addAfcRecord() {
             const name = document.getElementById('afcCertificate').value;
             const cert = document.getElementById('afcCertNo').value;
@@ -1075,39 +1059,32 @@
                 const spec = document.getElementById('afcClassificationOther').value;
                 classification = `Other (${spec || 'Unspecified'})`;
             }
-
             let biocide = document.getElementById('afcBiocide').value;
             if (biocide === 'Other') {
                 const spec = document.getElementById('afcBiocideOther').value;
                 biocide = `Other (${spec || 'Unspecified'})`;
             }
-
             let thickness = document.getElementById('afcThickness').value;
             if (thickness === 'Other') {
                 const spec = document.getElementById('afcThicknessOther').value;
                 thickness = `Other (${spec || 'Unspecified'})`;
             }
-
             const lifespan = document.getElementById('afcLifespan').value;
-
             let repair = document.getElementById('afcRepairRegime').value;
             if (repair === 'Other') {
                 const spec = document.getElementById('afcRepairOther').value;
                 repair = `Other (${spec || 'Unspecified'})`;
             }
-
             let maintenance = document.getElementById('afcMaintenanceRegime').value;
             if (maintenance === 'Other') {
                 const spec = document.getElementById('afcMaintenanceOther').value;
                 maintenance = `Other (${spec || 'Unspecified'})`;
             }
-
             let renewal = document.getElementById('afcRenewalRegime').value;
             if (renewal === 'Other') {
                 const spec = document.getElementById('afcRenewalOther').value;
                 renewal = `Other (${spec || 'Unspecified'})`;
             }
-
             // Gather selected Cleaning Protocols
             const mechClean = Array.from(document.querySelectorAll('.afc-clean-mech:checked')).map(e => e.value);
             const dryClean = Array.from(document.querySelectorAll('.afc-clean-drydock:checked')).map(e => e.value);
@@ -1118,20 +1095,16 @@
                 }
                 return e.value;
             });
-
             let cleaningSummary = [];
             if (mechClean.length) cleaningSummary.push(`Mechanical: ${mechClean.join(', ')}`);
             if (dryClean.length) cleaningSummary.push(`Dry-Dock: ${dryClean.join(', ')}`);
             if (debrisClean.length) cleaningSummary.push(`Debris/Env: ${debrisClean.join(', ')}`);
             const cleaningStr = cleaningSummary.length > 0 ? cleaningSummary.join(' | ') : 'None Specified';
-
             if(!name || !cert) return alert('Fill core coating name and certificate reference');
-
             const col1 = `<div><strong>Name:</strong> ${name}</div><div class="text-[11px] text-slate-500"><strong>Cert:</strong> ${cert}</div>`;
             const col2 = `<div><strong>Class:</strong> ${classification}</div><div class="text-[11px] text-slate-500"><strong>Biocide:</strong> ${biocide}</div>`;
             const col3 = `<div><strong>DFT:</strong> ${thickness}</div><div class="text-[11px] text-slate-500"><strong>Lifespan:</strong> ${lifespan}</div>`;
             const col4 = `<div class="text-[11px]"><strong>Regimes:</strong> Rep: ${repair}, Maint: ${maintenance}, Ren: ${renewal}</div><div class="text-[10px] text-slate-500 mt-0.5"><strong>Clean:</strong> ${cleaningStr}</div>`;
-
             const row = `<tr>
                 <td class="p-2 border-b border-slate-200">${col1}</td>
                 <td class="p-2 border-b border-slate-200">${col2}</td>
@@ -1154,7 +1127,6 @@
             </tr>`;
             printBody.insertAdjacentHTML('beforeend', printRow);
         }
-
         function removeAfcRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -1164,7 +1136,6 @@
                 printBody.innerHTML = `<tr><td colspan="4" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
             }
         }
-
         function handleMgpsFiles(input) {
             const fileIndexEl = document.getElementById('p-mgpsAttachedFilesIndex');
             if(input.files && input.files.length > 0) {
@@ -1174,14 +1145,12 @@
                 fileIndexEl.innerText = 'No files attached to record.';
             }
         }
-
         function addMgpsRecord() {
             let mgpsType = document.getElementById('mgpsTypeSelect').value;
             if (mgpsType === 'Other') {
                 const spec = document.getElementById('mgpsTypeOther').value;
                 mgpsType = `Other (${spec || 'Unspecified'})`;
             }
-
             // Gather Sacrificial Anodes sub-options
             if (mgpsType.includes('Electrolytic')) {
                 const checkedAnodes = Array.from(document.querySelectorAll('.mgps-anode-sub:checked')).map(e => e.value);
@@ -1189,7 +1158,6 @@
                     mgpsType += `<br><span class="text-[10px] text-teal-800">Anodes: ${checkedAnodes.join(', ')}</span>`;
                 }
             }
-
             // Gather Operating Conditions
             let opConditions = Array.from(document.querySelectorAll('.mgps-op-cond:checked')).map(e => {
                 if (e.value === 'Other') {
@@ -1199,26 +1167,22 @@
                 return e.value;
             });
             const opCondStr = opConditions.length > 0 ? opConditions.join(', ') : 'Not Specified';
-
             // Service Life
             let serviceLife = document.getElementById('mgpsServiceLife').value;
             if (serviceLife === 'Other') {
                 const spec = document.getElementById('mgpsServiceLifeOther').value;
                 serviceLife = `Other (${spec || 'Unspecified'})`;
             }
-
             // Harmful Discharge
             let discharge = document.getElementById('mgpsDischarge').value;
             if (discharge === 'Other') {
                 const spec = document.getElementById('mgpsDischargeOther').value;
                 discharge = `Other (${spec || 'Unspecified'})`;
             }
-
             const col1 = `<div><strong>${mgpsType}</strong></div>`;
             const col2 = `<div>${opCondStr}</div>`;
             const col3 = `<div>${serviceLife}</div>`;
             const col4 = `<div>${discharge}</div>`;
-
             const row = `<tr>
                 <td class="p-2 border-b border-slate-200">${col1}</td>
                 <td class="p-2 border-b border-slate-200">${col2}</td>
@@ -1241,7 +1205,6 @@
             </tr>`;
             printBody.insertAdjacentHTML('beforeend', printRow);
         }
-
         function removeMgpsRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -1251,7 +1214,6 @@
                 printBody.innerHTML = `<tr><td colspan="4" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
             }
         }
-
         function addRevisionRecord() {
             const date = document.getElementById('revDate').value;
             const person = document.getElementById('revPerson').value;
@@ -1273,7 +1235,6 @@
             document.getElementById('revPerson').value = '';
             document.getElementById('revParts').value = '';
         }
-
         function removeRevisionRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -1290,7 +1251,6 @@
                 updateBindings();
             }
         });
-
         // Initialize display configuration states
         window.onload = function() {
             updateBindings();
