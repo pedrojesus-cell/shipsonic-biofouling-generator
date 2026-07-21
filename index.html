@@ -149,7 +149,7 @@
                 </div>
                 <div>
                     <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2 mt-6">BFMP Lifecycle Tracking</h3>
-                    <p class="text-xs text-slate-500 mt-0.5">The plan should be re-evaluated and, if necessary, updated after a dry-docking and/or if any changes are made that have an impact on the anticipated biofouling.</p>
+                    <p class="text-xs text-slate-500 mt-0.5">The plan should be re-evaluated and, if necessary, updated after a dry-docking and/or if any changes are made that have an impact on the anticipated biofouling[cite: 8].</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
@@ -293,7 +293,7 @@
                 </div>
                 <div class="mt-4">
                     <label class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
-                    <p class="text-xs text-slate-500 mb-3">The hull and niche areas where biofouling may accumulate are described below.</p>
+                    <p class="text-xs text-slate-500 mb-3">The hull and niche areas where biofouling may accumulate are described below[cite: 8].</p>
                     
                     <!-- Subsection: Areas on hull -->
                     <div class="mb-4">
@@ -355,7 +355,7 @@
             <div id="panel-3" class="step-panel hidden space-y-6">
                 <div>
                     <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Active Anti-Fouling Systems &amp; Hardware Matrices</h3>
-                    <p class="text-xs text-slate-500 mt-0.5">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions.</p>
+                    <p class="text-xs text-slate-500 mt-0.5">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions[cite: 8].</p>
                 </div>
                 <!-- Anti-Fouling Coating Entry Block -->
                 <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
@@ -371,6 +371,7 @@
                             <label class="block font-semibold text-slate-700 mb-1">AFS Certificate Reference Number</label>
                             <input type="text" id="afcCertNo" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="e.g. CERT-BV-2025-8842K">
                         </div>
+
                         <!-- Coating Classification -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Coating Classification</label>
@@ -386,6 +387,7 @@
                                 <input type="text" id="afcClassificationOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify classification...">
                             </div>
                         </div>
+
                         <!-- Biocide Presence -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Biocide Presence</label>
@@ -401,6 +403,7 @@
                                 <input type="text" id="afcBiocideOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify biocide details...">
                             </div>
                         </div>
+
                         <!-- Typical Thickness -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Typical Thickness (Dry Film Thickness)</label>
@@ -416,6 +419,7 @@
                                 <input type="text" id="afcThicknessOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify thickness parameters...">
                             </div>
                         </div>
+
                         <!-- Expected Lifespan -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Expected Lifespan</label>
@@ -427,6 +431,7 @@
                                 <option value="10 to 15+ years">10 to 15+ years</option>
                             </select>
                         </div>
+
                         <!-- Repair Regime -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">The Repair Regime (Addressing Localized Damage)</label>
@@ -442,6 +447,7 @@
                                 <input type="text" id="afcRepairOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify repair regime...">
                             </div>
                         </div>
+
                         <!-- Maintenance Regime -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Maintenance Regime (Preserving the Current Coating)</label>
@@ -456,6 +462,7 @@
                                 <input type="text" id="afcMaintenanceOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify maintenance regime...">
                             </div>
                         </div>
+
                         <!-- Renewal Regime -->
                         <div class="md:col-span-2">
                             <label class="block font-semibold text-slate-700 mb-1">Renewal Regime (Full System Replacement)</label>
@@ -471,6 +478,27 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Areas on Vessel where AFC is applied -->
+                    <div class="mt-4 pt-3 border-t border-slate-200">
+                        <label class="block text-xs font-bold uppercase text-teal-900 mb-2">Areas on Vessel where AFC is applied</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="afc-applied-area" value="flat-bottom- front"> <span>flat-bottom- front</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="afc-applied-area" value="flat-bottom- mid"> <span>flat-bottom- mid</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="afc-applied-area" value="flat-bottom- aft"> <span>flat-bottom- aft</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="afc-applied-area" value="bow dome"> <span>bow dome</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="afc-applied-area" value="boot top"> <span>boot top</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="afc-applied-area" value="vertical sides – port side"> <span>vertical sides – port side</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="afc-applied-area" value="vertical sides – starboard side"> <span>vertical sides – starboard side</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="afc-applied-area" value="vertical side – aft"> <span>vertical side – aft</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50"><input type="checkbox" class="afc-applied-area" value="transom"> <span>transom</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-md hover:bg-slate-50" onclick="toggleOtherCheckboxWrap('chkAfcAreaOther', 'afcAreaOtherWrap')"><input type="checkbox" id="chkAfcAreaOther" class="afc-applied-area" value="Other"> <span>Other</span></label>
+                        </div>
+                        <div id="afcAreaOtherWrap" class="hidden mt-2 max-w-md">
+                            <input type="text" id="afcAreaOther" class="w-full border border-slate-300 rounded px-2 py-1 text-xs" placeholder="Specify other AFC application area...">
+                        </div>
+                    </div>
+
                     <!-- Cleaning Protocols Section -->
                     <div class="mt-4 pt-3 border-t border-slate-200">
                         <label class="block text-xs font-bold uppercase text-slate-800 mb-2">Cleaning Protocols</label>
@@ -520,7 +548,7 @@
                             <thead>
                                 <tr class="bg-slate-100 text-slate-600 font-bold">
                                     <th class="p-2">Coating Spec / Cert</th>
-                                    <th class="p-2">Class / Biocide</th>
+                                    <th class="p-2">Class / Biocide / Areas</th>
                                     <th class="p-2">Thickness / Lifespan</th>
                                     <th class="p-2">Regimes &amp; Protocols</th>
                                     <th class="p-2 text-center w-12">Action</th>
@@ -612,6 +640,48 @@
                         </div>
                     </div>
 
+                    <!-- Areas on Vessels where MGPS is applied -->
+                    <div class="mt-4 pt-3 border-t border-slate-200">
+                        <label class="block text-xs font-bold uppercase text-teal-900 mb-2">Areas on Vessels where MGPS is applied</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="Sea chests" checked> <span>Sea chests</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="bow dome"> <span>bow dome</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="bow thruster tunnel"> <span>bow thruster tunnel</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="tunnel grates"> <span>tunnel grates</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="cathodic protection anodes"> <span>cathodic protection anodes</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="bilge keels"> <span>bilge keels</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="anchor chain"> <span>anchor chain</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="chain locker"> <span>chain locker</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="stabilizer fins"> <span>stabilizer fins</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="rudder"> <span>rudder</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="dock block positions"> <span>dock block positions</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="A-brackets/stern tube"> <span>A-brackets/stern tube</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="cathodic protection anodes and systems draft"> <span>cathodic protection anodes and systems draft</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="internal pipework"> <span>internal pipework</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="ballast uptake system"> <span>ballast uptake system</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="inlet gratings"> <span>inlet gratings</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="sea inlet pipes"> <span>sea inlet pipes</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="stern thruster"> <span>stern thruster</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="thruster body"> <span>thruster body</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="velocity probes"> <span>velocity probes</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="propeller"> <span>propeller</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="propeller shaft"> <span>propeller shaft</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="stern tube seal"> <span>stern tube seal</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="echo sounders"> <span>echo sounders</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="rope guards"> <span>rope guards</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="box coolers"> <span>box coolers</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="moon pools"> <span>moon pools</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="free-flood spaces/voids"> <span>free-flood spaces/voids</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="engine cooling system"> <span>engine cooling system</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="fire-fighting system"> <span>fire-fighting system</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50"><input type="checkbox" class="mgps-applied-area" value="auxiliary service system"> <span>auxiliary service system</span></label>
+                            <label class="flex items-center space-x-1.5 p-1 border border-slate-200 rounded hover:bg-slate-50" onclick="toggleOtherCheckboxWrap('chkMgpsAreaOther', 'mgpsAreaOtherWrap')"><input type="checkbox" id="chkMgpsAreaOther" class="mgps-applied-area" value="Other"> <span>Other</span></label>
+                        </div>
+                        <div id="mgpsAreaOtherWrap" class="hidden mt-2 max-w-md">
+                            <input type="text" id="mgpsAreaOther" class="w-full border border-slate-300 rounded px-2 py-1 text-xs" placeholder="Specify other MGPS application area...">
+                        </div>
+                    </div>
+
                     <!-- Required maintenance and frequency (Automated dynamic selection) -->
                     <div class="mt-4 pt-3 border-t border-slate-200">
                         <label class="block text-xs font-bold uppercase text-teal-900 mb-2">Required maintenance and frequency</label>
@@ -650,7 +720,7 @@
                             <thead>
                                 <tr class="bg-slate-100 text-slate-600 font-bold">
                                     <th class="p-2">Manufacturer / Type / Model</th>
-                                    <th class="p-2">Operating Conditions</th>
+                                    <th class="p-2">Operating Conditions &amp; Areas</th>
                                     <th class="p-2">Service Life &amp; Maintenance</th>
                                     <th class="p-2">Harmful Discharge</th>
                                     <th class="p-2 text-center w-12">Action</th>
@@ -868,7 +938,7 @@
                     </div>
                     <div class="mt-4 border-t border-slate-200 pt-3">
                         <span class="block text-xs font-bold text-slate-800 uppercase mb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</span>
-                        <p class="text-xs text-slate-600 mb-2">The hull and niche areas where biofouling may accumulate are described below[cite: 6].</p>
+                        <p class="text-xs text-slate-600 mb-2">The hull and niche areas where biofouling may accumulate are described below[cite: 8].</p>
                         
                         <div class="space-y-3">
                             <div>
@@ -885,14 +955,14 @@
                 <!-- SECTION 3 FULL COATING SYSTEMS & MGPS REGISTER -->
                 <div class="print-page space-y-4">
                     <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">RECORDED ANTI-FOULING LAYER COATINGS &amp; ACTIVE MGPS ARRAY MATRIX</h3>
-                    <p class="text-xs text-slate-600 mb-3">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions[cite: 6].</p>
+                    <p class="text-xs text-slate-600 mb-3">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions[cite: 8].</p>
                     <div>
                         <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Active Anti-Fouling Coating Specification Log:</span>
                         <table class="w-full text-left text-xs bg-white border border-slate-300">
                             <thead>
                                 <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300">
                                     <th class="p-2">Coating Spec / Cert</th>
-                                    <th class="p-2">Class / Biocide</th>
+                                    <th class="p-2">Class / Biocide / Areas</th>
                                     <th class="p-2">Thickness / Lifespan</th>
                                     <th class="p-2">Regimes &amp; Protocols</th>
                                 </tr>
@@ -911,7 +981,7 @@
                             <thead>
                                 <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300">
                                     <th class="p-2">Manufacturer / Type / Model</th>
-                                    <th class="p-2">Operating Conditions</th>
+                                    <th class="p-2">Operating Conditions &amp; Areas</th>
                                     <th class="p-2">Service Life &amp; Maintenance</th>
                                     <th class="p-2">Harmful Discharge</th>
                                 </tr>
@@ -1177,6 +1247,17 @@
                 const spec = document.getElementById('afcRenewalOther').value;
                 renewal = `Other (${spec || 'Unspecified'})`;
             }
+
+            // Gather selected AFC Applied Areas
+            let afcAreas = Array.from(document.querySelectorAll('.afc-applied-area:checked')).map(e => {
+                if (e.value === 'Other') {
+                    const spec = document.getElementById('afcAreaOther').value;
+                    return `Other (${spec || 'Unspecified'})`;
+                }
+                return e.value;
+            });
+            const afcAreaStr = afcAreas.length > 0 ? afcAreas.join(', ') : 'None Specified';
+
             // Gather selected Cleaning Protocols
             const mechClean = Array.from(document.querySelectorAll('.afc-clean-mech:checked')).map(e => e.value);
             const dryClean = Array.from(document.querySelectorAll('.afc-clean-drydock:checked')).map(e => e.value);
@@ -1187,16 +1268,20 @@
                 }
                 return e.value;
             });
+
             let cleaningSummary = [];
             if (mechClean.length) cleaningSummary.push(`Mechanical: ${mechClean.join(', ')}`);
             if (dryClean.length) cleaningSummary.push(`Dry-Dock: ${dryClean.join(', ')}`);
             if (debrisClean.length) cleaningSummary.push(`Debris/Env: ${debrisClean.join(', ')}`);
             const cleaningStr = cleaningSummary.length > 0 ? cleaningSummary.join(' | ') : 'None Specified';
+
             if(!name || !cert) return alert('Fill core coating name and certificate reference');
+
             const col1 = `<div><strong>Name:</strong> ${name}</div><div class="text-[11px] text-slate-500"><strong>Cert:</strong> ${cert}</div>`;
-            const col2 = `<div><strong>Class:</strong> ${classification}</div><div class="text-[11px] text-slate-500"><strong>Biocide:</strong> ${biocide}</div>`;
+            const col2 = `<div><strong>Class:</strong> ${classification}</div><div class="text-[11px] text-slate-500"><strong>Biocide:</strong> ${biocide}</div><div class="text-[10px] text-teal-900 mt-0.5"><strong>Areas:</strong> ${afcAreaStr}</div>`;
             const col3 = `<div><strong>DFT:</strong> ${thickness}</div><div class="text-[11px] text-slate-500"><strong>Lifespan:</strong> ${lifespan}</div>`;
             const col4 = `<div class="text-[11px]"><strong>Regimes:</strong> Rep: ${repair}, Maint: ${maintenance}, Ren: ${renewal}</div><div class="text-[10px] text-slate-500 mt-0.5"><strong>Clean:</strong> ${cleaningStr}</div>`;
+
             const row = `<tr>
                 <td class="p-2 border-b border-slate-200">${col1}</td>
                 <td class="p-2 border-b border-slate-200">${col2}</td>
@@ -1255,6 +1340,7 @@
                     mgpsType += `<br><span class="text-[10px] text-teal-800">Anodes: ${checkedAnodes.join(', ')}</span>`;
                 }
             }
+
             // Gather Operating Conditions
             let opConditions = Array.from(document.querySelectorAll('.mgps-op-cond:checked')).map(e => {
                 if (e.value === 'Other') {
@@ -1264,6 +1350,16 @@
                 return e.value;
             });
             const opCondStr = opConditions.length > 0 ? opConditions.join(', ') : 'Not Specified';
+
+            // Gather MGPS Applied Areas
+            let mgpsAreas = Array.from(document.querySelectorAll('.mgps-applied-area:checked')).map(e => {
+                if (e.value === 'Other') {
+                    const spec = document.getElementById('mgpsAreaOther').value;
+                    return `Other (${spec || 'Unspecified'})`;
+                }
+                return e.value;
+            });
+            const mgpsAreaStr = mgpsAreas.length > 0 ? mgpsAreas.join(', ') : 'None Specified';
 
             // Service Life
             let serviceLife = document.getElementById('mgpsServiceLife').value;
@@ -1284,7 +1380,7 @@
             }
 
             const col1 = `<div><strong>Mfr:</strong> ${manufacturer}</div><div><strong>Model:</strong> ${model}</div><div class="text-[11px] text-slate-500"><strong>Type:</strong> ${mgpsType}</div>`;
-            const col2 = `<div>${opCondStr}</div>`;
+            const col2 = `<div><strong>Op:</strong> ${opCondStr}</div><div class="text-[10px] text-teal-900 mt-1"><strong>Areas:</strong> ${mgpsAreaStr}</div>`;
             const col3 = `<div><strong>Life:</strong> ${serviceLife}</div><div class="text-[10px] text-slate-600 mt-1"><strong>Maint:</strong> ${maintStr}</div>`;
             const col4 = `<div>${discharge}</div>`;
 
