@@ -149,7 +149,7 @@
                 </div>
                 <div>
                     <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2 mt-6">BFMP Lifecycle Tracking</h3>
-                    <p class="text-xs text-slate-500 mt-0.5">The plan should be re-evaluated and, if necessary, updated after a dry-docking and/or if any changes are made that have an impact on the anticipated biofouling.[cite: 3]</p>
+                    <p class="text-xs text-slate-500 mt-0.5">The plan should be re-evaluated and, if necessary, updated after a dry-docking and/or if any changes are made that have an impact on the anticipated biofouling.[cite: 3, 4]</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
@@ -293,7 +293,7 @@
                 </div>
                 <div class="mt-4">
                     <label class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
-                    <p class="text-xs text-slate-500 mb-3">The hull and niche areas where biofouling may accumulate are described below.[cite: 3]</p>
+                    <p class="text-xs text-slate-500 mb-3">The hull and niche areas where biofouling may accumulate are described below.[cite: 3, 4]</p>
                     
                     <!-- Subsection: Areas on hull -->
                     <div class="mb-4">
@@ -355,7 +355,7 @@
             <div id="panel-3" class="step-panel hidden space-y-6">
                 <div>
                     <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Active Anti-Fouling Systems &amp; Hardware Matrices</h3>
-                    <p class="text-xs text-slate-500 mt-0.5">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions.</p>
+                    <p class="text-xs text-slate-500 mt-0.5">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions.[cite: 3, 4]</p>
                 </div>
                 <!-- Anti-Fouling Coating Entry Block -->
                 <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
@@ -371,11 +371,10 @@
                             <label class="block font-semibold text-slate-700 mb-1">AFS Certificate Reference Number</label>
                             <input type="text" id="afcCertNo" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="E.g. CERT-BV-2025-8842K">
                         </div>
-
                         <!-- Coating Classification -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Coating Classification</label>
-                            <select id="afcClassification" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
+                            <select id="afcClassification" onchange="toggleOtherInput('afcClassification', 'afcClassificationOtherWrap')" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
                                 <option value="Self-Polishing Copolymer (SPC)">Self-Polishing Copolymer (SPC)</option>
                                 <option value="Controlled Depletion Polymer (CDP)">Controlled Depletion Polymer (CDP)</option>
                                 <option value="Hard Matrix / Contact Leaching">Hard Matrix / Contact Leaching</option>
@@ -383,12 +382,14 @@
                                 <option value="Hard Inert Epoxies">Hard Inert Epoxies</option>
                                 <option value="Other">Other</option>
                             </select>
+                            <div id="afcClassificationOtherWrap" class="hidden mt-1">
+                                <input type="text" id="afcClassificationOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify classification...">
+                            </div>
                         </div>
-
                         <!-- Biocide Presence -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Biocide Presence</label>
-                            <select id="afcBiocide" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
+                            <select id="afcBiocide" onchange="toggleOtherInput('afcBiocide', 'afcBiocideOtherWrap')" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
                                 <option value="Yes (Copper / Co-biocides)">Yes (Copper / Co-biocides)</option>
                                 <option value="Yes (Copper / Zinc pyrithione)">Yes (Copper / Zinc pyrithione)</option>
                                 <option value="Yes (High Copper load)">Yes (High Copper load)</option>
@@ -396,12 +397,14 @@
                                 <option value="No (Biocide-Free Resins)">No (Biocide-Free Resins)</option>
                                 <option value="Other">Other</option>
                             </select>
+                            <div id="afcBiocideOtherWrap" class="hidden mt-1">
+                                <input type="text" id="afcBiocideOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify biocide details...">
+                            </div>
                         </div>
-
                         <!-- Typical Thickness -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Typical Thickness (Dry Film Thickness)</label>
-                            <select id="afcThickness" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
+                            <select id="afcThickness" onchange="toggleOtherInput('afcThickness', 'afcThicknessOtherWrap')" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
                                 <option value="100 μm to 150 μm per coat(Total system: 250–300 μm)">100 μm to 150 μm per coat(Total system: 250–300 μm)</option>
                                 <option value="100 μm to 125 μm per coat(Total system: 200–250 μm)">100 μm to 125 μm per coat(Total system: 200–250 μm)</option>
                                 <option value="75 μm to 100 μm per coat(Total system: 150–200 μm)">75 μm to 100 μm per coat(Total system: 150–200 μm)</option>
@@ -409,8 +412,10 @@
                                 <option value="200 μm to 400 μm total system">200 μm to 400 μm total system</option>
                                 <option value="Other">Other</option>
                             </select>
+                            <div id="afcThicknessOtherWrap" class="hidden mt-1">
+                                <input type="text" id="afcThicknessOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify thickness parameters...">
+                            </div>
                         </div>
-
                         <!-- Expected Lifespan -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Expected Lifespan</label>
@@ -422,11 +427,10 @@
                                 <option value="10 to 15+ years">10 to 15+ years</option>
                             </select>
                         </div>
-
                         <!-- Repair Regime -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Repair Regime</label>
-                            <select id="afcRepairRegime" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
+                            <select id="afcRepairRegime" onchange="toggleOtherInput('afcRepairRegime', 'afcRepairOtherWrap')" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
                                 <option value="Hydro-blasting / Mechanical Cleaning">Hydro-blasting / Mechanical Cleaning</option>
                                 <option value="Feathering Edges">Feathering Edges</option>
                                 <option value="Substrate Priming">Substrate Priming</option>
@@ -434,33 +438,39 @@
                                 <option value="Target Layering">Target Layering</option>
                                 <option value="Other">Other</option>
                             </select>
+                            <div id="afcRepairOtherWrap" class="hidden mt-1">
+                                <input type="text" id="afcRepairOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify repair regime...">
+                            </div>
                         </div>
-
                         <!-- Maintenance Regime -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Maintenance Regime</label>
-                            <select id="afcMaintenanceRegime" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
+                            <select id="afcMaintenanceRegime" onchange="toggleOtherInput('afcMaintenanceRegime', 'afcMaintenanceOtherWrap')" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
                                 <option value="In-Water Hull Inspections">In-Water Hull Inspections</option>
                                 <option value="Gentle Micro-Fouling Removal">Gentle Micro-Fouling Removal</option>
                                 <option value="Niche Area Enforcement">Niche Area Enforcement</option>
                                 <option value="Dry-Dock Block Rotation">Dry-Dock Block Rotation</option>
                                 <option value="Other">Other</option>
                             </select>
+                            <div id="afcMaintenanceOtherWrap" class="hidden mt-1">
+                                <input type="text" id="afcMaintenanceOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify maintenance regime...">
+                            </div>
                         </div>
-
                         <!-- Renewal Regime -->
                         <div class="md:col-span-2">
                             <label class="block font-semibold text-slate-700 mb-1">Renewal Regime</label>
-                            <select id="afcRenewalRegime" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
+                            <select id="afcRenewalRegime" onchange="toggleOtherInput('afcRenewalRegime', 'afcRenewalOtherWrap')" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
                                 <option value="Inter-Coat Compatibility Testing">Inter-Coat Compatibility Testing</option>
                                 <option value="Complete Paint Stripping">Complete Paint Stripping</option>
                                 <option value="Strict Environmental Controls">Strict Environmental Controls</option>
                                 <option value="Overcoating Windows">Overcoating Windows</option>
                                 <option value="Other">Other</option>
                             </select>
+                            <div id="afcRenewalOtherWrap" class="hidden mt-1">
+                                <input type="text" id="afcRenewalOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify renewal regime...">
+                            </div>
                         </div>
                     </div>
-
                     <!-- Cleaning Protocols Section -->
                     <div class="mt-4 pt-3 border-t border-slate-200">
                         <label class="block text-xs font-bold uppercase text-slate-800 mb-2">Cleaning Protocols</label>
@@ -475,7 +485,6 @@
                                     <label class="flex items-center space-x-1.5"><input type="checkbox" class="afc-clean-mech" value="Heavy-Duty Stiff Brushes / Metal Scrapers"> <span>Heavy-Duty Stiff Brushes / Metal Scrapers</span></label>
                                 </div>
                             </div>
-
                             <!-- Dry-Dock / Haul-Out Cleaning -->
                             <div class="p-2 border border-slate-200 rounded-lg bg-white">
                                 <span class="font-bold text-teal-900 block mb-1">Dry-Dock / Haul-Out Cleaning</span>
@@ -485,19 +494,20 @@
                                     <label class="flex items-center space-x-1.5"><input type="checkbox" class="afc-clean-drydock" value="Manual Plastic Scrapers"> <span>Manual Plastic Scrapers</span></label>
                                 </div>
                             </div>
-
                             <!-- Debris Containment & Environmental -->
                             <div class="p-2 border border-slate-200 rounded-lg bg-white">
                                 <span class="font-bold text-teal-900 block mb-1">Debris Containment &amp; Environmental</span>
                                 <div class="space-y-1">
                                     <label class="flex items-center space-x-1.5"><input type="checkbox" class="afc-clean-debris" value="Capture and Reclamation Systems"> <span>Capture and Reclamation Systems</span></label>
                                     <label class="flex items-center space-x-1.5"><input type="checkbox" class="afc-clean-debris" value="In-Water Biomass Filtration"> <span>In-Water Biomass Filtration</span></label>
-                                    <label class="flex items-center space-x-1.5"><input type="checkbox" class="afc-clean-debris" value="Other"> <span>Other</span></label>
+                                    <label class="flex items-center space-x-1.5" onclick="toggleOtherCheckboxWrap('chkAfcDebrisOther', 'afcDebrisOtherWrap')"><input type="checkbox" id="chkAfcDebrisOther" class="afc-clean-debris" value="Other"> <span>Other</span></label>
+                                </div>
+                                <div id="afcDebrisOtherWrap" class="hidden mt-1.5">
+                                    <input type="text" id="afcDebrisOther" class="w-full border border-slate-300 rounded px-2 py-0.5 text-xs" placeholder="Specify debris protocol...">
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <!-- AFC Multi-file Upload Field -->
                     <div class="mt-4 pt-3 border-t border-slate-200">
                         <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Upload Anti-Fouling Coating Records / Certificates (Supports Multiple Files)</label>
@@ -520,21 +530,91 @@
                         </table>
                     </div>
                 </div>
+
                 <!-- MGPS Hardware Entry Block -->
-                <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 mt-4">
-                    <h4 class="text-xs font-bold text-slate-700 uppercase mb-2 text-teal-900">Add Marine Growth Protection System (MGPS Array)</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
+                <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 mt-6">
+                    <h4 class="text-xs font-bold text-slate-700 uppercase mb-3 text-teal-900">Add Marine Growth Protection System (MGPS Array)</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                        <!-- Manufacturer, models & type of MGPS -->
                         <div>
-                            <label class="block text-[11px] font-semibold text-slate-600 mb-0.5">MGPS Placement Location</label>
-                            <input type="text" id="mgpsMan" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="E.g. 4x Recessed Sea-Chest Box Coolers">
+                            <label class="block font-semibold text-slate-700 mb-1">Manufacturer(s), models and type(s) of MGPS</label>
+                            <select id="mgpsTypeSelect" onchange="toggleMgpsTypeOptions()" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
+                                <option value="Electrolytic / Sacrificial Anode Systems">Electrolytic / Sacrificial Anode Systems</option>
+                                <option value="Ultrasonic Anti-Fouling (USAF) Systems">Ultrasonic Anti-Fouling (USAF) Systems</option>
+                                <option value="Electrochlorination / Sodium Hypochlorite Generation">Electrochlorination / Sodium Hypochlorite Generation</option>
+                                <option value="Ultraviolet (UV) Radiation Systems">Ultraviolet (UV) Radiation Systems</option>
+                                <option value="Ozonification / Ozone Injection Systems">Ozonification / Ozone Injection Systems</option>
+                                <option value="Thermal Treatment Systems">Thermal Treatment Systems</option>
+                                <option value="Alternative Chemical Dosing (Ferrous Chloride / Chemical Pumps)">Alternative Chemical Dosing (Ferrous Chloride / Chemical Pumps)</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div id="mgpsTypeOtherWrap" class="hidden mt-1">
+                                <input type="text" id="mgpsTypeOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify custom MGPS type / model...">
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-[11px] font-semibold text-slate-600 mb-0.5">System Treatment Type</label>
-                            <input type="text" id="mgpsModel" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="E.g. Shipsonic Ultrasonic Anti-fouling (USAF)">
+
+                        <!-- Sacrificial Anode Sub-options -->
+                        <div id="mgpsAnodeSubWrap" class="p-2 bg-teal-50/50 border border-teal-200 rounded-lg">
+                            <label class="block font-bold text-teal-950 mb-1">Electrolytic Anode Materials (Select all applied)</label>
+                            <div class="space-y-1">
+                                <label class="flex items-center space-x-1.5"><input type="checkbox" class="mgps-anode-sub" value="Copper Anodes (Cu)"> <span>Copper Anodes (Cu)</span></label>
+                                <label class="flex items-center space-x-1.5"><input type="checkbox" class="mgps-anode-sub" value="Aluminum Anodes (Al)"> <span>Aluminum Anodes (Al)</span></label>
+                                <label class="flex items-center space-x-1.5"><input type="checkbox" class="mgps-anode-sub" value="Ferrous / Iron Anodes (Fe)"> <span>Ferrous / Iron Anodes (Fe)</span></label>
+                            </div>
                         </div>
+
+                        <!-- System Service Life -->
                         <div>
-                            <label class="block text-[11px] font-semibold text-slate-600 mb-0.5">Dosing Parameters</label>
-                            <input type="text" id="mgpsType" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="E.g. 22 active transducers (12x80W, 10x100W)">
+                            <label class="block font-semibold text-slate-700 mb-1">Service Life of MGPS</label>
+                            <select id="mgpsServiceLife" onchange="toggleOtherInput('mgpsServiceLife', 'mgpsServiceLifeOtherWrap')" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
+                                <option value="1 to 2 Years (Corrosive chemicals degrade seals)">1 to 2 Years (Corrosive chemicals degrade seals)</option>
+                                <option value="8,000 to 12,000 Hours (Roughly 1 to 1.5 years of continuous use)">8,000 to 12,000 Hours (Roughly 1 to 1.5 years of continuous use)</option>
+                                <option value="2 to 4 Years (High-voltage stress breaks down tubes)">2 to 4 Years (High-voltage stress breaks down tubes)</option>
+                                <option value="4 to 6 Years (Plating degrades from acid washes)">4 to 6 Years (Plating degrades from acid washes)</option>
+                                <option value="5 to 7 Years (Degrades due to thermal/vibration stress)">5 to 7 Years (Degrades due to thermal/vibration stress)</option>
+                                <option value="5 to 10 Years (Standard mechanical wear limits)">5 to 10 Years (Standard mechanical wear limits)</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div id="mgpsServiceLifeOtherWrap" class="hidden mt-1">
+                                <input type="text" id="mgpsServiceLifeOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify service life...">
+                            </div>
+                        </div>
+
+                        <!-- Harmful Discharge Type -->
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Type(s) of Harmful Discharge from MGPS</label>
+                            <select id="mgpsDischarge" onchange="toggleOtherInput('mgpsDischarge', 'mgpsDischargeOtherWrap')" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
+                                <option value="Heavy Metal Toxins & Gelatinous Flocculants">Heavy Metal Toxins &amp; Gelatinous Flocculants</option>
+                                <option value="Disinfection By-Products / DBPs (Electrochlorination & Ozonification)">Disinfection By-Products / DBPs (Electrochlorination &amp; Ozonification)</option>
+                                <option value="None (Zero Chemical/Metal Discharge)">None (Zero Chemical/Metal Discharge)</option>
+                                <option value="Halogenated Disinfection By-Products (DBPs) & Active Residual Oxidants">Halogenated Disinfection By-Products (DBPs) &amp; Active Residual Oxidants</option>
+                                <option value="Brominated Disinfection By-Products (DBPs)">Brominated Disinfection By-Products (DBPs)</option>
+                                <option value="Biomass / Organic Load Shock">Biomass / Organic Load Shock</option>
+                                <option value="Persistent Synthetic Toxins & Metallic Oxide Staining">Persistent Synthetic Toxins &amp; Metallic Oxide Staining</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div id="mgpsDischargeOtherWrap" class="hidden mt-1">
+                                <input type="text" id="mgpsDischargeOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify harmful discharge type...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Operating Conditions / Frequency of Use -->
+                    <div class="mt-4 pt-3 border-t border-slate-200">
+                        <label class="block text-xs font-bold uppercase text-slate-800 mb-2">Operating Conditions / Frequency of Use (Select all that apply)</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 text-xs">
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-lg bg-white"><input type="checkbox" class="mgps-op-cond" value="Continuous (Dynamic linked)"> <span>Continuous (Dynamic linked)</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-lg bg-white"><input type="checkbox" class="mgps-op-cond" value="100% Constant (Intermittent Pulse)"> <span>100% Constant (Intermittent Pulse)</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-lg bg-white"><input type="checkbox" class="mgps-op-cond" value="Continuous / Demand-Based"> <span>Continuous / Demand-Based</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-lg bg-white"><input type="checkbox" class="mgps-op-cond" value="Continuous (Whenever flow is active)"> <span>Continuous (Whenever flow is active)</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-lg bg-white"><input type="checkbox" class="mgps-op-cond" value="Intermittent / Cyclical Dosing"> <span>Intermittent / Cyclical Dosing</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-lg bg-white"><input type="checkbox" class="mgps-op-cond" value="Periodic / Shock Treatment"> <span>Periodic / Shock Treatment</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-lg bg-white"><input type="checkbox" class="mgps-op-cond" value="Intermittent / Proactive Micro-Dosing"> <span>Intermittent / Proactive Micro-Dosing</span></label>
+                            <label class="flex items-center space-x-1.5 p-1.5 border border-slate-200 rounded-lg bg-white" onclick="toggleOtherCheckboxWrap('chkMgpsOpOther', 'mgpsOpOtherWrap')"><input type="checkbox" id="chkMgpsOpOther" class="mgps-op-cond" value="Other"> <span>Other</span></label>
+                        </div>
+                        <div id="mgpsOpOtherWrap" class="hidden mt-2 max-w-md">
+                            <input type="text" id="mgpsOpOther" class="w-full border border-slate-300 rounded px-2 py-1 text-xs" placeholder="Specify operating conditions...">
                         </div>
                     </div>
                     
@@ -543,11 +623,19 @@
                         <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Upload MGPS Documentation / Technical Specifications (Supports Multiple Files)</label>
                         <input type="file" id="mgpsFiles" multiple onchange="handleMgpsFiles(this)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none bg-white">
                     </div>
-                    <button type="button" onclick="addMgpsRecord()" class="mt-3 px-4 py-1.5 bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold rounded-lg transition-colors">Add Hardware Log</button>
+                    <button type="button" onclick="addMgpsRecord()" class="mt-3 px-4 py-1.5 bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold rounded-lg transition-colors">Add MGPS Hardware Log</button>
                     
                     <div class="mt-3 overflow-x-auto">
                         <table class="w-full text-left text-xs bg-white rounded-lg border border-slate-200">
-                            <thead><tr class="bg-slate-100 text-slate-600 font-bold"><th class="p-2">Location / Subsystem</th><th class="p-2">Treatment Principle</th><th class="p-2">Operational Parameters</th><th class="p-2 text-center w-12">Action</th></tr></thead>
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-600 font-bold">
+                                    <th class="p-2">Manufacturer / Type / Model</th>
+                                    <th class="p-2">Operating Conditions</th>
+                                    <th class="p-2">Service Life</th>
+                                    <th class="p-2">Harmful Discharge</th>
+                                    <th class="p-2 text-center w-12">Action</th>
+                                </tr>
+                            </thead>
                             <tbody id="mgps-form-body"></tbody>
                         </table>
                     </div>
@@ -652,6 +740,7 @@
                 </button>
             </div>
         </form>
+
         <!-- LIVE COMPLIANCE PREVIEW FRAME -->
         <div id="preview-section" class="mt-8 bg-white rounded-xl shadow-md border border-slate-200 p-6">
             <div class="flex justify-between items-center border-b border-slate-200 pb-4 mb-4 no-print">
@@ -760,7 +849,7 @@
                     </div>
                     <div class="mt-4 border-t border-slate-200 pt-3">
                         <span class="block text-xs font-bold text-slate-800 uppercase mb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</span>
-                        <p class="text-xs text-slate-600 mb-2">The hull and niche areas where biofouling may accumulate are described below.[cite: 3]</p>
+                        <p class="text-xs text-slate-600 mb-2">The hull and niche areas where biofouling may accumulate are described below.[cite: 3, 4]</p>
                         
                         <div class="space-y-3">
                             <div>
@@ -777,7 +866,7 @@
                 <!-- SECTION 3 FULL COATING SYSTEMS & MGPS REGISTER -->
                 <div class="print-page space-y-4">
                     <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">RECORDED ANTI-FOULING LAYER COATINGS &amp; ACTIVE MGPS ARRAY MATRIX</h3>
-                    <p class="text-xs text-slate-600 mb-3">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions.</p>
+                    <p class="text-xs text-slate-600 mb-3">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions.[cite: 3, 4]</p>
                     <div>
                         <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Active Anti-Fouling Coating Specification Log:</span>
                         <table class="w-full text-left text-xs bg-white border border-slate-300">
@@ -800,8 +889,15 @@
                     <div class="mt-4">
                         <span class="block text-xs font-bold text-slate-800 uppercase mb-1">Marine Growth Prevention Systems (MGPS) Hardware Log:</span>
                         <table class="w-full text-left text-xs bg-white border border-slate-300">
-                            <thead><tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300"><th class="p-2">Location / Subsystem</th><th class="p-2">Treatment Principle</th><th class="p-2">Operational Parameters</th></tr></thead>
-                            <tbody id="p-mgps-table-body"><tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr></tbody>
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300">
+                                    <th class="p-2">Manufacturer / Type / Model</th>
+                                    <th class="p-2">Operating Conditions</th>
+                                    <th class="p-2">Service Life</th>
+                                    <th class="p-2">Harmful Discharge</th>
+                                </tr>
+                            </thead>
+                            <tbody id="p-mgps-table-body"><tr><td colspan="4" class="p-2 text-center text-slate-400">No entries recorded</td></tr></tbody>
                         </table>
                     </div>
                     <!-- MGPS Documentation Print Index Frame without profile links -->
@@ -842,10 +938,54 @@
             </div>
         </div>
     </div>
+
     <!-- Active State & Binding Script Layer Engine -->
     <script>
         let currentStep = 1;
         const totalSteps = 5;
+
+        // Toggle text field visibility for dropdowns with "Other"
+        function toggleOtherInput(selectId, wrapId) {
+            const val = document.getElementById(selectId).value;
+            const wrap = document.getElementById(wrapId);
+            if (val === 'Other') {
+                wrap.classList.remove('hidden');
+            } else {
+                wrap.classList.add('hidden');
+            }
+        }
+
+        // Toggle text field visibility for checkboxes with "Other"
+        function toggleOtherCheckboxWrap(chkId, wrapId) {
+            setTimeout(() => {
+                const chk = document.getElementById(chkId);
+                const wrap = document.getElementById(wrapId);
+                if (chk && chk.checked) {
+                    wrap.classList.remove('hidden');
+                } else if (wrap) {
+                    wrap.classList.add('hidden');
+                }
+            }, 50);
+        }
+
+        // Toggle MGPS Sacrificial Anode Sub-options Wrap
+        function toggleMgpsTypeOptions() {
+            const val = document.getElementById('mgpsTypeSelect').value;
+            const anodeWrap = document.getElementById('mgpsAnodeSubWrap');
+            const otherWrap = document.getElementById('mgpsTypeOtherWrap');
+
+            if (val === 'Electrolytic / Sacrificial Anode Systems') {
+                anodeWrap.classList.remove('hidden');
+            } else {
+                anodeWrap.classList.add('hidden');
+            }
+
+            if (val === 'Other') {
+                otherWrap.classList.remove('hidden');
+            } else {
+                otherWrap.classList.add('hidden');
+            }
+        }
 
         function updateBindings() {
             const boundFields = [
@@ -879,6 +1019,7 @@
             
             evaluateRegulatoryAlert();
         }
+
         function evaluateRegulatoryAlert() {
             const selectVal = document.getElementById('amppFoulingScale').value;
             const screenBanner = document.getElementById('brazilRiskBanner');
@@ -896,6 +1037,7 @@
                 }
             }
         }
+
         function moveStep(direction) {
             document.getElementById(`panel-${currentStep}`).classList.add('hidden');
             document.getElementById(`tab-${currentStep}`).className = "border-b-2 border-transparent px-4 py-2 whitespace-nowrap";
@@ -913,6 +1055,7 @@
             }
             updateBindings();
         }
+
         function handleAfcFiles(input) {
             const fileIndexEl = document.getElementById('p-afcAttachedFilesIndex');
             if(input.files && input.files.length > 0) {
@@ -922,21 +1065,59 @@
                 fileIndexEl.innerText = 'No files attached to record.';
             }
         }
+
         function addAfcRecord() {
             const name = document.getElementById('afcCertificate').value;
             const cert = document.getElementById('afcCertNo').value;
-            const classification = document.getElementById('afcClassification').value;
-            const biocide = document.getElementById('afcBiocide').value;
-            const thickness = document.getElementById('afcThickness').value;
+            
+            let classification = document.getElementById('afcClassification').value;
+            if (classification === 'Other') {
+                const spec = document.getElementById('afcClassificationOther').value;
+                classification = `Other (${spec || 'Unspecified'})`;
+            }
+
+            let biocide = document.getElementById('afcBiocide').value;
+            if (biocide === 'Other') {
+                const spec = document.getElementById('afcBiocideOther').value;
+                biocide = `Other (${spec || 'Unspecified'})`;
+            }
+
+            let thickness = document.getElementById('afcThickness').value;
+            if (thickness === 'Other') {
+                const spec = document.getElementById('afcThicknessOther').value;
+                thickness = `Other (${spec || 'Unspecified'})`;
+            }
+
             const lifespan = document.getElementById('afcLifespan').value;
-            const repair = document.getElementById('afcRepairRegime').value;
-            const maintenance = document.getElementById('afcMaintenanceRegime').value;
-            const renewal = document.getElementById('afcRenewalRegime').value;
+
+            let repair = document.getElementById('afcRepairRegime').value;
+            if (repair === 'Other') {
+                const spec = document.getElementById('afcRepairOther').value;
+                repair = `Other (${spec || 'Unspecified'})`;
+            }
+
+            let maintenance = document.getElementById('afcMaintenanceRegime').value;
+            if (maintenance === 'Other') {
+                const spec = document.getElementById('afcMaintenanceOther').value;
+                maintenance = `Other (${spec || 'Unspecified'})`;
+            }
+
+            let renewal = document.getElementById('afcRenewalRegime').value;
+            if (renewal === 'Other') {
+                const spec = document.getElementById('afcRenewalOther').value;
+                renewal = `Other (${spec || 'Unspecified'})`;
+            }
 
             // Gather selected Cleaning Protocols
             const mechClean = Array.from(document.querySelectorAll('.afc-clean-mech:checked')).map(e => e.value);
             const dryClean = Array.from(document.querySelectorAll('.afc-clean-drydock:checked')).map(e => e.value);
-            const debrisClean = Array.from(document.querySelectorAll('.afc-clean-debris:checked')).map(e => e.value);
+            let debrisClean = Array.from(document.querySelectorAll('.afc-clean-debris:checked')).map(e => {
+                if (e.value === 'Other') {
+                    const spec = document.getElementById('afcDebrisOther').value;
+                    return `Other (${spec || 'Unspecified'})`;
+                }
+                return e.value;
+            });
 
             let cleaningSummary = [];
             if (mechClean.length) cleaningSummary.push(`Mechanical: ${mechClean.join(', ')}`);
@@ -973,6 +1154,7 @@
             </tr>`;
             printBody.insertAdjacentHTML('beforeend', printRow);
         }
+
         function removeAfcRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -982,6 +1164,7 @@
                 printBody.innerHTML = `<tr><td colspan="4" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
             }
         }
+
         function handleMgpsFiles(input) {
             const fileIndexEl = document.getElementById('p-mgpsAttachedFilesIndex');
             if(input.files && input.files.length > 0) {
@@ -991,12 +1174,58 @@
                 fileIndexEl.innerText = 'No files attached to record.';
             }
         }
+
         function addMgpsRecord() {
-            const loc = document.getElementById('mgpsMan').value;
-            const type = document.getElementById('mgpsModel').value;
-            const param = document.getElementById('mgpsType').value;
-            if(!loc || !type) return alert('Fill core MGPS hardware details');
-            const row = `<tr><td class="p-2 border-b border-slate-200">${loc}</td><td class="p-2 border-b border-slate-200">${type}</td><td class="p-2 border-b border-slate-200">${param}</td><td class="p-2 text-center border-b border-slate-200 no-print"><button type="button" class="text-red-600 font-bold" onclick="removeMgpsRow(this)">X</button></td></tr>`;
+            let mgpsType = document.getElementById('mgpsTypeSelect').value;
+            if (mgpsType === 'Other') {
+                const spec = document.getElementById('mgpsTypeOther').value;
+                mgpsType = `Other (${spec || 'Unspecified'})`;
+            }
+
+            // Gather Sacrificial Anodes sub-options
+            if (mgpsType.includes('Electrolytic')) {
+                const checkedAnodes = Array.from(document.querySelectorAll('.mgps-anode-sub:checked')).map(e => e.value);
+                if (checkedAnodes.length > 0) {
+                    mgpsType += `<br><span class="text-[10px] text-teal-800">Anodes: ${checkedAnodes.join(', ')}</span>`;
+                }
+            }
+
+            // Gather Operating Conditions
+            let opConditions = Array.from(document.querySelectorAll('.mgps-op-cond:checked')).map(e => {
+                if (e.value === 'Other') {
+                    const spec = document.getElementById('mgpsOpOther').value;
+                    return `Other (${spec || 'Unspecified'})`;
+                }
+                return e.value;
+            });
+            const opCondStr = opConditions.length > 0 ? opConditions.join(', ') : 'Not Specified';
+
+            // Service Life
+            let serviceLife = document.getElementById('mgpsServiceLife').value;
+            if (serviceLife === 'Other') {
+                const spec = document.getElementById('mgpsServiceLifeOther').value;
+                serviceLife = `Other (${spec || 'Unspecified'})`;
+            }
+
+            // Harmful Discharge
+            let discharge = document.getElementById('mgpsDischarge').value;
+            if (discharge === 'Other') {
+                const spec = document.getElementById('mgpsDischargeOther').value;
+                discharge = `Other (${spec || 'Unspecified'})`;
+            }
+
+            const col1 = `<div><strong>${mgpsType}</strong></div>`;
+            const col2 = `<div>${opCondStr}</div>`;
+            const col3 = `<div>${serviceLife}</div>`;
+            const col4 = `<div>${discharge}</div>`;
+
+            const row = `<tr>
+                <td class="p-2 border-b border-slate-200">${col1}</td>
+                <td class="p-2 border-b border-slate-200">${col2}</td>
+                <td class="p-2 border-b border-slate-200">${col3}</td>
+                <td class="p-2 border-b border-slate-200">${col4}</td>
+                <td class="p-2 text-center border-b border-slate-200 no-print"><button type="button" class="text-red-600 font-bold" onclick="removeMgpsRow(this)">X</button></td>
+            </tr>`;
             
             const formBody = document.getElementById('mgps-form-body');
             formBody.insertAdjacentHTML('beforeend', row);
@@ -1004,18 +1233,25 @@
             // Sync up print table array logic
             const printBody = document.getElementById('p-mgps-table-body');
             if(printBody.innerHTML.includes('No entries recorded')) printBody.innerHTML = '';
-            const printRow = `<tr><td class="p-2 border-b border-slate-200">${loc}</td><td class="p-2 border-b border-slate-200">${type}</td><td class="p-2 border-b border-slate-200">${param}</td></tr>`;
+            const printRow = `<tr>
+                <td class="p-2 border-b border-slate-200">${col1}</td>
+                <td class="p-2 border-b border-slate-200">${col2}</td>
+                <td class="p-2 border-b border-slate-200">${col3}</td>
+                <td class="p-2 border-b border-slate-200">${col4}</td>
+            </tr>`;
             printBody.insertAdjacentHTML('beforeend', printRow);
         }
+
         function removeMgpsRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
             const printBody = document.getElementById('p-mgps-table-body');
             printBody.deleteRow(rowIndex);
             if(printBody.rows.length === 0) {
-                printBody.innerHTML = `<tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
+                printBody.innerHTML = `<tr><td colspan="4" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
             }
         }
+
         function addRevisionRecord() {
             const date = document.getElementById('revDate').value;
             const person = document.getElementById('revPerson').value;
@@ -1037,6 +1273,7 @@
             document.getElementById('revPerson').value = '';
             document.getElementById('revParts').value = '';
         }
+
         function removeRevisionRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -1053,9 +1290,11 @@
                 updateBindings();
             }
         });
+
         // Initialize display configuration states
         window.onload = function() {
             updateBindings();
+            toggleMgpsTypeOptions();
         };
     </script>
 </body>
