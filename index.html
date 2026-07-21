@@ -50,7 +50,7 @@
                     <span class="text-xs font-black bg-teal-950 text-white px-2 py-0.5 rounded tracking-wider">SHIPSONIC BIOFOULING INTELLIGENCE &amp; COMPLIANCE</span>
                     <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded">IMO MEPC.378(80) / NORMAM-401/DPC / AMPP Guide 21517-2025 Compliant</span>
                 </div>
-                <h1 class="text-2xl font-black text-teal-950 tracking-tight mt-1">Biofouling Management &amp; Digital Fouling Report Portal</h1>
+                <h1 class="text-2xl font-black text-teal-950 tracking-tight mt-1">Biofouling Management Plan Generator</h1>
                 <p class="text-sm text-slate-500 mt-0.5">Interoperable digital compliance framework and asset record engine.</p>
             </div>
         </header>
@@ -68,8 +68,8 @@
             <!-- PANEL 1: VESSEL PARTICULARS -->
             <div id="panel-1" class="step-panel space-y-6">
                 <div>
-                    <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Vessel Particulars (Appendix 1 Specifications)</h3>
-                    <p class="text-xs text-slate-500 mt-0.5">Identity fields aligned with standard Lloyd's Register shipping classifications.</p>
+                    <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Vessel Particulars</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Identity fields aligned with standard shipping classifications.</p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -149,6 +149,12 @@
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Vessel Operating Manager</label>
                         <input type="text" id="vesselManager" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Global Maritime Management">
                     </div>
+                </div>
+                <div>
+                    <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2 mt-6">BFMP Lifecycle Tracking</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">The plan should be re-evaluated and, if necessary, updated after a dry-docking and/or if any changes are made that have an impact on the anticipated biofouling.[cite: 1]</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Person Responsible for BFMP</label>
                         <input type="text" id="bfmpResponsiblePerson" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Capt. J. Smith">
@@ -157,10 +163,6 @@
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Position / Rank</label>
                         <input type="text" id="bfmpResponsiblePosition" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. Designated Person Ashore / Chief Mate">
                     </div>
-                </div>
-                <div>
-                    <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2 mt-6">BFMP Lifecycle Tracking</h3>
-                    <p class="text-xs text-slate-500 mt-0.5">Auditable verification tracking dates for survey validation.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
@@ -174,6 +176,58 @@
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Plan Revision Number</label>
                         <input type="text" id="revisionNumber" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="E.g. BMP-REV-03">
+                    </div>
+                </div>
+                <!-- Revisions Section -->
+                <div class="mt-6 border border-slate-200 rounded-xl p-4 bg-slate-50/50">
+                    <h4 class="text-xs font-bold text-teal-900 uppercase mb-1">The following revisions have been made:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-600 mb-0.5">Date / Timeline</label>
+                            <input type="date" id="revDate" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-600 mb-0.5">Developed by / Implemented / Responsible Person</label>
+                            <input type="text" id="revPerson" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="E.g. Chief Officer / Capt. J. Smith">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-600 mb-0.5">Updated Parts</label>
+                            <input type="text" id="revParts" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="E.g. Section 2 Operating Profile">
+                        </div>
+                    </div>
+                    <button type="button" onclick="addRevisionRecord()" class="mt-3 px-4 py-1.5 bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold rounded-lg transition-colors">Add Revision</button>
+                    
+                    <div class="mt-3 overflow-x-auto">
+                        <table class="w-full text-left text-xs bg-white rounded-lg border border-slate-200">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-600 font-bold">
+                                    <th class="p-2 border-b border-slate-200">Date / Timeline</th>
+                                    <th class="p-2 border-b border-slate-200">Developed by / Implemented / Responsible Person</th>
+                                    <th class="p-2 border-b border-slate-200">Updated Parts</th>
+                                    <th class="p-2 text-center w-12 border-b border-slate-200">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="revision-form-body">
+                                <tr>
+                                    <td class="p-2 border-b border-slate-200">2024-01-15</td>
+                                    <td class="p-2 border-b border-slate-200">Capt. J. Smith (DPA)</td>
+                                    <td class="p-2 border-b border-slate-200">Initial Document Creation</td>
+                                    <td class="p-2 text-center border-b border-slate-200 no-print"><button type="button" class="text-red-600" onclick="removeRevisionRow(this)">X</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border-b border-slate-200">2024-08-20</td>
+                                    <td class="p-2 border-b border-slate-200">Chief Officer M. Taylor</td>
+                                    <td class="p-2 border-b border-slate-200">Section 3 Coating System Updates</td>
+                                    <td class="p-2 text-center border-b border-slate-200 no-print"><button type="button" class="text-red-600" onclick="removeRevisionRow(this)">X</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border-b border-slate-200">2025-02-10</td>
+                                    <td class="p-2 border-b border-slate-200">Technical Superintendent R. Vance</td>
+                                    <td class="p-2 border-b border-slate-200">Post Dry-docking Review &amp; Niche Mapping</td>
+                                    <td class="p-2 text-center border-b border-slate-200 no-print"><button type="button" class="text-red-600" onclick="removeRevisionRow(this)">X</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -435,7 +489,6 @@
                         </select>
                     </div>
                 </div>
-
                 <!-- INSPECTION SCHEDULE OF HULL AND NICHE AREAS -->
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-4">
                     <h4 class="text-xs font-bold uppercase text-teal-950 border-b border-slate-200 pb-1">Inspection Schedule of Hull and Niche Areas</h4>
@@ -450,7 +503,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- CLEANING -->
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-4">
                     <h4 class="text-xs font-bold uppercase text-teal-950 border-b border-slate-200 pb-1">Cleaning &amp; Proactive Strategies</h4>
@@ -460,7 +512,6 @@
                         <textarea id="proactiveCleaningDesc" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none h-20 bg-white text-slate-800" placeholder="E.g. Scheduled manual device or ROV with soft brush every XX days when operating in tropical/semi-tropical waters..."></textarea>
                     </div>
                 </div>
-
                 <!-- MONITORING OF BIOFOULING RISK PARAMETERS AND CONTINGENCY ACTIONS -->
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-4">
                     <h4 class="text-xs font-bold uppercase text-teal-950 border-b border-slate-200 pb-1">Monitoring of Biofouling Risk Parameters and Contingency Actions</h4>
@@ -469,7 +520,6 @@
                         <textarea id="riskParametersMatrix" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none h-24 bg-white text-slate-800" placeholder="E.g. Deviation from speed/salinity/temperature limits -> shorter inspection interval (every 4 months); Extended idle time -> execute short voyage or carry out inspection; MGPS malfunction -> increase niche area monitoring..."></textarea>
                     </div>
                 </div>
-
                 <!-- Dynamic Regulatory Warning Banner (no-print) -->
                 <div id="brazilRiskBanner" class="hidden p-4 bg-amber-50 border border-amber-300 text-amber-900 rounded-xl text-xs space-y-1">
                     <strong class="block uppercase font-bold text-amber-950">⚠️ NORMAM-401/DPC Regulatory Action Required</strong>
@@ -569,6 +619,37 @@
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Official Radio Call Sign:</span> <strong id="p-callSign" class="uppercase">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Last Completed Drydocking:</span> <strong id="p-lastDryDock">—</strong></div>
                         <div class="flex justify-between border-b border-slate-100 pb-0.5"><span>Next Scheduled Drydocking:</span> <strong id="p-nextDryDock">—</strong></div>
+                    </div>
+                    
+                    <!-- Print Table for Lifecycle Revisions -->
+                    <div class="mt-4">
+                        <span class="block text-xs font-bold text-slate-800 uppercase mb-1">The following revisions have been made:</span>
+                        <table class="w-full text-left text-xs bg-white border border-slate-300">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-300">
+                                    <th class="p-2 border-b border-slate-300">Date / Timeline</th>
+                                    <th class="p-2 border-b border-slate-300">Developed by / Implemented / Responsible Person</th>
+                                    <th class="p-2 border-b border-slate-300">Updated Parts</th>
+                                </tr>
+                            </thead>
+                            <tbody id="p-revision-table-body">
+                                <tr>
+                                    <td class="p-2 border-b border-slate-200">2024-01-15</td>
+                                    <td class="p-2 border-b border-slate-200">Capt. J. Smith (DPA)</td>
+                                    <td class="p-2 border-b border-slate-200">Initial Document Creation</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border-b border-slate-200">2024-08-20</td>
+                                    <td class="p-2 border-b border-slate-200">Chief Officer M. Taylor</td>
+                                    <td class="p-2 border-b border-slate-200">Section 3 Coating System Updates</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border-b border-slate-200">2025-02-10</td>
+                                    <td class="p-2 border-b border-slate-200">Technical Superintendent R. Vance</td>
+                                    <td class="p-2 border-b border-slate-200">Post Dry-docking Review &amp; Niche Mapping</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <!-- SECTION 2 FULL OPERATING PROFILE DATASET WITH SCHEMATIC DIAGRAM -->
@@ -851,6 +932,36 @@
             printBody.deleteRow(rowIndex);
             if(printBody.rows.length === 0) {
                 printBody.innerHTML = `<tr><td colspan="3" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
+            }
+        }
+        function addRevisionRecord() {
+            const date = document.getElementById('revDate').value;
+            const person = document.getElementById('revPerson').value;
+            const parts = document.getElementById('revParts').value;
+            if(!date || !person || !parts) return alert('Fill all revision fields');
+            
+            const row = `<tr><td class="p-2 border-b border-slate-200">${date}</td><td class="p-2 border-b border-slate-200">${person}</td><td class="p-2 border-b border-slate-200">${parts}</td><td class="p-2 text-center border-b border-slate-200 no-print"><button type="button" class="text-red-600" onclick="removeRevisionRow(this)">X</button></td></tr>`;
+            
+            const formBody = document.getElementById('revision-form-body');
+            formBody.insertAdjacentHTML('beforeend', row);
+            
+            const printBody = document.getElementById('p-revision-table-body');
+            if(printBody.innerHTML.includes('No revisions recorded')) printBody.innerHTML = '';
+            const printRow = `<tr><td class="p-2 border-b border-slate-200">${date}</td><td class="p-2 border-b border-slate-200">${person}</td><td class="p-2 border-b border-slate-200">${parts}</td></tr>`;
+            printBody.insertAdjacentHTML('beforeend', printRow);
+            
+            // Clear inputs
+            document.getElementById('revDate').value = '';
+            document.getElementById('revPerson').value = '';
+            document.getElementById('revParts').value = '';
+        }
+        function removeRevisionRow(btn) {
+            const rowIndex = btn.closest('tr').rowIndex - 1;
+            btn.closest('tr').remove();
+            const printBody = document.getElementById('p-revision-table-body');
+            printBody.deleteRow(rowIndex);
+            if(printBody.rows.length === 0) {
+                printBody.innerHTML = `<tr><td colspan="3" class="p-2 text-center text-slate-400">No revisions recorded</td></tr>`;
             }
         }
         
