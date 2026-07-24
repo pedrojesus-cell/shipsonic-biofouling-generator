@@ -296,7 +296,6 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="mt-4">
                     <label class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
                     <p class="text-xs text-slate-500 mb-3">The hull and niche areas where biofouling may accumulate are described below[cite: 8].</p>
@@ -822,29 +821,39 @@
                     </div>
                 </div>
 
-                <!-- IMO COMPLIANCE & RESEARCH ANALYSIS SUMMARY MODULE (DERIVED FROM MASTER CSV) -->
+                <!-- IMO COMPLIANCE & RESEARCH ANALYSIS SUMMARY MODULE (EXPANDED TO 6 CARDS) -->
                 <div class="border border-teal-200 bg-teal-50/40 rounded-xl p-4 space-y-3">
                     <h4 class="text-xs font-bold uppercase text-teal-950 border-b border-teal-200 pb-1">IMO Biofouling Master Regulatory &amp; Technical Analysis Reference</h4>
-                    <p class="text-[11px] text-slate-600">Cross-reference summary compiled from 51 statutory IMO PPR submissions and scientific studies (PPR 13 / PPR 10 / MEPC.378(80) / GloFouling):</p>
+                    <p class="text-[11px] text-slate-600">Cross-reference summary compiled from 51 statutory IMO PPR submissions, guidelines, and scientific studies (PPR 13 / PPR 10 / MEPC.378(80) / GloFouling):</p>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
-                            <span class="font-bold text-teal-900 block">Mandatory Framework &amp; GBS (PPR 13/5, 13/5/1, 13/5/2)</span>
-                            <p class="text-slate-600 text-[11px]">Norway &amp; Japan propose binding Goal-Based Standards. PPR 13/5/2 (Reg 24) establishes a mandatory MGPS benchmark: maintain <strong>Biofouling Rating &le; 1 for &ge; 1 year</strong> while controlling noise pollution and coating compatibility.</p>
+                            <span class="font-bold text-teal-900 block">1. Statutory Baseline (MEPC.378(80) &amp; ISO 20679)</span>
+                            <p class="text-slate-600 text-[11px]">Resolution MEPC.378(80) mandates ship-specific BFMP &amp; Biofouling Record Books (BFRB). Aligns survey criteria with ISO 20679:2025 to standardise Biofouling Rating assessments (0–4) across hull &amp; niche areas[cite: 5, 8].</p>
                         </div>
 
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
-                            <span class="font-bold text-teal-900 block">MARPOL Annex VI &amp; Decarbonization (PPR 13/5/1, PPR 12/INF.7)</span>
-                            <p class="text-slate-600 text-[11px]">BIMCO/GloFouling data proves <strong>0.5mm microfouling increases fuel/GHG emissions by 25–30%</strong>. Continuous ultrasonic anti-fouling directly serves as an Annex VI SEEMP decarbonization measure.</p>
+                            <span class="font-bold text-teal-900 block">2. Mandatory Framework &amp; GBS (PPR 13/5, 13/5/1, 13/5/2)</span>
+                            <p class="text-slate-600 text-[11px]">Norway &amp; Japan propose binding Goal-Based Standards. PPR 13/5/2 (Reg 24) establishes a mandatory MGPS benchmark: maintain <strong>Biofouling Rating &le; 1 for &ge; 1 year</strong> while controlling noise pollution and coating compatibility[cite: 3].</p>
                         </div>
 
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
-                            <span class="font-bold text-teal-900 block">IWC Toxic Effluent &amp; Unmeasurable Capture (PPR 13/INF.16, PPR 13/5/4)</span>
-                            <p class="text-slate-600 text-[11px]">Dutch field trials (PPR 13/INF.16) prove reactive IWC discharges 700g–36kg copper per cleaning. ICES (PPR 13/5/4) proves open-water capture % is technically unmeasurable, favoring zero-discharge ultrasonic MGPS.</p>
+                            <span class="font-bold text-teal-900 block">3. Lifecycle Control Points (Canada PPR 13/5/6 &amp; INF.8)</span>
+                            <p class="text-slate-600 text-[11px]">Canada's 10 Control Points map biofouling actions across the ship lifecycle—from Design &amp; Construction (installing niche MGPS) to BFMP Planning, Operating Profiles, Equipment Standards, and Port State Approval[cite: 7].</p>
                         </div>
 
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
-                            <span class="font-bold text-teal-900 block">Niche Area Growth &amp; ROV Limits (PPR 10/INF.17, PPR 13/5/8)</span>
+                            <span class="font-bold text-teal-900 block">4. MARPOL Annex VI &amp; Decarbonization (PPR 13/5/1, PPR 12/INF.7)</span>
+                            <p class="text-slate-600 text-[11px]">BIMCO/GloFouling data proves <strong>0.5mm microfouling increases fuel/GHG emissions by 25–30%</strong>. Continuous ultrasonic anti-fouling directly serves as an Annex VI SEEMP decarbonization measure[cite: 2].</p>
+                        </div>
+
+                        <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
+                            <span class="font-bold text-teal-900 block">5. IWC Toxic Effluent &amp; Unmeasurable Capture (PPR 13/INF.16, PPR 13/5/4)</span>
+                            <p class="text-slate-600 text-[11px]">Dutch field trials (PPR 13/INF.16) prove reactive IWC discharges 700g–36kg copper per cleaning. ICES (PPR 13/5/4) proves open-water capture % is technically unmeasurable, favoring zero-discharge ultrasonic MGPS[cite: 5].</p>
+                        </div>
+
+                        <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
+                            <span class="font-bold text-teal-900 block">6. Niche Area Growth &amp; ROV Limits (PPR 10/INF.17, PPR 13/5/8)</span>
                             <p class="text-slate-600 text-[11px]">ROK trials show uncoated niche areas reach macrofouling (Rating 2) in <strong>5.3 days</strong>. Ultrasonic transducers eliminate reliance on difficult subsea ROV/diver niche access.</p>
                         </div>
                     </div>
