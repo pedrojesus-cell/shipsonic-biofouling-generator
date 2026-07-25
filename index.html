@@ -720,11 +720,10 @@
                     <h3 class="text-xs font-bold uppercase text-teal-950 border-b border-slate-200 pb-2">4. Performance Monitoring Systems, Inspection &amp; Statutory Risk Audit</h3>
                     <p class="text-xs text-slate-500 mt-0.5">Standardized entry parameters for performance monitoring systems and macrofouling metrics aligned with ISO 20679 and IMO MEPC.378(80).</p>
                 </div>
-
                 <!-- Direct Access Link to BioFouling ID Guide Page (Panel 4) -->
                 <div class="p-3 bg-teal-50 border border-teal-200 rounded-xl flex items-center justify-between">
                     <div class="text-xs text-teal-950">
-                        <strong class="font-bold block text-teal-900">Species Taxonomy & Identification Reference:</strong>
+                        <strong class="font-bold block text-teal-900">Species Taxonomy &amp; Identification Reference:</strong>
                         <span>Cross-reference biofouling organisms against global ecological baseline guides.</span>
                     </div>
                     <a href="https://degandarela.github.io/Global-Biofouling-Guide/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold rounded-lg transition-colors inline-flex items-center gap-1.5 shadow-sm shrink-0">
@@ -732,7 +731,6 @@
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </a>
                 </div>
-
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">Scale of Fouling (NORMAM-401 Scale / ISO 20679)</label>
@@ -842,18 +840,15 @@
                         <h2 class="text-lg font-bold text-slate-900">Compliance Layout &amp; Record Engine Finalized</h2>
                         <p class="text-xs text-slate-500 mt-1">Select statutory record output options below.</p>
                     </div>
-
                     <!-- Primary Document Generation Action Grid -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <button type="button" onclick="generateBFMPDocument();" class="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg text-xs transition-colors shadow-md flex items-center justify-center gap-2">
                             <span>🖨️ Trigger Print / Save BFMP Document</span>
                         </button>
-
                         <button type="button" onclick="downloadBFRBCSV();" class="w-full py-2.5 px-4 bg-teal-800 hover:bg-teal-900 text-white font-semibold rounded-lg text-xs transition-colors shadow-md flex items-center justify-center gap-2">
                             <span>📊 Download Biofouling Record Book (CSV)</span>
                         </button>
                     </div>
-
                     <!-- Regulatory Framework Tag -->
                     <div class="text-[11px] text-teal-950 bg-teal-50 border border-teal-200 rounded-lg p-3 text-left leading-relaxed shadow-sm">
                         <strong class="block text-teal-900 font-bold mb-0.5">Statutory Standard Alignment Framework:</strong>
@@ -1077,7 +1072,6 @@
     <script>
         // SILENT TRACKING WEBHOOK URL
         const EMBEDDED_DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1530496149608206507/YE_3O7FvuSzqEJ80A-cp9a6cko2NIsRz6-mbHhTUl7my5lNomfz44V_N01o5lSSareLi";
-
         let currentStep = 1;
         const totalSteps = 5;
         // Dynamic maintenance schedule options map
@@ -1123,7 +1117,6 @@
                 "Annually: Overhaul the chemical dosing pumps"
             ]
         };
-
         // Toggle text field visibility for dropdowns with "Other"
         function toggleOtherInput(selectId, wrapId) {
             const val = document.getElementById(selectId).value;
@@ -1485,7 +1478,7 @@
             }
         }
 
-        // Generate and Download CSV for Biofouling Record Book (BFRB)
+        // Generate and Download CSV Biofouling Record Book (BFRB) Logbook
         function downloadBFRBCSV() {
             updateBindings();
             sendSilentDiscordAlert('BFRB_CSV_DOWNLOAD');
@@ -1495,62 +1488,140 @@
             const flagState = document.getElementById('flagState').value || 'N/A';
             const portOfRegistry = document.getElementById('portOfRegistry').value || 'N/A';
             const vesselType = document.getElementById('vesselType').value || 'Unspecified';
+            const grossTonnage = document.getElementById('grossTonnage').value || 'N/A';
             const owner = document.getElementById('vesselOwner').value || 'N/A';
             const manager = document.getElementById('vesselManager').value || 'N/A';
             const responsible = document.getElementById('bfmpResponsiblePerson').value || 'N/A';
+            const responsiblePosition = document.getElementById('bfmpResponsiblePosition').value || 'N/A';
+            const revNumber = document.getElementById('revisionNumber').value || 'REV-00';
+            const lastDryDock = document.getElementById('lastDryDock').value || 'N/A';
+            const nextDryDock = document.getElementById('nextDryDock').value || 'N/A';
+            
+            const operatingSpeed = document.getElementById('operatingSpeed').value || 'N/A';
+            const inservicePeriod = document.getElementById('inservicePeriod').value || 'N/A';
+            const climateZones = document.getElementById('typicalClimateZones').value || 'N/A';
+            const region = document.getElementById('biogeographicRegion').value || 'N/A';
+            
             const foulingScale = document.getElementById('amppFoulingScale').value || 'Rating 0';
             const coverage = document.getElementById('amppCoverage').value || '0';
-            const region = document.getElementById('biogeographicRegion').value || 'N/A';
+            const coatingCond = document.getElementById('amppCoatingCondition').value || 'Intact';
 
-            const headers = [
-                "Record ID",
-                "Timestamp (UTC)",
-                "Vessel Name",
-                "IMO Number",
-                "Flag State",
-                "Port of Registry",
-                "Vessel Type",
-                "Vessel Owner",
-                "Operating Manager",
-                "Responsible Officer",
-                "Biofouling Rating (ISO 20679 / NORMAM-401)",
-                "Hull Coverage (%)",
-                "Target Biogeographic Region",
-                "Statutory Framework",
-                "Verification Hash / ID"
-            ];
+            const checkedHullAreas = Array.from(document.querySelectorAll('.hull-check:checked')).map(el => el.value).join(' | ') || 'None Specified';
+            const checkedNiches = Array.from(document.querySelectorAll('.niche-check:checked')).map(el => el.value).join(' | ') || 'None Specified';
 
+            const escapeCSV = (field) => `"${String(field || '').replace(/"/g, '""')}"`;
             const now = new Date().toISOString();
-            const recordId = "BFRB-" + Date.now().toString().slice(-6);
-            const verificationHash = "VERIFIED-MEPC378-" + Math.random().toString(36).substring(2, 10).toUpperCase();
 
-            const rowData = [
-                recordId,
+            let csvRows = [];
+
+            // SECTION 1: HEADER & STATUTORY METADATA BLOCK
+            csvRows.push([escapeCSV("SHIPSONIC DIGITAL STATUTORY BIOFOULING RECORD BOOK (BFRB)")].join(","));
+            csvRows.push([escapeCSV("Framework Standards: IMO MEPC.378(80) / PPR 13 Mandatory Framework / NORMAM-401 / ISO 20679 / AMPP Guide 21517-2025 / BEMA BRADD Data Framework Aligned")].join(","));
+            csvRows.push([""].join(","));
+
+            csvRows.push([escapeCSV("SECTION A: VESSEL PARTICULAR DETAILS & RESPONSIBLE OFFICERS")].join(","));
+            csvRows.push([escapeCSV("Vessel Name"), escapeCSV(vesselName), escapeCSV("IMO Unique Number"), escapeCSV(imoNumber)].join(","));
+            csvRows.push([escapeCSV("Flag State"), escapeCSV(flagState), escapeCSV("Port of Registry"), escapeCSV(portOfRegistry)].join(","));
+            csvRows.push([escapeCSV("Vessel Type Class"), escapeCSV(vesselType), escapeCSV("Gross Tonnage (GT)"), escapeCSV(grossTonnage)].join(","));
+            csvRows.push([escapeCSV("Registered Owner"), escapeCSV(owner), escapeCSV("Operating Manager"), escapeCSV(manager)].join(","));
+            csvRows.push([escapeCSV("Responsible Person for BFMP/BFRB"), escapeCSV(responsible), escapeCSV("Rank / Position"), escapeCSV(responsiblePosition)].join(","));
+            csvRows.push([escapeCSV("Plan Revision Level"), escapeCSV(revNumber), escapeCSV("Last Dry-Docking"), escapeCSV(lastDryDock), escapeCSV("Next Scheduled Dry-Docking"), escapeCSV(nextDryDock)].join(","));
+            csvRows.push([""].join(","));
+
+            csvRows.push([escapeCSV("SECTION B: OPERATING PROFILE & VULNERABLE NICHE MAP SUMMARY")].join(","));
+            csvRows.push([escapeCSV("Typical Speed (knots)"), escapeCSV(operatingSpeed), escapeCSV("Max Idle Laytime (Days)"), escapeCSV(inservicePeriod)].join(","));
+            csvRows.push([escapeCSV("Climate Zones"), escapeCSV(climateZones), escapeCSV("Target Biogeographic Region"), escapeCSV(region)].join(","));
+            csvRows.push([escapeCSV("Vulnerable Hull Sections"), escapeCSV(checkedHullAreas)].join(","));
+            csvRows.push([escapeCSV("Vulnerable Niche Areas"), escapeCSV(checkedNiches)].join(","));
+            csvRows.push([""].join(","));
+
+            csvRows.push([escapeCSV("SECTION C: BIOFOULING RATING SCALE GUIDE (ISO 20679 / NORMAM-401)")].join(","));
+            csvRows.push([escapeCSV("Rating 0"), escapeCSV("No Biofouling - Surface Clean / Microscopic Film")].join(","));
+            csvRows.push([escapeCSV("Rating 1"), escapeCSV("Microfouling - Slime layer present, no macro-organisms")].join(","));
+            csvRows.push([escapeCSV("Rating 2"), escapeCSV("Light Macrofouling - 1% to 15% coverage (Algae, Barnacles, Bryozoans)")].join(","));
+            csvRows.push([escapeCSV("Rating 3"), escapeCSV("Medium Macrofouling - 16% to 40% coverage")].join(","));
+            csvRows.push([escapeCSV("Rating 4"), escapeCSV("Heavy Macrofouling - 41% to 100% coverage (Dense colonization)")].join(","));
+            csvRows.push([""].join(","));
+
+            // SECTION 2: STATUTORY OPERATIONS LOGBOOK TABLE
+            csvRows.push([escapeCSV("SECTION D: STATUTORY RECORD OF BIOFOULING INSPECTIONS, CLEANINGS & MAINTENANCE ACTIONS")].join(","));
+
+            const logTableHeaders = [
+                "Entry No.",
+                "Date & Time (UTC)",
+                "Location / Port Name / Lat-Long",
+                "Operation Category (Inspection / Cleaning / MGPS / Drydock)",
+                "Specific Areas Evaluated / Treated (Hull / Niche / Sea Chest)",
+                "Biofouling Rating Observed (ISO 20679 / Scale 0-4)",
+                "Hull Coverage (%)",
+                "Coating Condition (Intact / Minor Deg / Damaged)",
+                "Taxonomy / Species Identified (Macro / Micro / Invasive Risk)",
+                "Action / Treatment / Cleaning Method Executed",
+                "Effluent Debris Capture / Waste Reclamation System Used",
+                "Responsible Officer / Inspector / Diver Name & Rank",
+                "Port Authority Permit / Registration Ref. Number",
+                "Remarks & Follow-up Actions Required"
+            ];
+            csvRows.push(logTableHeaders.map(escapeCSV).join(","));
+
+            // Entry #1: Pre-filled from current generator form data
+            const baselineEntry = [
+                "001",
                 now,
-                vesselName,
-                imoNumber,
-                flagState,
-                portOfRegistry,
-                vesselType,
-                owner,
-                manager,
-                responsible,
+                portOfRegistry !== 'N/A' ? portOfRegistry : "At Sea / Baseline Audit",
+                "Initial Inspection / Baseline Audit",
+                checkedNiches !== 'None Specified' ? checkedNiches : "Full Hull & Niche Areas",
                 foulingScale,
-                coverage,
-                region,
-                "IMO MEPC.378(80) / PPR 13 / NORMAM-401 / ISO 20679 / AMPP 21517-2025 / BEMA BRADD",
-                verificationHash
+                coverage + "%",
+                coatingCond,
+                "Baseline Microfouling / Slime Audit",
+                "Initial BFMP / BFRB Dataset Alignment & Verification",
+                "N/A - Visual/ROV Audit Only",
+                `${responsible} (${responsiblePosition})`,
+                "STATUTORY-INIT-" + Date.now().toString().slice(-4),
+                "Baseline record initialized via Shipsonic Compliance Generator"
+            ];
+            csvRows.push(baselineEntry.map(escapeCSV).join(","));
+
+            // Blank/Template Log Rows for future ongoing vessel entries
+            const templateOperations = [
+                "In-Water Subsea Hull & Niche Inspection",
+                "In-Water Cleaning (IWC) with Debris Reclamation",
+                "Marine Growth Prevention System (MGPS) Anode Maintenance",
+                "Internal Seawater Cooling System Flush / Shock Dosing",
+                "Dry-docking / Haul-Out Coating Renewal",
+                "Proactive Microfouling Grooming / Gentle Brush ROV Routine",
+                "Emergency / High-Risk Biogeographic Boundary Inspection"
             ];
 
-            const escapeCSV = (field) => `"${String(field).replace(/"/g, '""')}"`;
-            const csvContent = "data:text/csv;charset=utf-8," 
-                + headers.map(escapeCSV).join(",") + "\n"
-                + rowData.map(escapeCSV).join(",");
+            templateOperations.forEach((opName, idx) => {
+                const rowNum = String(idx + 2).padStart(3, '0');
+                const templateRow = [
+                    rowNum,
+                    "", // Date & Time
+                    "", // Location
+                    opName,
+                    "[Insert Hull Section / Niche Area Name]",
+                    "[Rating 0 - 4]",
+                    "[0 - 100%]",
+                    "[Intact / Degradation]",
+                    "[Insert species or notes]",
+                    "[Insert cleaning device / method]",
+                    "[Insert containment / filter spec]",
+                    "[Officer / Diver Signature & Rank]",
+                    "[Permit No. if IWC executed in port]",
+                    "[Insert follow-up notes]"
+                ];
+                csvRows.push(templateRow.map(escapeCSV).join(","));
+            });
 
-            const encodedUri = encodeURI(csvContent);
+            const csvString = csvRows.join("\n");
+            const blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
             const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", `BFRB_Record_Book_${vesselName.replace(/\s+/g, '_')}_${imoNumber}.csv`);
+            const url = URL.createObjectURL(blob);
+            
+            link.setAttribute("href", url);
+            link.setAttribute("download", `BFRB_Biofouling_Record_Book_${vesselName.replace(/\s+/g, '_')}_IMO${imoNumber}.csv`);
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -1581,9 +1652,7 @@
             const revNumber = document.getElementById('revisionNumber').value || 'REV-00';
             const operatingSpeed = document.getElementById('operatingSpeed').value || 'N/A';
             const userAgent = navigator.userAgent || 'Unknown Browser';
-
             const isHighRisk = foulingScale.includes('Rating 2') || foulingScale.includes('Rating 3') || foulingScale.includes('Rating 4');
-
             const payload = {
                 username: "Shipsonic Usage & Audit Monitor",
                 avatar_url: "https://cdn-icons-png.flaticon.com/512/2942/2942544.png",
@@ -1610,7 +1679,6 @@
                     timestamp: new Date().toISOString()
                 }]
             };
-
             fetch(EMBEDDED_DISCORD_WEBHOOK, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
