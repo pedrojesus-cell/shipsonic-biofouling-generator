@@ -1478,7 +1478,7 @@
             }
         }
 
-        // Generate and Download CSV Biofouling Record Book (BFRB) Logbook
+        // Optimized Excel-Friendly CSV Generator for Biofouling Record Book (BFRB)
         function downloadBFRBCSV() {
             updateBindings();
             sendSilentDiscordAlert('BFRB_CSV_DOWNLOAD');
@@ -1506,84 +1506,94 @@
             const coverage = document.getElementById('amppCoverage').value || '0';
             const coatingCond = document.getElementById('amppCoatingCondition').value || 'Intact';
 
-            const checkedHullAreas = Array.from(document.querySelectorAll('.hull-check:checked')).map(el => el.value).join(' | ') || 'None Specified';
-            const checkedNiches = Array.from(document.querySelectorAll('.niche-check:checked')).map(el => el.value).join(' | ') || 'None Specified';
+            const checkedHullAreas = Array.from(document.querySelectorAll('.hull-check:checked')).map(el => el.value).join('; ') || 'None Specified';
+            const checkedNiches = Array.from(document.querySelectorAll('.niche-check:checked')).map(el => el.value).join('; ') || 'None Specified';
 
             const escapeCSV = (field) => `"${String(field || '').replace(/"/g, '""')}"`;
             const now = new Date().toISOString();
 
             let csvRows = [];
 
-            // SECTION 1: HEADER & STATUTORY METADATA BLOCK
-            csvRows.push([escapeCSV("SHIPSONIC DIGITAL STATUTORY BIOFOULING RECORD BOOK (BFRB)")].join(","));
-            csvRows.push([escapeCSV("Framework Standards: IMO MEPC.378(80) / PPR 13 Mandatory Framework / NORMAM-401 / ISO 20679 / AMPP Guide 21517-2025 / BEMA BRADD Data Framework Aligned")].join(","));
-            csvRows.push([""].join(","));
+            // 1. Mandatory Excel Separator Indicator (forces Excel to parse columns correctly across all localized versions)
+            csvRows.push("sep=,");
 
-            csvRows.push([escapeCSV("SECTION A: VESSEL PARTICULAR DETAILS & RESPONSIBLE OFFICERS")].join(","));
-            csvRows.push([escapeCSV("Vessel Name"), escapeCSV(vesselName), escapeCSV("IMO Unique Number"), escapeCSV(imoNumber)].join(","));
-            csvRows.push([escapeCSV("Flag State"), escapeCSV(flagState), escapeCSV("Port of Registry"), escapeCSV(portOfRegistry)].join(","));
-            csvRows.push([escapeCSV("Vessel Type Class"), escapeCSV(vesselType), escapeCSV("Gross Tonnage (GT)"), escapeCSV(grossTonnage)].join(","));
-            csvRows.push([escapeCSV("Registered Owner"), escapeCSV(owner), escapeCSV("Operating Manager"), escapeCSV(manager)].join(","));
-            csvRows.push([escapeCSV("Responsible Person for BFMP/BFRB"), escapeCSV(responsible), escapeCSV("Rank / Position"), escapeCSV(responsiblePosition)].join(","));
-            csvRows.push([escapeCSV("Plan Revision Level"), escapeCSV(revNumber), escapeCSV("Last Dry-Docking"), escapeCSV(lastDryDock), escapeCSV("Next Scheduled Dry-Docking"), escapeCSV(nextDryDock)].join(","));
-            csvRows.push([""].join(","));
-
-            csvRows.push([escapeCSV("SECTION B: OPERATING PROFILE & VULNERABLE NICHE MAP SUMMARY")].join(","));
-            csvRows.push([escapeCSV("Typical Speed (knots)"), escapeCSV(operatingSpeed), escapeCSV("Max Idle Laytime (Days)"), escapeCSV(inservicePeriod)].join(","));
-            csvRows.push([escapeCSV("Climate Zones"), escapeCSV(climateZones), escapeCSV("Target Biogeographic Region"), escapeCSV(region)].join(","));
-            csvRows.push([escapeCSV("Vulnerable Hull Sections"), escapeCSV(checkedHullAreas)].join(","));
-            csvRows.push([escapeCSV("Vulnerable Niche Areas"), escapeCSV(checkedNiches)].join(","));
-            csvRows.push([""].join(","));
-
-            csvRows.push([escapeCSV("SECTION C: BIOFOULING RATING SCALE GUIDE (ISO 20679 / NORMAM-401)")].join(","));
-            csvRows.push([escapeCSV("Rating 0"), escapeCSV("No Biofouling - Surface Clean / Microscopic Film")].join(","));
-            csvRows.push([escapeCSV("Rating 1"), escapeCSV("Microfouling - Slime layer present, no macro-organisms")].join(","));
-            csvRows.push([escapeCSV("Rating 2"), escapeCSV("Light Macrofouling - 1% to 15% coverage (Algae, Barnacles, Bryozoans)")].join(","));
-            csvRows.push([escapeCSV("Rating 3"), escapeCSV("Medium Macrofouling - 16% to 40% coverage")].join(","));
-            csvRows.push([escapeCSV("Rating 4"), escapeCSV("Heavy Macrofouling - 41% to 100% coverage (Dense colonization)")].join(","));
-            csvRows.push([""].join(","));
-
-            // SECTION 2: STATUTORY OPERATIONS LOGBOOK TABLE
-            csvRows.push([escapeCSV("SECTION D: STATUTORY RECORD OF BIOFOULING INSPECTIONS, CLEANINGS & MAINTENANCE ACTIONS")].join(","));
-
-            const logTableHeaders = [
+            // 2. Table Column Headers
+            const headers = [
                 "Entry No.",
-                "Date & Time (UTC)",
-                "Location / Port Name / Lat-Long",
-                "Operation Category (Inspection / Cleaning / MGPS / Drydock)",
-                "Specific Areas Evaluated / Treated (Hull / Niche / Sea Chest)",
-                "Biofouling Rating Observed (ISO 20679 / Scale 0-4)",
+                "Timestamp (UTC)",
+                "Vessel Name",
+                "IMO Number",
+                "Flag State",
+                "Port of Registry",
+                "Vessel Type",
+                "Gross Tonnage",
+                "Registered Owner",
+                "Operating Manager",
+                "Responsible Person",
+                "Rank / Position",
+                "Revision Level",
+                "Last Dry Dock",
+                "Next Dry Dock",
+                "Typical Speed (knots)",
+                "Max Idle Laytime (days)",
+                "Climate Zone",
+                "Target Biogeographic Region",
+                "Vulnerable Hull Sections",
+                "Vulnerable Niche Areas",
+                "Location / Port / Lat-Long",
+                "Operation Category",
+                "Biofouling Rating (ISO 20679 / NORMAM-401)",
                 "Hull Coverage (%)",
-                "Coating Condition (Intact / Minor Deg / Damaged)",
-                "Taxonomy / Species Identified (Macro / Micro / Invasive Risk)",
-                "Action / Treatment / Cleaning Method Executed",
-                "Effluent Debris Capture / Waste Reclamation System Used",
-                "Responsible Officer / Inspector / Diver Name & Rank",
-                "Port Authority Permit / Registration Ref. Number",
-                "Remarks & Follow-up Actions Required"
+                "Coating Condition",
+                "Species / Taxonomy Identified",
+                "Cleaning Method / Action Taken",
+                "Waste / Effluent Reclamation System",
+                "Officer / Inspector Name & Rank",
+                "Port Permit Ref No.",
+                "Remarks & Follow-up Actions",
+                "Statutory Alignment Standard"
             ];
-            csvRows.push(logTableHeaders.map(escapeCSV).join(","));
+            csvRows.push(headers.map(escapeCSV).join(","));
 
-            // Entry #1: Pre-filled from current generator form data
-            const baselineEntry = [
+            // 3. Baseline Entry (Entry #001 pre-filled from form)
+            const baselineRow = [
                 "001",
                 now,
+                vesselName,
+                imoNumber,
+                flagState,
+                portOfRegistry,
+                vesselType,
+                grossTonnage,
+                owner,
+                manager,
+                responsible,
+                responsiblePosition,
+                revNumber,
+                lastDryDock,
+                nextDryDock,
+                operatingSpeed,
+                inservicePeriod,
+                climateZones,
+                region,
+                checkedHullAreas,
+                checkedNiches,
                 portOfRegistry !== 'N/A' ? portOfRegistry : "At Sea / Baseline Audit",
-                "Initial Inspection / Baseline Audit",
-                checkedNiches !== 'None Specified' ? checkedNiches : "Full Hull & Niche Areas",
+                "Initial Inspection & Baseline Audit",
                 foulingScale,
                 coverage + "%",
                 coatingCond,
-                "Baseline Microfouling / Slime Audit",
+                "Microfouling / Baseline Slime Film",
                 "Initial BFMP / BFRB Dataset Alignment & Verification",
-                "N/A - Visual/ROV Audit Only",
+                "N/A - Visual / ROV Audit Only",
                 `${responsible} (${responsiblePosition})`,
                 "STATUTORY-INIT-" + Date.now().toString().slice(-4),
-                "Baseline record initialized via Shipsonic Compliance Generator"
+                "Baseline statutory record initialized via Shipsonic Compliance Generator",
+                "IMO MEPC.378(80) / PPR 13 / NORMAM-401 / ISO 20679 / AMPP 21517-2025 / BEMA BRADD"
             ];
-            csvRows.push(baselineEntry.map(escapeCSV).join(","));
+            csvRows.push(baselineRow.map(escapeCSV).join(","));
 
-            // Blank/Template Log Rows for future ongoing vessel entries
+            // 4. Clean Template Rows for Ongoing Log Tracking
             const templateOperations = [
                 "In-Water Subsea Hull & Niche Inspection",
                 "In-Water Cleaning (IWC) with Debris Reclamation",
@@ -1598,24 +1608,44 @@
                 const rowNum = String(idx + 2).padStart(3, '0');
                 const templateRow = [
                     rowNum,
-                    "", // Date & Time
-                    "", // Location
+                    "", // Timestamp
+                    vesselName,
+                    imoNumber,
+                    flagState,
+                    portOfRegistry,
+                    vesselType,
+                    grossTonnage,
+                    owner,
+                    manager,
+                    responsible,
+                    responsiblePosition,
+                    revNumber,
+                    lastDryDock,
+                    nextDryDock,
+                    operatingSpeed,
+                    inservicePeriod,
+                    climateZones,
+                    region,
+                    checkedHullAreas,
+                    checkedNiches,
+                    "[Insert Location / Port]",
                     opName,
-                    "[Insert Hull Section / Niche Area Name]",
                     "[Rating 0 - 4]",
                     "[0 - 100%]",
-                    "[Intact / Degradation]",
-                    "[Insert species or notes]",
-                    "[Insert cleaning device / method]",
-                    "[Insert containment / filter spec]",
-                    "[Officer / Diver Signature & Rank]",
-                    "[Permit No. if IWC executed in port]",
-                    "[Insert follow-up notes]"
+                    "[Intact / Minor Deg / Damaged]",
+                    "[Insert species / taxonomy notes]",
+                    "[Insert treatment method]",
+                    "[Insert waste capture system]",
+                    "[Officer / Diver Signature]",
+                    "[Permit No. if applicable]",
+                    "[Insert follow-up notes]",
+                    "IMO MEPC.378(80) / PPR 13 / NORMAM-401 / ISO 20679 / AMPP 21517-2025 / BEMA BRADD"
                 ];
                 csvRows.push(templateRow.map(escapeCSV).join(","));
             });
 
-            const csvString = csvRows.join("\n");
+            // 5. UTF-8 Byte Order Mark (\uFEFF) forces Excel in all regions to open columns cleanly
+            const csvString = "\uFEFF" + csvRows.join("\n");
             const blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
             const link = document.createElement("a");
             const url = URL.createObjectURL(blob);
@@ -1699,4 +1729,4 @@
         };
     </script>
 </body>
-</html> 
+</html>
