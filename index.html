@@ -47,7 +47,6 @@
                 <p class="text-sm text-slate-500 mt-0.5">Interoperable digital compliance framework and asset record engine.</p>
             </div>
         </header>
-
         <!-- Form Navigation Tab Header Bar -->
         <nav class="flex border-b border-slate-200 mb-8 overflow-x-auto text-sm font-semibold text-slate-400 no-print">
             <div id="tab-1" class="border-b-2 border-teal-600 text-teal-600 px-4 py-2 whitespace-nowrap cursor-pointer" onclick="jumpStep(1)">1. Vessel Particulars</div>
@@ -56,7 +55,6 @@
             <div id="tab-4" class="border-b-2 border-transparent px-4 py-2 whitespace-nowrap cursor-pointer" onclick="jumpStep(4)">4. Performance monitoring systems and Inspection</div>
             <div id="tab-5" class="border-b-2 border-transparent px-4 py-2 whitespace-nowrap cursor-pointer" onclick="jumpStep(5)">5. Finalize &amp; Audit Plan</div>
         </nav>
-
         <!-- Core Wizard Form Component Wrapper -->
         <form id="wizardForm" class="bg-white shadow-xl border border-slate-200 rounded-2xl p-6 md:p-8 no-print" onsubmit="return false;">
             
@@ -149,10 +147,9 @@
                         <input type="text" id="vesselManager" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. Global Maritime Management">
                     </div>
                 </div>
-
                 <div>
                     <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2 mt-6">BFMP Lifecycle Tracking</h3>
-                    <p class="text-xs text-slate-500 mt-0.5">The plan should be re-evaluated and, if necessary, updated after a dry-docking and/or if any changes are made that have an impact on the anticipated biofouling[cite: 8].</p>
+                    <p class="text-xs text-slate-500 mt-0.5">The plan should be re-evaluated and, if necessary, updated after a dry-docking and/or if any changes are made that have an impact on the anticipated biofouling.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
@@ -178,7 +175,6 @@
                         <input type="text" id="revisionNumber" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="e.g. BMP-REV-03">
                     </div>
                 </div>
-
                 <!-- Revisions Section -->
                 <div class="mt-6 border border-slate-200 rounded-xl p-4 bg-slate-50/50">
                     <h4 class="text-xs font-bold text-teal-900 uppercase mb-1">The following revisions have been made:</h4>
@@ -232,7 +228,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- PANEL 2: OPERATIONAL PROFILE -->
             <div id="panel-2" class="step-panel hidden space-y-6">
                 <div>
@@ -298,7 +293,7 @@
                 </div>
                 <div class="mt-4">
                     <label class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Vulnerable Niche Areas Present on Vessel (IMO MEPC.378(80) Compliance Audit Target)</label>
-                    <p class="text-xs text-slate-500 mb-3">The hull and niche areas where biofouling may accumulate are described below[cite: 8].</p>
+                    <p class="text-xs text-slate-500 mb-3">The hull and niche areas where biofouling may accumulate are described below.</p>
                     
                     <!-- Subsection: Areas on hull -->
                     <div class="mb-4">
@@ -356,12 +351,11 @@
                     </div>
                 </div>
             </div>
-
             <!-- PANEL 3: ANTI-FOULING SYSTEMS -->
             <div id="panel-3" class="step-panel hidden space-y-6">
                 <div>
                     <h3 class="text-base font-bold uppercase text-teal-950 border-b border-slate-100 pb-2">Active Anti-Fouling Systems &amp; Hardware Matrices</h3>
-                    <p class="text-xs text-slate-500 mt-0.5">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions[cite: 8].</p>
+                    <p class="text-xs text-slate-500 mt-0.5">The selected AFS that are applied, reapplied, installed or renewed on the ship are described below. When more than one type of anti-fouling coating (AFC) or marine growth prevention system (MGPS) are applied, reapplied, installed or renewed, each AFS should be described individually and in accordance with each manufacturer's instructions.</p>
                 </div>
                 
                 <!-- Anti-Fouling Coating Entry Block -->
@@ -378,7 +372,6 @@
                             <label class="block font-semibold text-slate-700 mb-1">AFS Certificate Reference Number</label>
                             <input type="text" id="afcCertNo" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="e.g. CERT-BV-2025-8842K">
                         </div>
-
                         <!-- Coating Classification -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Coating Classification</label>
@@ -394,7 +387,6 @@
                                 <input type="text" id="afcClassificationOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify classification...">
                             </div>
                         </div>
-
                         <!-- Biocide Presence -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Biocide Presence</label>
@@ -410,7 +402,6 @@
                                 <input type="text" id="afcBiocideOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify biocide details...">
                             </div>
                         </div>
-
                         <!-- Typical Thickness -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Typical Thickness (Dry Film Thickness)</label>
@@ -426,7 +417,6 @@
                                 <input type="text" id="afcThicknessOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify thickness parameters...">
                             </div>
                         </div>
-
                         <!-- Expected Lifespan -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Expected Lifespan</label>
@@ -438,7 +428,6 @@
                                 <option value="10 to 15+ years">10 to 15+ years</option>
                             </select>
                         </div>
-
                         <!-- Repair Regime -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">The Repair Regime (Addressing Localized Damage)</label>
@@ -454,7 +443,6 @@
                                 <input type="text" id="afcRepairOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify repair regime...">
                             </div>
                         </div>
-
                         <!-- Maintenance Regime -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Maintenance Regime (Preserving the Current Coating)</label>
@@ -469,7 +457,6 @@
                                 <input type="text" id="afcMaintenanceOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify maintenance regime...">
                             </div>
                         </div>
-
                         <!-- Renewal Regime -->
                         <div class="md:col-span-2">
                             <label class="block font-semibold text-slate-700 mb-1">Renewal Regime (Full System Replacement)</label>
@@ -485,7 +472,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Areas on Vessel where AFC is applied -->
                     <div class="mt-4 pt-3 border-t border-slate-200">
                         <label class="block text-xs font-bold uppercase text-teal-900 mb-2">Areas on Vessel where AFC is applied</label>
@@ -505,7 +491,6 @@
                             <input type="text" id="afcAreaOther" class="w-full border border-slate-300 rounded px-2 py-1 text-xs" placeholder="Specify other AFC application area...">
                         </div>
                     </div>
-
                     <!-- Cleaning Protocols Section -->
                     <div class="mt-4 pt-3 border-t border-slate-200">
                         <label class="block text-xs font-bold uppercase text-slate-800 mb-2">Cleaning Protocols</label>
@@ -565,7 +550,6 @@
                         </table>
                     </div>
                 </div>
-
                 <!-- MGPS Hardware Entry Block -->
                 <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 mt-6">
                     <h4 class="text-xs font-bold text-slate-700 uppercase mb-3 text-teal-900">Add Marine Growth Protection System (MGPS Array)</h4>
@@ -576,13 +560,11 @@
                             <label class="block font-semibold text-slate-700 mb-1">Manufacturer(s) Name</label>
                             <input type="text" id="mgpsManufacturerName" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="e.g. Shipsonic / KC Ltd">
                         </div>
-
                         <!-- Models of MGPS -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Models of MGPS</label>
                             <input type="text" id="mgpsModelName" class="w-full border border-slate-300 bg-white rounded-lg px-3 py-1.5 text-xs focus:outline-none" placeholder="e.g. USAF-80W/100W Transducers / MDP-20 Series">
                         </div>
-
                         <!-- Type(s) of MGPS -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Type(s) of MGPS</label>
@@ -600,7 +582,6 @@
                                 <input type="text" id="mgpsTypeOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify custom MGPS type / model...">
                             </div>
                         </div>
-
                         <!-- Sacrificial Anode Sub-options -->
                         <div id="mgpsAnodeSubWrap" class="p-2 bg-teal-50/50 border border-teal-200 rounded-lg">
                             <label class="block font-bold text-teal-950 mb-1">Electrolytic Anode Materials (Select all applied)</label>
@@ -610,7 +591,6 @@
                                 <label class="flex items-center space-x-1.5"><input type="checkbox" class="mgps-anode-sub" value="Ferrous / Iron Anodes (Fe)"> <span>Ferrous / Iron Anodes (Fe)</span></label>
                             </div>
                         </div>
-
                         <!-- System Service Life -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Service Life of MGPS</label>
@@ -627,7 +607,6 @@
                                 <input type="text" id="mgpsServiceLifeOther" class="w-full border border-slate-300 rounded-lg px-2 py-1 text-xs" placeholder="Specify service life...">
                             </div>
                         </div>
-
                         <!-- Harmful Discharge Type -->
                         <div>
                             <label class="block font-semibold text-slate-700 mb-1">Type(s) of Harmful Discharge from MGPS</label>
@@ -646,7 +625,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Areas on Vessels where MGPS is applied -->
                     <div class="mt-4 pt-3 border-t border-slate-200">
                         <label class="block text-xs font-bold uppercase text-teal-900 mb-2">Areas on Vessels where MGPS is applied</label>
@@ -688,7 +666,6 @@
                             <input type="text" id="mgpsAreaOther" class="w-full border border-slate-300 rounded px-2 py-1 text-xs" placeholder="Specify other MGPS application area...">
                         </div>
                     </div>
-
                     <!-- Required maintenance and frequency (Automated dynamic selection) -->
                     <div class="mt-4 pt-3 border-t border-slate-200">
                         <label class="block text-xs font-bold uppercase text-teal-900 mb-2">Required maintenance and frequency</label>
@@ -696,7 +673,6 @@
                             <!-- Injected dynamically via JS based on mgpsTypeSelect -->
                         </div>
                     </div>
-
                     <!-- Operating Conditions / Frequency of Use -->
                     <div class="mt-4 pt-3 border-t border-slate-200">
                         <label class="block text-xs font-bold uppercase text-slate-800 mb-2">Operating Conditions / Frequency of Use (Select all that apply)</label>
@@ -738,14 +714,12 @@
                     </div>
                 </div>
             </div>
-
             <!-- PANEL 4: PERFORMANCE MONITORING SYSTEMS AND INSPECTION -->
             <div id="panel-4" class="step-panel hidden space-y-6">
                 <div>
                     <h3 class="text-xs font-bold uppercase text-teal-950 border-b border-slate-200 pb-2">4. Performance Monitoring Systems, Inspection &amp; Statutory Risk Audit</h3>
                     <p class="text-xs text-slate-500 mt-0.5">Standardized entry parameters for performance monitoring systems and macrofouling metrics aligned with ISO 20679 and IMO MEPC.378(80).</p>
                 </div>
-
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">Scale of Fouling (NORMAM-401 Scale / ISO 20679)</label>
@@ -769,7 +743,6 @@
                         </select>
                     </div>
                 </div>
-
                 <!-- INSPECTION SCHEDULE OF HULL AND NICHE AREAS -->
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-4">
                     <h4 class="text-xs font-bold uppercase text-teal-950 border-b border-slate-200 pb-1">Inspection Schedule of Hull and Niche Areas</h4>
@@ -784,7 +757,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- CLEANING -->
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-4">
                     <h4 class="text-xs font-bold uppercase text-teal-950 border-b border-slate-200 pb-1">Cleaning &amp; Proactive Strategies</h4>
@@ -794,7 +766,6 @@
                         <textarea id="proactiveCleaningDesc" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none h-20 bg-white text-slate-800" placeholder="e.g. Scheduled manual device or ROV with soft brush every XX days when operating in tropical/semi-tropical waters..."></textarea>
                     </div>
                 </div>
-
                 <!-- MONITORING OF BIOFOULING RISK PARAMETERS AND CONTINGENCY ACTIONS -->
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-4">
                     <h4 class="text-xs font-bold uppercase text-teal-950 border-b border-slate-200 pb-1">Monitoring of Biofouling Risk Parameters and Contingency Actions</h4>
@@ -803,13 +774,11 @@
                         <textarea id="riskParametersMatrix" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none h-24 bg-white text-slate-800" placeholder="e.g. Deviation from speed/salinity/temperature limits -> shorter inspection interval (every 4 months); Extended idle time -> execute short voyage or carry out inspection; MGPS malfunction -> increase niche area monitoring..."></textarea>
                     </div>
                 </div>
-
                 <!-- Dynamic Regulatory Warning Banner (no-print) -->
                 <div id="brazilRiskBanner" class="hidden p-4 bg-amber-50 border border-amber-300 text-amber-900 rounded-xl text-xs space-y-1">
                     <strong class="block uppercase font-bold text-amber-950">⚠️ NORMAM-401/DPC Regulatory Action Required</strong>
                     <p>A biofouling rating of 2 or higher requires active cleaning before navigating between distinct Brazilian biogeographic regions. In-water cleaning operations require waste capture and approval requests submitted to local authorities at least 10 days in advance.</p>
                 </div>
-
                 <div class="space-y-4">
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Operational Cleaning Containment Strategy</label>
@@ -820,38 +789,31 @@
                         <textarea id="contingencyPlan" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none h-16 bg-white text-slate-800" placeholder="Tactical procedures..."></textarea>
                     </div>
                 </div>
-
                 <!-- IMO COMPLIANCE & RESEARCH ANALYSIS SUMMARY MODULE (EXPANDED TO 6 CARDS) -->
                 <div class="border border-teal-200 bg-teal-50/40 rounded-xl p-4 space-y-3">
                     <h4 class="text-xs font-bold uppercase text-teal-950 border-b border-teal-200 pb-1">IMO Biofouling Master Regulatory &amp; Technical Analysis Reference</h4>
                     <p class="text-[11px] text-slate-600">Cross-reference summary compiled from 51 statutory IMO PPR submissions, guidelines, and scientific studies (PPR 13 / PPR 10 / MEPC.378(80) / GloFouling):</p>
-
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
                             <span class="font-bold text-teal-900 block">1. Statutory Baseline (MEPC.378(80) &amp; ISO 20679)</span>
-                            <p class="text-slate-600 text-[11px]">Resolution MEPC.378(80) mandates ship-specific BFMP &amp; Biofouling Record Books (BFRB). Aligns survey criteria with ISO 20679:2025 to standardise Biofouling Rating assessments (0–4) across hull &amp; niche areas[cite: 5, 8].</p>
+                            <p class="text-slate-600 text-[11px]">Resolution MEPC.378(80) mandates ship-specific BFMP &amp; Biofouling Record Books (BFRB). Aligns survey criteria with ISO 20679:2025 to standardise Biofouling Rating assessments (0–4) across hull &amp; niche areas.</p>
                         </div>
-
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
                             <span class="font-bold text-teal-900 block">2. Mandatory Framework &amp; GBS (PPR 13/5, 13/5/1, 13/5/2)</span>
-                            <p class="text-slate-600 text-[11px]">Norway &amp; Japan propose binding Goal-Based Standards. PPR 13/5/2 (Reg 24) establishes a mandatory MGPS benchmark: maintain <strong>Biofouling Rating &le; 1 for &ge; 1 year</strong> while controlling noise pollution and coating compatibility[cite: 3].</p>
+                            <p class="text-slate-600 text-[11px]">Norway &amp; Japan propose binding Goal-Based Standards. PPR 13/5/2 (Reg 24) establishes a mandatory MGPS benchmark: maintain <strong>Biofouling Rating &le; 1 for &ge; 1 year</strong> while controlling noise pollution and coating compatibility.</p>
                         </div>
-
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
                             <span class="font-bold text-teal-900 block">3. Lifecycle Control Points (Canada PPR 13/5/6 &amp; INF.8)</span>
-                            <p class="text-slate-600 text-[11px]">Canada's 10 Control Points map biofouling actions across the ship lifecycle—from Design &amp; Construction (installing niche MGPS) to BFMP Planning, Operating Profiles, Equipment Standards, and Port State Approval[cite: 7].</p>
+                            <p class="text-slate-600 text-[11px]">Canada's 10 Control Points map biofouling actions across the ship lifecycle—from Design &amp; Construction (installing niche MGPS) to BFMP Planning, Operating Profiles, Equipment Standards, and Port State Approval.</p>
                         </div>
-
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
                             <span class="font-bold text-teal-900 block">4. MARPOL Annex VI &amp; Decarbonization (PPR 13/5/1, PPR 12/INF.7)</span>
-                            <p class="text-slate-600 text-[11px]">BIMCO/GloFouling data proves <strong>0.5mm microfouling increases fuel/GHG emissions by 25–30%</strong>. Continuous ultrasonic anti-fouling directly serves as an Annex VI SEEMP decarbonization measure[cite: 2].</p>
+                            <p class="text-slate-600 text-[11px]">BIMCO/GloFouling data proves <strong>0.5mm microfouling increases fuel/GHG emissions by 25–30%</strong>. Continuous ultrasonic anti-fouling directly serves as an Annex VI SEEMP decarbonization measure.</p>
                         </div>
-
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
                             <span class="font-bold text-teal-900 block">5. IWC Toxic Effluent &amp; Unmeasurable Capture (PPR 13/INF.16, PPR 13/5/4)</span>
-                            <p class="text-slate-600 text-[11px]">Dutch field trials (PPR 13/INF.16) prove reactive IWC discharges 700g–36kg copper per cleaning. ICES (PPR 13/5/4) proves open-water capture % is technically unmeasurable, favoring zero-discharge ultrasonic MGPS[cite: 5].</p>
+                            <p class="text-slate-600 text-[11px]">Dutch field trials (PPR 13/INF.16) prove reactive IWC discharges 700g–36kg copper per cleaning. ICES (PPR 13/5/4) proves open-water capture % is technically unmeasurable, favoring zero-discharge ultrasonic MGPS.</p>
                         </div>
-
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
                             <span class="font-bold text-teal-900 block">6. Niche Area Growth &amp; ROV Limits (PPR 10/INF.17, PPR 13/5/8)</span>
                             <p class="text-slate-600 text-[11px]">ROK trials show uncoated niche areas reach macrofouling (Rating 2) in <strong>5.3 days</strong>. Ultrasonic transducers eliminate reliance on difficult subsea ROV/diver niche access.</p>
@@ -859,21 +821,53 @@
                     </div>
                 </div>
             </div>
-
             <!-- PANEL 5: FINALIZE -->
             <div id="panel-5" class="step-panel hidden space-y-6">
-                <div class="text-center py-6 max-w-md mx-auto space-y-4">
+                <div class="text-center py-6 max-w-xl mx-auto space-y-5">
                     <div class="w-12 h-12 bg-teal-100 text-teal-800 rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
                     <div>
-                        <h2 class="text-lg font-bold text-slate-900">Compliance Layout Generated</h2>
-                        <p class="text-xs text-slate-500 mt-1">Review the document output generated dynamically below.</p>
+                        <h2 class="text-lg font-bold text-slate-900">Compliance Layout &amp; Record Engine Finalized</h2>
+                        <p class="text-xs text-slate-500 mt-1">Select statutory record output options or launch biological identification tools.</p>
                     </div>
-                    <button type="button" onclick="window.print();" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg text-sm transition-colors shadow-md">
-                        Trigger Print / Save PDF Document
-                    </button>
+
+                    <!-- Primary Document Generation Action Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <button type="button" onclick="generateBFMPWithDiscordAlert();" class="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg text-xs transition-colors shadow-md flex items-center justify-center gap-2">
+                            <span>🖨️ Trigger Print / Save BFMP Document</span>
+                        </button>
+
+                        <button type="button" onclick="generateBFRB();" class="w-full py-2.5 px-4 bg-teal-800 hover:bg-teal-900 text-white font-semibold rounded-lg text-xs transition-colors shadow-md flex items-center justify-center gap-2">
+                            <span>📖 Generate Biofouling Record Book (BFRB)</span>
+                        </button>
+                    </div>
+
+                    <!-- Regulatory Framework Tag -->
+                    <div class="text-[11px] text-teal-950 bg-teal-50 border border-teal-200 rounded-lg p-3 text-left leading-relaxed shadow-sm">
+                        <strong class="block text-teal-900 font-bold mb-0.5">Statutory Standard Alignment Framework:</strong>
+                        <span class="text-slate-700">IMO MEPC.378(80) / PPR 13 Mandatory Framework / NORMAM-401 / ISO 20679 / AMPP Guide 21517-2025 / BEMA BRADD Data Framework Aligned</span>
+                    </div>
+
+                    <!-- Direct Access Link to BioFouling ID Guide Page -->
+                    <div class="pt-2 border-t border-slate-200">
+                        <a href="https://degandarela.github.io/Global-Biofouling-Guide/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-teal-800 hover:text-teal-950 bg-slate-100 hover:bg-slate-200 px-4 py-2.5 rounded-lg border border-slate-300 transition-all shadow-sm">
+                            <span>🔍 Access BioFouling ID Guide Page</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Discord Webhook Warning Integration Field -->
+                    <div class="mt-4 pt-3 border-t border-slate-200 text-left space-y-2">
+                        <label class="block text-xs font-bold text-slate-700">Discord Webhook Notification Dispatch URL (Optional)</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="discordWebhookUrl" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none bg-white" placeholder="https://discord.com/api/webhooks/...">
+                            <button type="button" onclick="sendDiscordNotification('MANUAL')" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-lg transition-colors whitespace-nowrap shadow-sm">
+                                Send Alert
+                            </button>
+                        </div>
+                        <p class="text-[10px] text-slate-500 leading-tight">Generates and posts an instant Discord warning alert message containing the main vessel compliance details whenever a BFMP or Biofouling Record Book is generated.</p>
+                    </div>
                 </div>
             </div>
-
             <!-- Wizard Control Buttons -->
             <div class="border-t border-slate-100 pt-4 mt-8 flex justify-between items-center">
                 <button type="button" id="prevBtn" onclick="moveStep(-1)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-4 py-2 rounded-lg text-sm transition-colors hidden">
@@ -884,21 +878,20 @@
                 </button>
             </div>
         </form>
-
         <!-- LIVE COMPLIANCE PREVIEW FRAME -->
         <div id="preview-section" class="mt-8 bg-white rounded-xl shadow-md border border-slate-200 p-6">
             <div class="flex justify-between items-center border-b border-slate-200 pb-4 mb-4 no-print">
                 <div>
-                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wide">Official IMO &amp; AMPP Compliance Document Preview Frame</h3>
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wide" id="previewFrameTitle">Official IMO &amp; AMPP Compliance Document Preview Frame</h3>
                 </div>
-                <button type="button" onclick="window.print()" class="bg-teal-950 hover:bg-teal-900 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">Print Layout / Save PDF</button>
+                <button type="button" onclick="generateBFMPWithDiscordAlert()" class="bg-teal-950 hover:bg-teal-900 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">Print Layout / Save PDF</button>
             </div>
             
             <!-- Printable Document Area -->
             <div id="printable-document" class="p-2 bg-white text-black space-y-8">
                 <div class="border-4 border-double border-slate-900 p-8 text-center my-4 print-page">
                     <h2 class="text-xs font-bold tracking-widest text-slate-600">SHIPSONIC BIOFOULING INTELLIGENCE &amp; COMPLIANCE</h2>
-                    <h1 class="text-2xl font-black uppercase tracking-tight mt-2">BIOFOULING MANAGEMENT PLAN</h1>
+                    <h1 class="text-2xl font-black uppercase tracking-tight mt-2" id="docTypeHeader">BIOFOULING MANAGEMENT PLAN</h1>
                     <div class="w-32 h-0.5 bg-slate-900 mx-auto my-6"></div>
                     
                     <div class="text-left max-w-xl mx-auto space-y-2 text-xs border border-slate-300 p-4 bg-slate-50/50 rounded-lg">
@@ -915,7 +908,6 @@
                         <div class="grid grid-cols-2"><strong>REVISION LEVEL:</strong> <span id="p-revisionNumber" class="text-right">—</span></div>
                     </div>
                 </div>
-
                 <!-- AMPP DATASET SUMMARY -->
                 <div class="print-page space-y-4">
                     <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">NORMAM-401 / AMPP Joint Digital Dataset</h3>
@@ -938,7 +930,6 @@
                         <strong>🚨 CRITICAL STATUTORY COMPLIANCE ALERT (NORMAM-401/DPC):</strong> Hull macrofouling rating equals or exceeds Rating 2. Vessel is prohibited from navigating between distinct biogeographic zones or entering Brazilian waters without executing localized in-water cleaning utilizing waste capture matrices. Prior authorization forms must be forwarded to the local maritime authority at least 10 days before operations.
                     </div>
                 </div>
-
                 <!-- SECTION 1 CONTENT ARRAY -->
                 <div class="print-page space-y-4">
                     <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">1. MEASURED SHIP TECHNICAL PARTICULARS</h3>
@@ -982,7 +973,6 @@
                         </table>
                     </div>
                 </div>
-
                 <!-- SECTION 2 FULL OPERATING PROFILE DATASET -->
                 <div class="print-page space-y-4">
                     <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">HULL OPERATING PROFILE &amp; STATUTORY DATA FIELD REPORT</h3>
@@ -1011,7 +1001,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- SECTION 3 FULL COATING SYSTEMS & MGPS REGISTER -->
                 <div class="print-page space-y-4">
                     <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">RECORDED ANTI-FOULING LAYER COATINGS &amp; ACTIVE MGPS ARRAY MATRIX</h3>
@@ -1055,7 +1044,6 @@
                         <div id="p-mgpsAttachedFilesIndex" class="text-xs text-slate-600 italic">No files attached to record.</div>
                     </div>
                 </div>
-
                 <!-- SECTION 4 OPERATIONAL POLICIES & STRATEGIES -->
                 <div class="print-page space-y-4">
                     <h3 class="text-sm font-bold uppercase border-b border-slate-900 pb-1">4. OPERATIONS POLICIES &amp; CONTINGENCY AUDIT STATEMENT</h3>
@@ -1092,12 +1080,10 @@
             </div>
         </div>
     </div>
-
     <!-- Active State & Binding Script Layer Engine -->
     <script>
         let currentStep = 1;
         const totalSteps = 5;
-
         // Dynamic maintenance schedule options map
         const mgpsMaintenanceData = {
             "Electrolytic / Sacrificial Anode Systems": [
@@ -1152,7 +1138,6 @@
                 wrap.classList.add('hidden');
             }
         }
-
         // Toggle text field visibility for checkboxes with "Other"
         function toggleOtherCheckboxWrap(chkId, wrapId) {
             setTimeout(() => {
@@ -1165,26 +1150,22 @@
                 }
             }, 50);
         }
-
         // Toggle MGPS Sacrificial Anode Sub-options & Maintenance Dynamic Wrap
         function toggleMgpsTypeOptions() {
             const val = document.getElementById('mgpsTypeSelect').value;
             const anodeWrap = document.getElementById('mgpsAnodeSubWrap');
             const otherWrap = document.getElementById('mgpsTypeOtherWrap');
             const maintWrap = document.getElementById('mgpsMaintenanceDynamicWrap');
-
             if (val === 'Electrolytic / Sacrificial Anode Systems') {
                 anodeWrap.classList.remove('hidden');
             } else {
                 anodeWrap.classList.add('hidden');
             }
-
             if (val === 'Other') {
                 otherWrap.classList.remove('hidden');
             } else {
                 otherWrap.classList.add('hidden');
             }
-
             // Render Dynamic Maintenance Checkboxes
             const items = mgpsMaintenanceData[val];
             if (items && items.length > 0) {
@@ -1198,7 +1179,6 @@
                 maintWrap.innerHTML = `<span class="text-slate-400 italic">No automated maintenance presets for this selection. Specify in notes if required.</span>`;
             }
         }
-
         function updateBindings() {
             const boundFields = [
                 'vesselName', 'imoNumber', 'dateOfBuild', 'portOfRegistry', 'flagState', 'vesselType', 'revisionNumber', 
@@ -1231,7 +1211,6 @@
             
             evaluateRegulatoryAlert();
         }
-
         function evaluateRegulatoryAlert() {
             const selectVal = document.getElementById('amppFoulingScale').value;
             const screenBanner = document.getElementById('brazilRiskBanner');
@@ -1249,7 +1228,6 @@
                 }
             }
         }
-
         function moveStep(direction) {
             document.getElementById(`panel-${currentStep}`).classList.add('hidden');
             document.getElementById(`tab-${currentStep}`).className = "border-b-2 border-transparent px-4 py-2 whitespace-nowrap cursor-pointer";
@@ -1267,7 +1245,6 @@
             }
             updateBindings();
         }
-
         function jumpStep(targetStep) {
             document.getElementById(`panel-${currentStep}`).classList.add('hidden');
             document.getElementById(`tab-${currentStep}`).className = "border-b-2 border-transparent px-4 py-2 whitespace-nowrap cursor-pointer";
@@ -1285,7 +1262,6 @@
             }
             updateBindings();
         }
-
         function handleAfcFiles(input) {
             const fileIndexEl = document.getElementById('p-afcAttachedFilesIndex');
             if(input.files && input.files.length > 0) {
@@ -1295,7 +1271,6 @@
                 fileIndexEl.innerText = 'No files attached to record.';
             }
         }
-
         function addAfcRecord() {
             const name = document.getElementById('afcCertificate').value;
             const cert = document.getElementById('afcCertNo').value;
@@ -1331,7 +1306,6 @@
                 const spec = document.getElementById('afcRenewalOther').value;
                 renewal = `Other (${spec || 'Unspecified'})`;
             }
-
             // Gather selected AFC Applied Areas
             let afcAreas = Array.from(document.querySelectorAll('.afc-applied-area:checked')).map(e => {
                 if (e.value === 'Other') {
@@ -1341,7 +1315,6 @@
                 return e.value;
             });
             const afcAreaStr = afcAreas.length > 0 ? afcAreas.join(', ') : 'None Specified';
-
             // Gather selected Cleaning Protocols
             const mechClean = Array.from(document.querySelectorAll('.afc-clean-mech:checked')).map(e => e.value);
             const dryClean = Array.from(document.querySelectorAll('.afc-clean-drydock:checked')).map(e => e.value);
@@ -1352,20 +1325,16 @@
                 }
                 return e.value;
             });
-
             let cleaningSummary = [];
             if (mechClean.length) cleaningSummary.push(`Mechanical: ${mechClean.join(', ')}`);
             if (dryClean.length) cleaningSummary.push(`Dry-Dock: ${dryClean.join(', ')}`);
             if (debrisClean.length) cleaningSummary.push(`Debris/Env: ${debrisClean.join(', ')}`);
             const cleaningStr = cleaningSummary.length > 0 ? cleaningSummary.join(' | ') : 'None Specified';
-
             if(!name || !cert) return alert('Fill core coating name and certificate reference');
-
             const col1 = `<div><strong>Name:</strong> ${name}</div><div class="text-[11px] text-slate-500"><strong>Cert:</strong> ${cert}</div>`;
             const col2 = `<div><strong>Class:</strong> ${classification}</div><div class="text-[11px] text-slate-500"><strong>Biocide:</strong> ${biocide}</div><div class="text-[10px] text-teal-900 mt-0.5"><strong>Areas:</strong> ${afcAreaStr}</div>`;
             const col3 = `<div><strong>DFT:</strong> ${thickness}</div><div class="text-[11px] text-slate-500"><strong>Lifespan:</strong> ${lifespan}</div>`;
             const col4 = `<div class="text-[11px]"><strong>Regimes:</strong> Rep: ${repair}, Maint: ${maintenance}, Ren: ${renewal}</div><div class="text-[10px] text-slate-500 mt-0.5"><strong>Clean:</strong> ${cleaningStr}</div>`;
-
             const row = `<tr>
                 <td class="p-2 border-b border-slate-200">${col1}</td>
                 <td class="p-2 border-b border-slate-200">${col2}</td>
@@ -1388,7 +1357,6 @@
             </tr>`;
             printBody.insertAdjacentHTML('beforeend', printRow);
         }
-
         function removeAfcRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -1398,7 +1366,6 @@
                 printBody.innerHTML = `<tr><td colspan="4" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
             }
         }
-
         function handleMgpsFiles(input) {
             const fileIndexEl = document.getElementById('p-mgpsAttachedFilesIndex');
             if(input.files && input.files.length > 0) {
@@ -1408,7 +1375,6 @@
                 fileIndexEl.innerText = 'No files attached to record.';
             }
         }
-
         function addMgpsRecord() {
             const manufacturer = document.getElementById('mgpsManufacturerName').value || 'Unspecified';
             const model = document.getElementById('mgpsModelName').value || 'Unspecified';
@@ -1424,7 +1390,6 @@
                     mgpsType += `<br><span class="text-[10px] text-teal-800">Anodes: ${checkedAnodes.join(', ')}</span>`;
                 }
             }
-
             // Gather Operating Conditions
             let opConditions = Array.from(document.querySelectorAll('.mgps-op-cond:checked')).map(e => {
                 if (e.value === 'Other') {
@@ -1434,7 +1399,6 @@
                 return e.value;
             });
             const opCondStr = opConditions.length > 0 ? opConditions.join(', ') : 'Not Specified';
-
             // Gather MGPS Applied Areas
             let mgpsAreas = Array.from(document.querySelectorAll('.mgps-applied-area:checked')).map(e => {
                 if (e.value === 'Other') {
@@ -1444,30 +1408,25 @@
                 return e.value;
             });
             const mgpsAreaStr = mgpsAreas.length > 0 ? mgpsAreas.join(', ') : 'None Specified';
-
             // Service Life
             let serviceLife = document.getElementById('mgpsServiceLife').value;
             if (serviceLife === 'Other') {
                 const spec = document.getElementById('mgpsServiceLifeOther').value;
                 serviceLife = `Other (${spec || 'Unspecified'})`;
             }
-
             // Maintenance Tasks
             const selectedMaint = Array.from(document.querySelectorAll('.mgps-maint-chk:checked')).map(e => e.value);
             const maintStr = selectedMaint.length > 0 ? selectedMaint.join('; ') : 'None Selected';
-
             // Harmful Discharge
             let discharge = document.getElementById('mgpsDischarge').value;
             if (discharge === 'Other') {
                 const spec = document.getElementById('mgpsDischargeOther').value;
                 discharge = `Other (${spec || 'Unspecified'})`;
             }
-
             const col1 = `<div><strong>Mfr:</strong> ${manufacturer}</div><div><strong>Model:</strong> ${model}</div><div class="text-[11px] text-slate-500"><strong>Type:</strong> ${mgpsType}</div>`;
             const col2 = `<div><strong>Op:</strong> ${opCondStr}</div><div class="text-[10px] text-teal-900 mt-1"><strong>Areas:</strong> ${mgpsAreaStr}</div>`;
             const col3 = `<div><strong>Life:</strong> ${serviceLife}</div><div class="text-[10px] text-slate-600 mt-1"><strong>Maint:</strong> ${maintStr}</div>`;
             const col4 = `<div>${discharge}</div>`;
-
             const row = `<tr>
                 <td class="p-2 border-b border-slate-200">${col1}</td>
                 <td class="p-2 border-b border-slate-200">${col2}</td>
@@ -1490,7 +1449,6 @@
             </tr>`;
             printBody.insertAdjacentHTML('beforeend', printRow);
         }
-
         function removeMgpsRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -1500,7 +1458,6 @@
                 printBody.innerHTML = `<tr><td colspan="4" class="p-2 text-center text-slate-400">No entries recorded</td></tr>`;
             }
         }
-
         function addRevisionRecord() {
             const date = document.getElementById('revDate').value;
             const person = document.getElementById('revPerson').value;
@@ -1522,7 +1479,6 @@
             document.getElementById('revPerson').value = '';
             document.getElementById('revParts').value = '';
         }
-
         function removeRevisionRow(btn) {
             const rowIndex = btn.closest('tr').rowIndex - 1;
             btn.closest('tr').remove();
@@ -1532,6 +1488,85 @@
                 printBody.innerHTML = `<tr><td colspan="3" class="p-2 text-center text-slate-400">No revisions recorded</td></tr>`;
             }
         }
+
+        // Biofouling Record Book (BFRB) Generator Function
+        function generateBFRB() {
+            updateBindings();
+            document.getElementById('docTypeHeader').innerText = "STATUTORY BIOFOULING RECORD BOOK (BFRB)";
+            document.getElementById('previewFrameTitle').innerText = "IMO MEPC.378(80) / ISO 20679 STATUTORY RECORD BOOK PREVIEW";
+            sendDiscordNotification('BFRB');
+            window.print();
+        }
+
+        // BFMP Document Print & Alert Dispatch Function
+        function generateBFMPWithDiscordAlert() {
+            updateBindings();
+            document.getElementById('docTypeHeader').innerText = "BIOFOULING MANAGEMENT PLAN";
+            document.getElementById('previewFrameTitle').innerText = "Official IMO & AMPP Compliance Document Preview Frame";
+            sendDiscordNotification('BFMP');
+            window.print();
+        }
+
+        // Discord Webhook Notification Dispatch Engine
+        function sendDiscordNotification(docType = 'BFMP') {
+            const webhookUrl = document.getElementById('discordWebhookUrl').value.trim();
+            const vesselName = document.getElementById('vesselName').value || 'Unspecified Vessel';
+            const imoNumber = document.getElementById('imoNumber').value || 'N/A';
+            const flagState = document.getElementById('flagState').value || 'N/A';
+            const vesselType = document.getElementById('vesselType').value || 'Unspecified';
+            const responsiblePerson = document.getElementById('bfmpResponsiblePerson').value || 'Unspecified';
+            const foulingScale = document.getElementById('amppFoulingScale').value || 'Rating 0';
+            const region = document.getElementById('biogeographicRegion').value || 'Unspecified';
+            const revNumber = document.getElementById('revisionNumber').value || 'REV-00';
+
+            const alertTitle = docType === 'BFRB' 
+                ? `📖 BIOFOULING RECORD BOOK (BFRB) GENERATED` 
+                : `🚨 BIOFOULING MANAGEMENT PLAN (BFMP) GENERATED`;
+
+            const isHighRisk = foulingScale.includes('Rating 2') || foulingScale.includes('Rating 3') || foulingScale.includes('Rating 4');
+
+            const payload = {
+                username: "Shipsonic Biofouling Compliance Engine",
+                avatar_url: "https://cdn-icons-png.flaticon.com/512/2942/2942544.png",
+                embeds: [{
+                    title: alertTitle,
+                    description: `A new statutory compliance record has been generated and validated under **IMO MEPC.378(80) / PPR 13 Mandatory Framework / NORMAM-401 / ISO 20679 / AMPP Guide 21517-2025 / BEMA BRADD Data Framework**.`,
+                    color: isHighRisk ? 15158332 : 3066993, // Red for high risk, Green/Teal for normal
+                    fields: [
+                        { name: "🚢 Vessel Name", value: vesselName, inline: true },
+                        { name: "🔢 IMO Number", value: imoNumber, inline: true },
+                        { name: "🚩 Flag State", value: flagState.toUpperCase(), inline: true },
+                        { name: "🏗️ Vessel Type", value: vesselType, inline: true },
+                        { name: "👤 Responsible Officer", value: responsiblePerson, inline: true },
+                        { name: "📋 Revision Level", value: revNumber, inline: true },
+                        { name: "📊 Fouling Rating (ISO 20679)", value: foulingScale, inline: false },
+                        { name: "🗺️ Target Biogeographic Region", value: region, inline: false }
+                    ],
+                    footer: {
+                        text: "Shipsonic Maritime Biofouling Intelligence & Compliance Engine • ISO 20679 & NORMAM-401 Aligned"
+                    },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            if (webhookUrl) {
+                fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).then(response => {
+                    if (response.ok) {
+                        console.log('Discord notification sent successfully.');
+                    } else {
+                        console.error('Discord Webhook Error:', response.statusText);
+                    }
+                }).catch(error => {
+                    console.error('Error dispatching Discord Webhook:', error);
+                });
+            } else if (docType === 'MANUAL') {
+                alert('Please enter a valid Discord Webhook URL to dispatch the warning alert.');
+            }
+        }
         
         // Listen to dynamic change ticks on checkbox triggers to handle preview updates in real-time
         document.addEventListener('change', function(e) {
@@ -1539,7 +1574,6 @@
                 updateBindings();
             }
         });
-
         // Initialize display configuration states
         window.onload = function() {
             updateBindings();
