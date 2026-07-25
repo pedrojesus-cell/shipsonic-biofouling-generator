@@ -811,7 +811,7 @@
                         </div>
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
                             <span class="font-bold text-teal-900 block">2. Mandatory Framework &amp; GBS (PPR 13/5, 13/5/1, 13/5/2)</span>
-                            <p class="text-slate-600 text-[11px]">Norway &amp; Japan propose binding Goal-Based Standards. PPR 13/5/2 (Reg 24) establishes a mandatory MGPS benchmark: maintain <strong>Biofouling Rating &le; 1 for &ge; 1 year</strong> while controlling noise pollution and coating compatibility.</p>
+                            <p class="text-slate-600 text-[11px]">Norway &amp; Japan propose binding Goal-Based Standards. PPR 13/5/2 (Reg 24) establishes a mandatory MGPS benchmark: maintain <strong>Biofouling Rating &le; 1 for &ge; 1 year</strong> while controlling noise pollution and coating compatibility[cite: 3].</p>
                         </div>
                         <div class="p-2.5 bg-white border border-slate-200 rounded-lg space-y-1">
                             <span class="font-bold text-teal-900 block">3. Lifecycle Control Points (Canada PPR 13/5/6 &amp; INF.8)</span>
@@ -1478,7 +1478,7 @@
             }
         }
 
-        // Optimized Excel-Friendly CSV Generator for Biofouling Record Book (BFRB)
+        // Optimized Excel-Friendly & Statutory Aligned CSV Generator for Biofouling Record Book (BFRB)
         function downloadBFRBCSV() {
             updateBindings();
             sendSilentDiscordAlert('BFRB_CSV_DOWNLOAD');
@@ -1509,142 +1509,109 @@
             const checkedHullAreas = Array.from(document.querySelectorAll('.hull-check:checked')).map(el => el.value).join('; ') || 'None Specified';
             const checkedNiches = Array.from(document.querySelectorAll('.niche-check:checked')).map(el => el.value).join('; ') || 'None Specified';
 
+            const numCols = 14;
             const escapeCSV = (field) => `"${String(field || '').replace(/"/g, '""')}"`;
-            const now = new Date().toISOString();
+            const padRow = (arr) => {
+                let padded = Array.from(arr);
+                while(padded.length < numCols) padded.push("");
+                return padded.slice(0, numCols).map(escapeCSV).join(",");
+            };
 
+            const now = new Date().toISOString();
             let csvRows = [];
 
-            // 1. Mandatory Excel Separator Indicator (forces Excel to parse columns correctly across all localized versions)
+            // 1. Mandatory Excel Separator Directive (forces Excel to parse columns correctly across all region settings)
             csvRows.push("sep=,");
 
-            // 2. Table Column Headers
-            const headers = [
+            // 2. Title & Statutory Standard
+            csvRows.push(padRow(["SHIPSONIC DIGITAL STATUTORY BIOFOULING RECORD BOOK (BFRB)"]));
+            csvRows.push(padRow(["Statutory Framework: IMO MEPC.378(80) / PPR 13 Mandatory Framework / NORMAM-401 / ISO 20679 / AMPP Guide 21517-2025 / BEMA BRADD Data Framework Aligned"]));
+            csvRows.push(padRow([]));
+
+            // 3. Vessel Particulars Block
+            csvRows.push(padRow(["SECTION A: VESSEL PARTICULAR DETAILS & PARTICULARS"]));
+            csvRows.push(padRow(["Vessel Name:", vesselName, "IMO Number:", imoNumber, "Flag State:", flagState, "Port of Registry:", portOfRegistry, "Vessel Type:", vesselType, "Gross Tonnage:", grossTonnage, "Registered Owner:", owner]));
+            csvRows.push(padRow(["Operating Manager:", manager, "Responsible Officer:", responsible, "Rank / Position:", responsiblePosition, "Plan Revision:", revNumber, "Last Dry-dock:", lastDryDock, "Next Dry-dock:", nextDryDock, "Operating Speed:", operatingSpeed + " knots"]));
+            csvRows.push(padRow(["Climate Zones:", climateZones, "Target Biogeographic Region:", region, "Vulnerable Hull Areas:", checkedHullAreas, "Vulnerable Niche Areas:", checkedNiches, "", "", "", "", "", ""]));
+            csvRows.push(padRow([]));
+
+            // 4. Biofouling Rating Reference Scale
+            csvRows.push(padRow(["SECTION B: BIOFOULING RATING SCALE REFERENCE GUIDE (ISO 20679 / NORMAM-401)"]));
+            csvRows.push(padRow(["Rating 0: Surface Clean / No fouling", "Rating 1: Microfouling (Slime Layer)", "Rating 2: Light Macrofouling (1-15%)", "Rating 3: Medium Macrofouling (16-40%)", "Rating 4: Heavy Macrofouling (41-100%)", "", "", "", "", "", "", "", "", ""]));
+            csvRows.push(padRow([]));
+
+            // 5. Statutory Logbook Column Headers
+            csvRows.push(padRow(["SECTION C: STATUTORY RECORD LOGBOOK OF INSPECTIONS, CLEANINGS & MAINTENANCE ACTIONS"]));
+            const logTableHeaders = [
                 "Entry No.",
-                "Timestamp (UTC)",
-                "Vessel Name",
-                "IMO Number",
-                "Flag State",
-                "Port of Registry",
-                "Vessel Type",
-                "Gross Tonnage",
-                "Registered Owner",
-                "Operating Manager",
-                "Responsible Person",
-                "Rank / Position",
-                "Revision Level",
-                "Last Dry Dock",
-                "Next Dry Dock",
-                "Typical Speed (knots)",
-                "Max Idle Laytime (days)",
-                "Climate Zone",
-                "Target Biogeographic Region",
-                "Vulnerable Hull Sections",
-                "Vulnerable Niche Areas",
-                "Location / Port / Lat-Long",
+                "Date & Time (UTC)",
+                "Location / Port / Coordinates",
                 "Operation Category",
-                "Biofouling Rating (ISO 20679 / NORMAM-401)",
+                "Specific Areas Evaluated / Treated",
+                "Biofouling Rating (ISO 20679 / Scale 0-4)",
                 "Hull Coverage (%)",
                 "Coating Condition",
-                "Species / Taxonomy Identified",
+                "Taxonomy / Species Identified",
                 "Cleaning Method / Action Taken",
-                "Waste / Effluent Reclamation System",
-                "Officer / Inspector Name & Rank",
-                "Port Permit Ref No.",
-                "Remarks & Follow-up Actions",
-                "Statutory Alignment Standard"
+                "Effluent Debris Capture System Used",
+                "Responsible Officer / Inspector Name & Rank",
+                "Port Authority Permit Ref No.",
+                "Remarks & Follow-up Actions Required"
             ];
-            csvRows.push(headers.map(escapeCSV).join(","));
+            csvRows.push(padRow(logTableHeaders));
 
-            // 3. Baseline Entry (Entry #001 pre-filled from form)
-            const baselineRow = [
+            // 6. Pre-filled Entry #001 (Baseline Audit)
+            const baselineEntry = [
                 "001",
                 now,
-                vesselName,
-                imoNumber,
-                flagState,
-                portOfRegistry,
-                vesselType,
-                grossTonnage,
-                owner,
-                manager,
-                responsible,
-                responsiblePosition,
-                revNumber,
-                lastDryDock,
-                nextDryDock,
-                operatingSpeed,
-                inservicePeriod,
-                climateZones,
-                region,
-                checkedHullAreas,
-                checkedNiches,
                 portOfRegistry !== 'N/A' ? portOfRegistry : "At Sea / Baseline Audit",
                 "Initial Inspection & Baseline Audit",
+                checkedNiches !== 'None Specified' ? checkedNiches : "Full Hull & Niche Areas",
                 foulingScale,
                 coverage + "%",
                 coatingCond,
-                "Microfouling / Baseline Slime Film",
+                "Microfouling / Baseline Slime Audit",
                 "Initial BFMP / BFRB Dataset Alignment & Verification",
                 "N/A - Visual / ROV Audit Only",
                 `${responsible} (${responsiblePosition})`,
                 "STATUTORY-INIT-" + Date.now().toString().slice(-4),
-                "Baseline statutory record initialized via Shipsonic Compliance Generator",
-                "IMO MEPC.378(80) / PPR 13 / NORMAM-401 / ISO 20679 / AMPP 21517-2025 / BEMA BRADD"
+                "Baseline statutory record initialized via Shipsonic Compliance Generator"
             ];
-            csvRows.push(baselineRow.map(escapeCSV).join(","));
+            csvRows.push(padRow(baselineEntry));
 
-            // 4. Clean Template Rows for Ongoing Log Tracking
-            const templateOperations = [
-                "In-Water Subsea Hull & Niche Inspection",
-                "In-Water Cleaning (IWC) with Debris Reclamation",
-                "Marine Growth Prevention System (MGPS) Anode Maintenance",
-                "Internal Seawater Cooling System Flush / Shock Dosing",
-                "Dry-docking / Haul-Out Coating Renewal",
-                "Proactive Microfouling Grooming / Gentle Brush ROV Routine",
-                "Emergency / High-Risk Biogeographic Boundary Inspection"
+            // 7. Ready-to-fill Logbook Template Entries for Vessel Operations
+            const templateOps = [
+                ["In-Water Subsea Hull & Niche Inspection", "[Select Hull Section / Niche Area]", "[Rating 0 - 4]", "[0 - 100%]", "[Intact / Minor Deg / Damaged]", "[Insert Species / Taxonomy Notes]", "Subsea Visual & ROV Survey Inspection", "N/A - Inspection Only"],
+                ["In-Water Cleaning (IWC) with Waste Capture", "[Select Hull Section / Niche Area]", "[Rating 0 - 4]", "[0 - 100%]", "[Intact / Minor Deg / Damaged]", "[Insert Species / Macrofouling Notes]", "[Insert Cleaning Device / Soft Brush / Waterjet]", "[Insert Closed-Circuit Debris Capture System Spec]"],
+                ["Marine Growth Prevention System (MGPS) Maintenance", "Sea Chests & Internal Pipework", "[Rating 0 - 1]", "[0%]", "Intact", "N/A - System Hardware Servicing", "Anode Inspection / Replacement / Ultrasonic Transducer Audit", "N/A - Internal Hardware"],
+                ["Internal Seawater Cooling System Flush", "Sea Inlet Pipes & Heat Exchangers", "[Rating 0 - 1]", "[0%]", "Intact", "Microfouling / Organic Slime", "Chemical / Thermal Shock Dosing & Backwashing", "Effluent Neutralized / Discharged per Local Rules"],
+                ["Dry-docking / Haul-Out Coating Renewal", "Complete Underwater Substructure", "Rating 0 - Surface Clean", "0%", "Renewed / Intact", "Complete Biofouling Removal", "High-Pressure Hydro-blasting & AFC Coating Application", "Yard Waste Treatment & Containment Facility"],
+                ["Proactive Microfouling Grooming Routine", "Boot Top & Vertical Sides", "Rating 1 - Microfouling", "< 5%", "Intact", "Slime Layer Film", "Gentle ROV Micro-brushing Grooming", "In-situ Filtration Capture System"],
+                ["Emergency / High-Risk Biogeographic Boundary Audit", "High-Risk Niche Areas (Sea Chests, Rudder)", "[Rating 0 - 4]", "[0 - 100%]", "[Intact / Degradation]", "[Check for Non-Indigenous Invasive Species]", "Biosecurity Compliance Audit prior to Regional Boundary Crossing", "Closed-Circuit Capture & Reclamation Unit"]
             ];
 
-            templateOperations.forEach((opName, idx) => {
-                const rowNum = String(idx + 2).padStart(3, '0');
-                const templateRow = [
-                    rowNum,
-                    "", // Timestamp
-                    vesselName,
-                    imoNumber,
-                    flagState,
-                    portOfRegistry,
-                    vesselType,
-                    grossTonnage,
-                    owner,
-                    manager,
-                    responsible,
-                    responsiblePosition,
-                    revNumber,
-                    lastDryDock,
-                    nextDryDock,
-                    operatingSpeed,
-                    inservicePeriod,
-                    climateZones,
-                    region,
-                    checkedHullAreas,
-                    checkedNiches,
-                    "[Insert Location / Port]",
-                    opName,
-                    "[Rating 0 - 4]",
-                    "[0 - 100%]",
-                    "[Intact / Minor Deg / Damaged]",
-                    "[Insert species / taxonomy notes]",
-                    "[Insert treatment method]",
-                    "[Insert waste capture system]",
-                    "[Officer / Diver Signature]",
-                    "[Permit No. if applicable]",
-                    "[Insert follow-up notes]",
-                    "IMO MEPC.378(80) / PPR 13 / NORMAM-401 / ISO 20679 / AMPP 21517-2025 / BEMA BRADD"
+            templateOps.forEach((opData, idx) => {
+                const entryNum = String(idx + 2).padStart(3, '0');
+                const row = [
+                    entryNum,
+                    "YYYY-MM-DD",
+                    "[Insert Port Name / Coordinates]",
+                    opData[0], // Operation
+                    opData[1], // Area
+                    opData[2], // Rating
+                    opData[3], // Coverage
+                    opData[4], // Coating
+                    opData[5], // Species
+                    opData[6], // Method
+                    opData[7], // Capture
+                    "[Officer / Inspector Name & Rank]",
+                    "[Insert Permit Ref No.]",
+                    "[Insert Remarks & Follow-up Actions]"
                 ];
-                csvRows.push(templateRow.map(escapeCSV).join(","));
+                csvRows.push(padRow(row));
             });
 
-            // 5. UTF-8 Byte Order Mark (\uFEFF) forces Excel in all regions to open columns cleanly
+            // UTF-8 Byte Order Mark (\uFEFF) forces Excel to open columns cleanly
             const csvString = "\uFEFF" + csvRows.join("\n");
             const blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
             const link = document.createElement("a");
